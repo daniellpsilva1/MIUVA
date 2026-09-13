@@ -17,7 +17,7 @@
       <!-- TITLE SLIDE -->
       <!-- ================================================================ -->
       <section class="title-slide">
-        <div class="kicker teal">Health Data Reuse &middot; Week 02</div>
+        <div class="kicker">Health Data Reuse &middot; Week 02</div>
         <h1>European Health Data Space</h1>
         <p class="subtitle">From recording health data to reusing it — and improving care.</p>
         <div class="meta">
@@ -34,7 +34,7 @@
             <span class="meta-label">Learning Goals</span>
           </div>
         </div>
-        <p class="source" style="margin-top:2em;">Based on EIT Health (2024), chapters 4–5, printed pages 70–96 &middot; Course-focused preparation guide &middot; September 2026</p>
+        <p class="source" style="margin-top:2.5em;">Based on EIT Health (2024), chapters 4–5, printed pages 70–96 &middot; September 2026</p>
       </section>
 
       <!-- ================================================================ -->
@@ -201,7 +201,7 @@
             <p>"Glucose elevated"<br>No numerical result</p>
           </div>
         </div>
-        <p style="font-size:0.6em; color: var(--ehds-text-muted); text-align:center;">Invented example. A and B show approximately equivalent concentrations, but not necessarily comparable measurement contexts.</p>
+        <p style="font-size:0.55em; color: var(--ehds-text-muted); text-align:center;">Invented example. A and B show approximately equivalent concentrations, but not necessarily comparable measurement contexts.</p>
 
         <div class="cols">
           <div>
@@ -346,47 +346,60 @@
         <p class="kicker">Data access is a step — not the final outcome.</p>
 
         <div class="loop-container">
-          <svg class="loop-svg" width="560" height="280" viewBox="0 0 560 280">
+          <svg class="loop-svg" width="520" height="260" viewBox="0 0 520 260">
             <!-- Center label -->
-            <text x="280" y="145" text-anchor="middle" font-size="13" font-weight="700" fill="#0d4f4f">Learning</text>
-            <text x="280" y="162" text-anchor="middle" font-size="13" font-weight="700" fill="#0d4f4f">cycle</text>
+            <circle cx="260" cy="130" r="45" fill="none" stroke="#a5d6a7" stroke-width="2" stroke-dasharray="4 4" opacity="0.5"/>
+            <text x="260" y="125" text-anchor="middle" font-size="13" font-weight="700" fill="#0d4f4f">Learning</text>
+            <text x="260" y="142" text-anchor="middle" font-size="13" font-weight="700" fill="#0d4f4f">cycle</text>
 
             <!-- Top node: Care & recording -->
-            <rect x="195" y="10" width="170" height="40" rx="10" fill="#0d4f4f"/>
-            <text x="280" y="35" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">Care & recording</text>
+            <g class="loop-node" data-stage="0">
+              <rect x="175" y="10" width="170" height="42" rx="12" fill="#0d4f4f"/>
+              <text x="260" y="36" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">Care & recording</text>
+            </g>
 
             <!-- Right node: Governed access -->
-            <rect x="440" y="100" width="110" height="40" rx="10" fill="#ff9800"/>
-            <text x="495" y="125" text-anchor="middle" font-size="11" font-weight="600" fill="#073434">Governed access</text>
+            <g class="loop-node" data-stage="1">
+              <rect x="400" y="90" width="115" height="42" rx="12" fill="#ff9800"/>
+              <text x="457" y="116" text-anchor="middle" font-size="11" font-weight="600" fill="#073434">Governed access</text>
+            </g>
 
             <!-- Bottom-right: Research & analysis -->
-            <rect x="330" y="230" width="170" height="40" rx="10" fill="#1a6b6b"/>
-            <text x="415" y="255" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">Research & analysis</text>
+            <g class="loop-node" data-stage="2">
+              <rect x="310" y="210" width="170" height="42" rx="12" fill="#1a6b6b"/>
+              <text x="395" y="236" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">Research & analysis</text>
+            </g>
 
             <!-- Bottom-left: Evaluation -->
-            <rect x="60" y="230" width="150" height="40" rx="10" fill="#1a6b6b"/>
-            <text x="135" y="255" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">Evaluation</text>
+            <g class="loop-node" data-stage="3">
+              <rect x="40" y="210" width="150" height="42" rx="12" fill="#1a6b6b"/>
+              <text x="115" y="236" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">Evaluation</text>
+            </g>
 
             <!-- Left node: Clinical adoption -->
-            <rect x="10" y="100" width="140" height="40" rx="10" fill="#2e7d32"/>
-            <text x="80" y="125" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">Clinical adoption</text>
+            <g class="loop-node" data-stage="4">
+              <rect x="5" y="90" width="140" height="42" rx="12" fill="#2e7d32"/>
+              <text x="75" y="116" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">Clinical adoption</text>
+            </g>
 
-            <!-- Arrows (clockwise) -->
-            <path d="M 365 30 Q 470 30 495 95" stroke="#1a6b6b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-            <path d="M 495 140 Q 495 200 415 225" stroke="#1a6b6b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-            <path d="M 330 250 Q 250 250 210 250" stroke="#1a6b6b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-            <path d="M 135 225 Q 80 200 80 145" stroke="#1a6b6b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-            <path d="M 80 95 Q 80 50 190 30" stroke="#1a6b6b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-
-            <!-- Arrow marker -->
+            <!-- Arrows (clockwise) with gradient -->
             <defs>
-              <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
-                <polygon points="0 0, 8 3, 0 6" fill="#1a6b6b"/>
+              <marker id="arrowLoop" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+                <polygon points="0 0, 10 4, 0 8" fill="#1a6b6b"/>
               </marker>
+              <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#0d4f4f"/>
+                <stop offset="100%" stop-color="#1a6b6b"/>
+              </linearGradient>
             </defs>
+            <path d="M 345 31 Q 420 31 457 85" stroke="url(#arrowGrad)" stroke-width="2.5" fill="none" marker-end="url(#arrowLoop)" opacity="0.7"/>
+            <path d="M 457 132 Q 457 185 395 205" stroke="url(#arrowGrad)" stroke-width="2.5" fill="none" marker-end="url(#arrowLoop)" opacity="0.7"/>
+            <path d="M 310 231 Q 230 231 195 231" stroke="url(#arrowGrad)" stroke-width="2.5" fill="none" marker-end="url(#arrowLoop)" opacity="0.7"/>
+            <path d="M 115 205 Q 75 185 75 137" stroke="url(#arrowGrad)" stroke-width="2.5" fill="none" marker-end="url(#arrowLoop)" opacity="0.7"/>
+            <path d="M 75 85 Q 75 31 170 31" stroke="url(#arrowGrad)" stroke-width="2.5" fill="none" marker-end="url(#arrowLoop)" opacity="0.7"/>
           </svg>
         </div>
-        <p style="font-size:0.6em; text-align:center; color: var(--ehds-text-muted);">Read clockwise: a continuous learning cycle, not a one-way flow of data out of hospitals.</p>
+        <div class="loop-description" id="loop-desc">Click a stage to learn more &middot; Read clockwise: a continuous learning cycle</div>
 
         <div class="takeaway fragment">Research result &ne; validated intervention &ne; routine clinical adoption.</div>
 
@@ -631,7 +644,7 @@
       <!-- ================================================================ -->
       <!-- CLOSING SLIDE -->
       <!-- ================================================================ -->
-      <section class="title-slide">
+      <section class="closing-slide">
         <h1>Thank you</h1>
         <p class="subtitle">Questions & discussion</p>
         <div class="cols" style="max-width:600px; margin:2em auto;">
@@ -658,7 +671,7 @@
     Reveal.initialize({
       controls: true,
       progress: true,
-      center: false,
+      center: true,
       hash: true,
       slideNumber: 'c/t',
       transition: 'slide',
