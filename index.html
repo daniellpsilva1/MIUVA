@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>European Health Data Space — Interactive Presentation</title>
+  <link rel="stylesheet" href="lib/reset.css">
+  <link rel="stylesheet" href="lib/reveal.css">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="lib/plugin/highlight/zenburn.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- ================================================================ -->
+      <!-- TITLE SLIDE -->
+      <!-- ================================================================ -->
+      <section class="title-slide">
+        <div class="kicker teal">Health Data Reuse &middot; Week 02</div>
+        <h1>European Health Data Space</h1>
+        <p class="subtitle">From recording health data to reusing it — and improving care.</p>
+        <div class="meta">
+          <div class="meta-item">
+            <span class="meta-number">15–20</span>
+            <span class="meta-label">Minutes</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-number">10</span>
+            <span class="meta-label">Slides</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-number">3</span>
+            <span class="meta-label">Learning Goals</span>
+          </div>
+        </div>
+        <p class="source" style="margin-top:2em;">Based on EIT Health (2024), chapters 4–5, printed pages 70–96 &middot; Course-focused preparation guide &middot; September 2026</p>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- SLIDE 01 — One patient, two uses of health data -->
+      <!-- ================================================================ -->
+      <section>
+        <span class="slide-badge">01 &middot; 1 min</span>
+        <h1>One patient, two uses of health data</h1>
+        <p class="kicker">Open with a familiar situation. Introduce the whole story without jargon.</p>
+
+        <div class="flow">
+          <div class="flow-node">Patient</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-node">Health record</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-node">Research</div>
+          <span class="flow-arrow">&rarr;</span>
+          <div class="flow-node green">Better care</div>
+        </div>
+
+        <div class="cols">
+          <div class="card card-teal">
+            <div class="card-title">Meet Sofia</div>
+            <p>A fictional patient with diabetes. Her doctor uses her records to guide treatment — laboratory results, medication, complications.</p>
+          </div>
+          <div class="card card-green">
+            <div class="card-title">The wider question</div>
+            <p>Researchers could reuse data from many patients to investigate care. How can those findings improve care for patients like Sofia?</p>
+          </div>
+        </div>
+
+        <div class="callout callout-teal fragment">
+          <strong>The central message:</strong> The EHDS aims to make health data more accessible and reusable across Europe. But data recorded for care is <em>not</em> automatically suitable for research, and research findings do <em>not</em> automatically improve care. Both transitions need deliberate design.
+        </div>
+
+        <p class="source">Teaching example invented for this presentation. Conceptual foundation: EIT Health (2024), ch. 5, pp. 84–89.</p>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- SLIDE 02 — What is the European Health Data Space? -->
+      <!-- ================================================================ -->
+      <section>
+        <span class="slide-badge">02 &middot; 2 min</span>
+        <h1>What is the European Health Data Space?</h1>
+        <p class="kicker">A common framework — not a single central database.</p>
+
+        <div class="cols-3">
+          <div class="card card-teal">
+            <div class="card-title">Rules</div>
+            <p>Common EU framework for electronic health data: access, control, exchange, and secure reuse.</p>
+          </div>
+          <div class="card card-teal">
+            <div class="card-title">Infrastructure</div>
+            <p>Compatible EHR systems and cross-border platforms that help data flow while preserving meaning.</p>
+          </div>
+          <div class="card card-teal">
+            <div class="card-title">Safeguards</div>
+            <p>Controlled access via health data access bodies; builds on and complements the GDPR.</p>
+          </div>
+        </div>
+
+        <div class="callout callout-amber fragment">
+          <strong>Not simply one database</strong> containing everyone's records. The EHDS combines rules, responsibilities and technical requirements for using electronic health data.
+        </div>
+
+        <div class="expandable fragment">
+          <div class="expandable-header">
+            <span>Two cross-border infrastructures &mdash; click to expand</span>
+            <span class="chevron">&#9654;</span>
+          </div>
+          <div class="expandable-body">
+            <div class="cols">
+              <div>
+                <span class="pill pill-teal">Primary use</span>
+                <p><strong>MyHealth@EU</strong> — cross-border infrastructure for accessing patient data for care, including across national borders.</p>
+              </div>
+              <div>
+                <span class="pill pill-amber">Secondary use</span>
+                <p><strong>HealthData@EU</strong> — interoperability platform providing services to support access to data for research, innovation and policymaking.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="expandable fragment">
+          <div class="expandable-header">
+            <span>Implementation timeline &mdash; click to expand</span>
+            <span class="chevron">&#9654;</span>
+          </div>
+          <div class="expandable-body">
+            <table>
+              <tr><th>Milestone</th><th>When</th><th>What it means</th></tr>
+              <tr><td>Entry into force</td><td>March 2025</td><td>Regulation is legally adopted — not yet fully operational.</td></tr>
+              <tr><td>Major provisions</td><td>2029</td><td>Primary use obligations (e.g., cross-border access, EHR system requirements) begin to apply.</td></tr>
+              <tr><td>Secondary use</td><td>2031</td><td>HealthData@EU and secondary-use provisions come into effect.</td></tr>
+            </table>
+            <p class="source">European Commission, EHDS overview and implementation timeline.</p>
+          </div>
+        </div>
+
+        <p class="source">EIT Health (2024), introduction, pp. 14–17; European Commission, EHDS implementation timeline.</p>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- SLIDE 03 — Primary use versus secondary use -->
+      <!-- ================================================================ -->
+      <section>
+        <span class="slide-badge">03 &middot; 2 min</span>
+        <h1>Primary use versus secondary use</h1>
+        <p class="kicker">Distinguish the <strong>purpose</strong> — not the user's profession or the location of the data.</p>
+
+        <table>
+          <tr><th></th><th>Primary use</th><th>Secondary use</th></tr>
+          <tr><td><strong>Purpose</strong></td><td>Care of the individual concerned</td><td>Research, innovation, public health or policymaking</td></tr>
+          <tr><td><strong>Example</strong></td><td>Sofia's clinician checks her results</td><td>Researchers study outcomes across many patients</td></tr>
+          <tr><td><strong>Question</strong></td><td>"What does this patient need?"</td><td>"What can we learn beyond this individual case?"</td></tr>
+        </table>
+
+        <div class="takeaway fragment">The same data can support different purposes, under different conditions.</div>
+
+        <div class="expandable fragment">
+          <div class="expandable-header">
+            <span>Legal definitions &mdash; click to expand</span>
+            <span class="chevron">&#9654;</span>
+          </div>
+          <div class="expandable-body">
+            <p><strong>Primary use:</strong> Processing of personal electronic health data for the provision of health services to assess, maintain or restore the state of health of the natural person to whom that data relates — including prescription, dispensation, and relevant social security or reimbursement services.</p>
+            <p><strong>Secondary use:</strong> Processing of electronic health data for purposes other than the diagnosis, treatment and care of the patient — including research, innovation, public health, policymaking, and regulatory activities.</p>
+            <p><span class="tip">Health data access body<span class="tip-text">A designated body set up by EU Member States to provide access to electronic health data to third parties for secondary use in a secure way, building on the Data Governance Act.</span></span> — responsible for assessing and managing access to data for secondary use.</p>
+          </div>
+        </div>
+
+        <div class="callout callout-amber fragment">
+          <strong>Audience check:</strong> If Sofia's records are sent to another country so a doctor can treat her, is that primary or secondary use?
+          <em>Answer: primary use.</em> The distinction is about purpose, not location.
+        </div>
+
+        <div class="callout callout-gray fragment">
+          <strong>Pseudonymisation &ne; anonymisation.</strong> Pseudonymisation replaces identifiers and keeps the information needed for attribution separately. Pseudonymised data remains personal data; anonymisation is different.
+        </div>
+
+        <p class="source">EIT Health (2024), ch. 5, pp. 84–89; EHDS Regulation definitions.</p>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- SLIDE 04 — Care records are not always research-ready -->
+      <!-- ================================================================ -->
+      <section>
+        <span class="slide-badge">04 &middot; 2 min</span>
+        <h1>Care records are not always research-ready</h1>
+        <p class="kicker">Data recorded for one purpose is not automatically suitable for every future purpose.</p>
+
+        <div class="cols-3">
+          <div class="card card-teal">
+            <div class="card-title">Record A</div>
+            <p>Glucose: 7.0 mmol/L<br>Fasting recorded</p>
+          </div>
+          <div class="card card-teal">
+            <div class="card-title">Record B</div>
+            <p>Glucose: 126 mg/dL<br>Fasting status missing</p>
+          </div>
+          <div class="card card-teal">
+            <div class="card-title">Record C</div>
+            <p>"Glucose elevated"<br>No numerical result</p>
+          </div>
+        </div>
+        <p style="font-size:0.6em; color: var(--ehds-text-muted); text-align:center;">Invented example. A and B show approximately equivalent concentrations, but not necessarily comparable measurement contexts.</p>
+
+        <div class="cols">
+          <div>
+            <h3>Why records fall short</h3>
+            <ul>
+              <li class="fragment">Different formats, codes and measurement conventions</li>
+              <li class="fragment">Missing information and unstructured free text</li>
+              <li class="fragment">Missing context about how data was collected</li>
+              <li class="fragment">Unequal representation of patients and settings</li>
+            </ul>
+          </div>
+          <div>
+            <h3>National examples</h3>
+            <div class="expandable fragment">
+              <div class="expandable-header"><span>Austria &mdash; lack of standards</span><span class="chevron">&#9654;</span></div>
+              <div class="expandable-body"><p>Nurses lack access to the national EHR; many work in unstructured data silos like basic spreadsheets. Suboptimal reporting in national registries (SARI, cancer, death statistics).</p></div>
+            </div>
+            <div class="expandable fragment">
+              <div class="expandable-header"><span>Germany &mdash; siloed care</span><span class="chevron">&#9654;</span></div>
+              <div class="expandable-body"><p>Ranks low on integrated care among OECD countries. Paper documentation in nursing and home care keeps entire categories of health data inaccessible for research.</p></div>
+            </div>
+            <div class="expandable fragment">
+              <div class="expandable-header"><span>Ireland & Spain &mdash; paper and free text</span><span class="chevron">&#9654;</span></div>
+              <div class="expandable-body"><p>Ireland's reliance on paper records made data quality a low priority. In Spain, only a small percentage of EMR input fields are actually filled out in routine practice; the majority of data is entered as free text.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout callout-amber fragment">
+          <strong>Data equity:</strong> People who rarely access healthcare — low-income households, the homeless, immigrants, rural populations, young adults — may be poorly represented. Adding more records from well-represented groups does <em>not</em> automatically solve that bias. In Estonia, data holders shouldered up to 80% of the burden of making data reusable.
+        </div>
+
+        <div class="takeaway fragment">More data does not automatically mean better evidence.</div>
+
+        <p class="source">EIT Health (2024), ch. 4, pp. 74–77: fragmentation, standardisation, costs and underrepresentation.</p>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- SLIDE 05 — What makes data reusable? -->
+      <!-- ================================================================ -->
+      <section>
+        <span class="slide-badge">05 &middot; 2 min</span>
+        <h1>What makes data reusable?</h1>
+        <p class="kicker">Keep the focus on <em>why</em> quality matters.</p>
+
+        <table>
+          <tr><th>Requirement</th><th>Question to ask</th></tr>
+          <tr><td>Shared structure and meaning</td><td>Can we combine and interpret it?</td></tr>
+          <tr><td>Quality suited to the question</td><td>Can it answer this question reliably?</td></tr>
+          <tr><td>Metadata and traceability</td><td>Do we understand its origin and context?</td></tr>
+          <tr><td>Population coverage</td><td>Who is represented — and who is missing?</td></tr>
+        </table>
+
+        <div class="takeaway fragment">Interoperable does not automatically mean accurate or unbiased.</div>
+
+        <div class="expandable fragment">
+          <div class="expandable-header">
+            <span>The FAIR principles &mdash; click to expand</span>
+            <span class="chevron">&#9654;</span>
+          </div>
+          <div class="expandable-body">
+            <div class="cols-3">
+              <div class="card card-green"><div class="card-title">F</div><p><strong>Findable</strong> — data and metadata are discoverable through standardised identifiers.</p></div>
+              <div class="card card-green"><div class="card-title">A</div><p><strong>Accessible</strong> — data can be accessed under defined conditions and terms.</p></div>
+              <div class="card card-green"><div class="card-title">I</div><p><strong>Interoperable</strong> — data uses common languages and formats across systems.</p></div>
+            </div>
+            <p style="text-align:center; margin-top:0.5em;"><span class="pill pill-green">R &mdash; Reusable</span> Data is well-described so it can be repurposed for new research.</p>
+            <p>The EHDS legislation builds on the FAIR principles and the concept of data equity to define EU-wide standards for data quality and data utility.</p>
+          </div>
+        </div>
+
+        <div class="expandable fragment">
+          <div class="expandable-header">
+            <span>Key terms &mdash; click to expand</span>
+            <span class="chevron">&#9654;</span>
+          </div>
+          <div class="expandable-body">
+            <p><span class="tip">Metadata<span class="tip-text">Information describing a dataset, including variables, units, collection methods and coverage.</span></span> — describes a dataset so users can judge its suitability.</p>
+            <p><span class="tip">Traceability<span class="tip-text">The ability to follow data's origins and processing history across primary and secondary use systems.</span></span> — follows data's origins and processing history.</p>
+            <p><span class="tip">Data ontology<span class="tip-text">A standardised vocabulary that enables sharing of information between disparate systems within the same domain — e.g., terms for medical specialties or diseases.</span></span> — standardises vocabulary across systems.</p>
+            <p><span class="tip">TEHDAS<span class="tip-text">Joint Action Towards the European Health Data Space — an EU-funded project involving 25 countries that developed a data quality framework for secondary use.</span></span> — developed a harmonised quality framework enabling trustworthy secondary use.</p>
+          </div>
+        </div>
+
+        <p class="source">EIT Health (2024), ch. 4, pp. 70–73 and 78–83.</p>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- SLIDE 06 — Better data without overloading healthcare -->
+      <!-- ================================================================ -->
+      <section>
+        <span class="slide-badge">06 &middot; 2 min</span>
+        <h1>Better data without overloading healthcare</h1>
+        <p class="kicker">Make reuse part of good clinical workflows. Care delivery remains the priority.</p>
+
+        <table>
+          <tr><th>Challenge</th><th>Direction proposed in the report</th></tr>
+          <tr><td>Extra recording burden</td><td>User-friendly structured entry; avoid duplicate entry</td></tr>
+          <tr><td>Fragmented information</td><td>Shared standards and appropriate data-transfer infrastructure</td></tr>
+          <tr><td>Limited staff and resources</td><td>Training, technical support and funding</td></tr>
+          <tr><td>Little immediate benefit</td><td>Return useful insights and demonstrate value for care</td></tr>
+        </table>
+
+        <div class="cols">
+          <div class="expandable fragment">
+            <div class="expandable-header"><span>Intelligent data collection</span><span class="chevron">&#9654;</span></div>
+            <div class="expandable-body">
+              <p>Novel technologies — well-designed EHR forms aligned with clinical practice, entering information once where possible, and carefully implemented automatic capture from devices — can reduce burden while improving data quality.</p>
+            </div>
+          </div>
+          <div class="expandable fragment">
+            <div class="expandable-header"><span>NLP for legacy data</span><span class="chevron">&#9654;</span></div>
+            <div class="expandable-body">
+              <p>Natural language processing can expedite the standardisation of legacy free-text data in EHRs — decades of historical records that would otherwise remain inaccessible for secondary use.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout callout-amber fragment">
+          <strong>Qualification:</strong> Automation can help; it does not guarantee accuracy. Poorly designed automation can spread errors more efficiently.
+        </div>
+
+        <div class="expandable fragment">
+          <div class="expandable-header">
+            <span>Value-based healthcare as an enabler &mdash; click to expand</span>
+            <span class="chevron">&#9654;</span>
+          </div>
+          <div class="expandable-body">
+            <p>Value-based healthcare (VBHC) pays for results rather than services, incentivising keeping people healthy over treating the sick. This aligns incentives with the predictive and preventive models of care that the EHDS is expected to enable. Adoption of VBHC could be a powerful enabler for the digital health innovation the EHDS makes possible.</p>
+          </div>
+        </div>
+
+        <p class="source">EIT Health (2024), ch. 5, pp. 84–91; supporting context in ch. 4, pp. 76 and 80–82.</p>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- SLIDE 07 — Closing the loop: research back to care -->
+      <!-- ================================================================ -->
+      <section>
+        <span class="slide-badge">07 &middot; 2 min</span>
+        <h1>Closing the loop: research back to care</h1>
+        <p class="kicker">Data access is a step — not the final outcome.</p>
+
+        <div class="loop-container">
+          <svg class="loop-svg" width="560" height="280" viewBox="0 0 560 280">
+            <!-- Center label -->
+            <text x="280" y="145" text-anchor="middle" font-size="13" font-weight="700" fill="#0d4f4f">Learning</text>
+            <text x="280" y="162" text-anchor="middle" font-size="13" font-weight="700" fill="#0d4f4f">cycle</text>
+
+            <!-- Top node: Care & recording -->
+            <rect x="195" y="10" width="170" height="40" rx="10" fill="#0d4f4f"/>
+            <text x="280" y="35" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">Care & recording</text>
+
+            <!-- Right node: Governed access -->
+            <rect x="440" y="100" width="110" height="40" rx="10" fill="#ff9800"/>
+            <text x="495" y="125" text-anchor="middle" font-size="11" font-weight="600" fill="#073434">Governed access</text>
+
+            <!-- Bottom-right: Research & analysis -->
+            <rect x="330" y="230" width="170" height="40" rx="10" fill="#1a6b6b"/>
+            <text x="415" y="255" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">Research & analysis</text>
+
+            <!-- Bottom-left: Evaluation -->
+            <rect x="60" y="230" width="150" height="40" rx="10" fill="#1a6b6b"/>
+            <text x="135" y="255" text-anchor="middle" font-size="12" font-weight="600" fill="#ffffff">Evaluation</text>
+
+            <!-- Left node: Clinical adoption -->
+            <rect x="10" y="100" width="140" height="40" rx="10" fill="#2e7d32"/>
+            <text x="80" y="125" text-anchor="middle" font-size="11" font-weight="600" fill="#ffffff">Clinical adoption</text>
+
+            <!-- Arrows (clockwise) -->
+            <path d="M 365 30 Q 470 30 495 95" stroke="#1a6b6b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+            <path d="M 495 140 Q 495 200 415 225" stroke="#1a6b6b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+            <path d="M 330 250 Q 250 250 210 250" stroke="#1a6b6b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+            <path d="M 135 225 Q 80 200 80 145" stroke="#1a6b6b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+            <path d="M 80 95 Q 80 50 190 30" stroke="#1a6b6b" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+            <!-- Arrow marker -->
+            <defs>
+              <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+                <polygon points="0 0, 8 3, 0 6" fill="#1a6b6b"/>
+              </marker>
+            </defs>
+          </svg>
+        </div>
+        <p style="font-size:0.6em; text-align:center; color: var(--ehds-text-muted);">Read clockwise: a continuous learning cycle, not a one-way flow of data out of hospitals.</p>
+
+        <div class="takeaway fragment">Research result &ne; validated intervention &ne; routine clinical adoption.</div>
+
+        <div class="cols">
+          <div class="expandable fragment">
+            <div class="expandable-header"><span>Incidental findings</span><span class="chevron">&#9654;</span></div>
+            <div class="expandable-body"><p>A standardised path is needed for secondary users to recontact patients via their healthcare teams — to request complementary information or report incidental findings. The finding should be reported in a timely manner, defining how, where, and to whom the information on patients must be provided.</p></div>
+          </div>
+          <div class="expandable fragment">
+            <div class="expandable-header"><span>Adoption & reimbursement</span><span class="chevron">&#9654;</span></div>
+            <div class="expandable-body"><p>Healthcare systems need structured paths to adopt data-driven innovation. Examples: Catalonia's BIOCAT fast-track for digital health technologies; Austria's "digital health pathway" for citizens to manage health data. Value-based healthcare models pay for results, incentivising prevention.</p></div>
+          </div>
+        </div>
+
+        <div class="callout callout-teal fragment">
+          <strong>Change management:</strong> As digitalisation transforms care delivery, active change management is required — to standardise new solutions, define patient pathways, and communicate benefits in a way that is meaningful for each stakeholder group.
+        </div>
+
+        <p class="source">EIT Health (2024), ch. 5, pp. 85–87 and 94–96.</p>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- SLIDE 08 — Convincing, but not automatic -->
+      <!-- ================================================================ -->
+      <section>
+        <span class="slide-badge">08 &middot; 1.5 min</span>
+        <h1>Convincing, but not automatic</h1>
+        <p class="kicker">A high-level assessment: one strength and one limitation are enough.</p>
+
+        <div class="cols">
+          <div class="card card-green">
+            <div class="card-title">Convincing</div>
+            <ul>
+              <li class="fragment">Connects quality at collection with the value of reuse.</li>
+              <li class="fragment">Recognises clinical workload and the difficulty of returning benefits to care.</li>
+              <li class="fragment">Does not treat data sharing as an end in itself.</li>
+            </ul>
+          </div>
+          <div class="card card-amber">
+            <div class="card-title">Uncertain or unresolved</div>
+            <ul>
+              <li class="fragment">Expert recommendations are not proof of effectiveness.</li>
+              <li class="fragment">Fair funding and practical adoption remain difficult.</li>
+              <li class="fragment">Who pays to make data reusable, when benefits are shared widely?</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="expandable fragment">
+          <div class="expandable-header">
+            <span>Methodology &mdash; what the report can and cannot establish</span>
+            <span class="chevron">&#9654;</span>
+          </div>
+          <div class="expandable-body">
+            <p>The report draws on <strong>expert roundtables and interviews</strong> across 10 countries (Poland, Hungary, Italy, Ireland, Portugal, Spain, Sweden, Austria, Germany, BeNeLux, France) during 2022–2023. This is useful for identifying barriers and potential solutions, but it does <em>not</em> establish which proposed solutions will work best or how much they will cost.</p>
+            <p>The legal discussion should be read <strong>historically</strong>: it reflects consultations before the final Regulation entered into force in March 2025.</p>
+          </div>
+        </div>
+
+        <div class="callout callout-gray fragment">
+          <strong>Keep the critique proportionate:</strong> Evaluate the report as an implementation report. Do not fault it for failing to be a clinical trial. Separate the authors' recommendations from your group's assessment.
+        </div>
+
+        <p class="source">EIT Health (2024), methodological context pp. 15–17; implementation arguments in chapters 4–5.</p>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- SLIDE 09 — What to explain in the exam -->
+      <!-- ================================================================ -->
+      <section>
+        <span class="slide-badge">09 &middot; 1 min</span>
+        <h1>What to explain in the exam</h1>
+        <p class="kicker">Name the three Canvas learning goals explicitly.</p>
+
+        <div class="cols-3">
+          <div class="card card-teal">
+            <div class="card-title">What EHDS is</div>
+            <p>Explain its purpose and how it supports health-data use and reuse.</p>
+          </div>
+          <div class="card card-teal">
+            <div class="card-title">Primary vs. secondary use</div>
+            <p>Distinguish them by purpose and give an example of each.</p>
+          </div>
+          <div class="card card-teal">
+            <div class="card-title">Role of data quality</div>
+            <p>Explain why access alone is insufficient for reliable and useful reuse.</p>
+          </div>
+        </div>
+
+        <div class="callout callout-teal fragment">
+          <strong>Your three-sentence conclusion:</strong>
+          <ol style="margin-top:0.3em; font-size:0.9em;">
+            <li>The EHDS creates a common framework for accessing and using electronic health data for care and reusing it for purposes such as research and policymaking.</li>
+            <li>Primary use supports the individual's care, whereas secondary use serves other purposes and may use the same underlying records under different conditions.</li>
+            <li>Its value depends on interpretable, fit-for-purpose data and a process that turns evaluated findings back into improvements in care.</li>
+          </ol>
+        </div>
+
+        <div class="callout callout-gray fragment">
+          <strong>Connect to the other readings:</strong> Reading 2a = wider context; readings 2b–2c = EHDS and implementation; reading 2d = detailed quality assessment. The secondary-use reading explains the wider benefits, stakeholders and policies. The data-quality assessment reading examines in more detail how to judge whether data is suitable.
+        </div>
+
+        <div class="takeaway fragment">The EHDS is not just about moving health data. It is about making that data usable for the right purpose and turning what we learn into better care.</div>
+
+        <p class="source">Learning goals transcribed from the supplied Canvas screenshot.</p>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- SLIDE 10 — Discussion -->
+      <!-- ================================================================ -->
+      <section>
+        <span class="slide-badge">10 &middot; 2 min</span>
+        <h1>Open the discussion</h1>
+        <p class="kicker">Show two questions. Discuss one if time is short.</p>
+
+        <div class="expandable fragment">
+          <div class="expandable-header">
+            <span><span class="pill pill-amber">01</span> Is more data always better?</span>
+            <span class="chevron">&#9654;</span>
+          </div>
+          <div class="expandable-body">
+            <p>Would you prefer a very large hospital dataset or a smaller dataset that better represents your target population? What would you need to know before deciding?</p>
+            <div class="callout callout-green">
+              <strong>Facilitation:</strong> Start with the research question and target population. Explore missing information, selection bias, quality and comparability. Avoid declaring either "larger" or "smaller" automatically best.
+            </div>
+          </div>
+        </div>
+
+        <div class="expandable fragment">
+          <div class="expandable-header">
+            <span><span class="pill pill-amber">02</span> Who should do — and fund — the extra work?</span>
+            <span class="chevron">&#9654;</span>
+          </div>
+          <div class="expandable-body">
+            <p>Should clinicians record additional information mainly for future research? Under what conditions?</p>
+            <div class="callout callout-green">
+              <strong>Facilitation:</strong> Keep patient-care priorities central and justify each additional field. Look for usable workflows, no duplicate work, staff and funding. Ask what demonstrable benefits would make the extra effort worthwhile.
+            </div>
+          </div>
+        </div>
+
+        <div class="callout callout-teal fragment">
+          <strong>Closing line:</strong> "The challenge is not simply collecting more data. It is collecting and reusing the right data responsibly, in ways that produce meaningful benefits."
+        </div>
+
+        <p class="source">Discussion prompts developed from the implementation tensions in chapters 4–5.</p>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- FAQ APPENDIX -->
+      <!-- ================================================================ -->
+      <section>
+        <span class="slide-badge">FAQ</span>
+        <h1>Be ready for these</h1>
+        <p class="kicker">Short, accurate answers for discussion and rehearsal.</p>
+
+        <div class="expandable">
+          <div class="expandable-header"><span>Is the EHDS one central European database?</span><span class="chevron">&#9654;</span></div>
+          <div class="expandable-body"><p>No. It is a common framework involving rules, institutions and infrastructures for access, exchange and reuse. One central database is a misleading description.</p></div>
+        </div>
+
+        <div class="expandable">
+          <div class="expandable-header"><span>Is secondary use always research?</span><span class="chevron">&#9654;</span></div>
+          <div class="expandable-body"><p>No. It also includes purposes such as public health, policymaking, innovation and regulatory activities, within the applicable rules.</p></div>
+        </div>
+
+        <div class="expandable">
+          <div class="expandable-header"><span>Does sending records abroad make it secondary use?</span><span class="chevron">&#9654;</span></div>
+          <div class="expandable-body"><p>No. If the purpose is treating the individual, it remains primary use.</p></div>
+        </div>
+
+        <div class="expandable">
+          <div class="expandable-header"><span>Does standardisation guarantee good data?</span><span class="chevron">&#9654;</span></div>
+          <div class="expandable-body"><p>No. Standardised records can still contain errors, missing information or unrepresentative populations.</p></div>
+        </div>
+
+        <div class="expandable">
+          <div class="expandable-header"><span>Can imperfect data still be useful?</span><span class="chevron">&#9654;</span></div>
+          <div class="expandable-body"><p>Yes. Suitability depends on the question, the limitations and whether they can be handled appropriately. Imperfect does not mean worthless.</p></div>
+        </div>
+
+        <div class="expandable">
+          <div class="expandable-header"><span>Why not just clean the data later?</span><span class="chevron">&#9654;</span></div>
+          <div class="expandable-body"><p>Cleaning helps, but cannot reliably recover information never recorded or automatically correct missing populations. It also costs time and resources.</p></div>
+        </div>
+
+        <div class="expandable">
+          <div class="expandable-header"><span>Are pseudonymised data anonymous?</span><span class="chevron">&#9654;</span></div>
+          <div class="expandable-body"><p>No. Pseudonymisation replaces identifiers and keeps the information needed for attribution separately. Pseudonymised data remains personal data; anonymisation is different.</p></div>
+        </div>
+
+        <div class="expandable">
+          <div class="expandable-header"><span>Does the EHDS remove GDPR protections?</span><span class="chevron">&#9654;</span></div>
+          <div class="expandable-body"><p>No. The EHDS builds on and complements existing data-protection law.</p></div>
+        </div>
+
+        <div class="expandable">
+          <div class="expandable-header"><span>Does secondary use automatically improve care?</span><span class="chevron">&#9654;</span></div>
+          <div class="expandable-body"><p>No. Findings need appropriate evaluation, adoption and monitoring. That is why closing the loop is central.</p></div>
+        </div>
+
+        <div class="expandable">
+          <div class="expandable-header"><span>Is the EHDS already fully implemented?</span><span class="chevron">&#9654;</span></div>
+          <div class="expandable-body"><p>No. It entered into force in March 2025, but major provisions apply progressively, notably in 2029 and 2031.</p></div>
+        </div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- EXAM PRACTICE APPENDIX -->
+      <!-- ================================================================ -->
+      <section>
+        <span class="slide-badge">Exam practice</span>
+        <h1>Explain the relationship</h1>
+        <p class="kicker">Do not just list terms. Use this as a practice question, not a prediction of the actual exam.</p>
+
+        <div class="callout callout-amber">
+          <strong>Practice question:</strong> Explain how data quality affects the relationship between primary and secondary use in the European Health Data Space.
+        </div>
+
+        <div class="expandable">
+          <div class="expandable-header"><span>Model answer &mdash; click to reveal</span><span class="chevron">&#9654;</span></div>
+          <div class="expandable-body">
+            <p>Primary use involves using health data to provide care to the individual, while secondary use includes purposes such as research and policymaking. Data recorded during care can support secondary use, but it was not necessarily collected with those later purposes in mind.</p>
+            <p>Differences in coding, units, completeness and population coverage can make records difficult to combine or produce misleading findings. Interoperability helps systems exchange and interpret information, while metadata and traceability help users understand its context and limitations. Data quality must therefore be assessed in relation to the intended question.</p>
+            <p>Reusable data should be supported through appropriate recording practices, standards and resources without unnecessarily burdening clinical care. For secondary use to improve healthcare, its findings must then be evaluated and incorporated into practice, completing the feedback loop.</p>
+          </div>
+        </div>
+
+        <div class="callout callout-green fragment">
+          <strong>Why this answer works:</strong>
+          <ul style="margin-top:0.3em;">
+            <li>Defines the distinction between the two purposes.</li>
+            <li>Explains why data from care may be unsuitable for a later task.</li>
+            <li>Links interoperability, quality, metadata and representation.</li>
+            <li>Connects practical recording to evaluated improvements in care.</li>
+          </ul>
+        </div>
+
+        <div class="takeaway fragment">If classmates remember only one thing: the EHDS is not just about moving health data. It is about making that data usable for the right purpose and turning what we learn into better care.</div>
+      </section>
+
+      <!-- ================================================================ -->
+      <!-- CLOSING SLIDE -->
+      <!-- ================================================================ -->
+      <section class="title-slide">
+        <h1>Thank you</h1>
+        <p class="subtitle">Questions & discussion</p>
+        <div class="cols" style="max-width:600px; margin:2em auto;">
+          <div class="card card-teal">
+            <div class="card-title">Core reading</div>
+            <p style="font-size:0.85em;">EIT Health Think Tank (April 2024), <em>Implementing the European Health Data Space Across Europe</em>, chapters 4–5, printed pp. 70–96.</p>
+          </div>
+          <div class="card card-teal">
+            <div class="card-title">Legal update</div>
+            <p style="font-size:0.85em;">European Commission, EHDS Regulation: overview and implementation timeline. Consulted September 2026.</p>
+          </div>
+        </div>
+        <p class="source">This guide is educational, not legal advice. The diagrams and fictional patient example are teaching aids, not report findings.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="lib/reveal.js"></script>
+  <script src="lib/plugin/notes.js"></script>
+  <script src="lib/plugin/highlight.js"></script>
+  <script src="lib/plugin/zoom.js"></script>
+  <script>
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      center: false,
+      hash: true,
+      slideNumber: 'c/t',
+      transition: 'slide',
+      transitionSpeed: 'default',
+      backgroundTransition: 'fade',
+      width: 1280,
+      height: 800,
+      margin: 0.04,
+      minScale: 0.2,
+      maxScale: 2.0,
+      plugins: [RevealNotes, RevealHighlight, RevealZoom],
+      pdfSeparateFragments: false,
+    });
+  </script>
+  <script src="js/presentation.js"></script>
+</body>
+</html>

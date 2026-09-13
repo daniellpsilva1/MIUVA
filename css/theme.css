@@ -1,0 +1,560 @@
+/**
+ * EHDS Custom Theme for Reveal.js
+ *
+ * Design system:
+ *   Dark teal   — framework, structure, headers
+ *   Pale green   — examples, takeaways, callouts
+ *   Amber        — questions, discussion, interactive prompts
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap');
+
+:root {
+  --ehds-teal: #0d4f4f;
+  --ehds-teal-light: #1a6b6b;
+  --ehds-teal-dark: #073434;
+  --ehds-green: #e8f5e9;
+  --ehds-green-border: #a5d6a7;
+  --ehds-green-text: #2e7d32;
+  --ehds-amber: #ff9800;
+  --ehds-amber-light: #ffb74d;
+  --ehds-amber-bg: #fff3e0;
+  --ehds-amber-border: #ffcc80;
+  --ehds-gray: #455a64;
+  --ehds-gray-light: #78909c;
+  --ehds-gray-bg: #eceff1;
+  --ehds-white: #ffffff;
+  --ehds-bg: #fafdfb;
+  --ehds-text: #263238;
+  --ehds-text-muted: #607d8b;
+
+  --r-background-color: var(--ehds-bg);
+  --r-main-font: 'Inter', system-ui, sans-serif;
+  --r-main-font-size: 30px;
+  --r-main-color: var(--ehds-text);
+  --r-heading-font: 'Inter', system-ui, sans-serif;
+  --r-heading-color: var(--ehds-teal);
+  --r-heading-text-transform: none;
+  --r-heading-font-weight: 700;
+  --r-link-color: var(--ehds-teal-light);
+  --r-link-color-hover: var(--ehds-amber);
+  --r-selection-background-color: var(--ehds-amber);
+  --r-selection-color: var(--ehds-white);
+  --r-code-font: 'SF Mono', 'Fira Code', monospace;
+}
+
+.reveal {
+  font-family: var(--r-main-font);
+  color: var(--ehds-text);
+  font-weight: 400;
+}
+
+.reveal .slides {
+  text-align: left;
+}
+
+.reveal section {
+  padding: 40px 60px;
+}
+
+/* === Headings === */
+.reveal h1 {
+  font-family: var(--r-heading-font);
+  font-weight: 800;
+  font-size: 2.2em;
+  color: var(--ehds-teal);
+  margin-bottom: 0.3em;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.reveal h2 {
+  font-family: var(--r-heading-font);
+  font-weight: 700;
+  font-size: 1.6em;
+  color: var(--ehds-teal);
+  margin-bottom: 0.4em;
+  letter-spacing: -0.01em;
+}
+
+.reveal h3 {
+  font-family: var(--r-heading-font);
+  font-weight: 600;
+  font-size: 1.15em;
+  color: var(--ehds-teal-light);
+  margin-bottom: 0.3em;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.reveal h4 {
+  font-weight: 600;
+  font-size: 1em;
+  color: var(--ehds-gray);
+  margin-bottom: 0.2em;
+}
+
+/* === Slide kicker (subtitle line) === */
+.reveal .kicker {
+  font-size: 0.7em;
+  font-weight: 500;
+  color: var(--ehds-amber);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.8em;
+}
+
+.reveal .kicker.teal {
+  color: var(--ehds-teal-light);
+}
+
+/* === Slide number badge === */
+.reveal .slide-badge {
+  display: inline-block;
+  background: var(--ehds-teal);
+  color: var(--ehds-white);
+  font-size: 0.55em;
+  font-weight: 700;
+  padding: 0.15em 0.6em;
+  border-radius: 100px;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.6em;
+}
+
+/* === Body text === */
+.reveal p {
+  font-size: 0.85em;
+  line-height: 1.55;
+  margin-bottom: 0.6em;
+}
+
+.reveal small {
+  font-size: 0.6em;
+  color: var(--ehds-text-muted);
+  line-height: 1.4;
+}
+
+.reveal .source {
+  font-size: 0.5em;
+  color: var(--ehds-gray-light);
+  margin-top: 1em;
+  font-style: italic;
+}
+
+/* === Lists === */
+.reveal ul,
+.reveal ol {
+  font-size: 0.82em;
+  line-height: 1.6;
+  margin-left: 1.2em;
+  margin-bottom: 0.6em;
+}
+
+.reveal ul li {
+  margin-bottom: 0.25em;
+}
+
+.reveal ul li::marker {
+  color: var(--ehds-teal-light);
+}
+
+/* === Callout boxes === */
+.reveal .callout {
+  border-radius: 10px;
+  padding: 0.6em 1em;
+  margin: 0.8em 0;
+  font-size: 0.78em;
+  line-height: 1.5;
+}
+
+.reveal .callout-green {
+  background: var(--ehds-green);
+  border-left: 4px solid var(--ehds-green-border);
+  color: var(--ehds-green-text);
+}
+
+.reveal .callout-amber {
+  background: var(--ehds-amber-bg);
+  border-left: 4px solid var(--ehds-amber-border);
+  color: #8d6e00;
+}
+
+.reveal .callout-teal {
+  background: var(--ehds-teal-dark);
+  color: var(--ehds-green);
+  border-left: 4px solid var(--ehds-amber);
+}
+
+.reveal .callout-teal strong {
+  color: var(--ehds-amber-light);
+}
+
+.reveal .callout-gray {
+  background: var(--ehds-gray-bg);
+  border-left: 4px solid var(--ehds-gray-light);
+  color: var(--ehds-gray);
+}
+
+/* === Takeaway box === */
+.reveal .takeaway {
+  background: var(--ehds-green);
+  border: 2px solid var(--ehds-green-border);
+  border-radius: 12px;
+  padding: 0.5em 1em;
+  margin: 0.8em 0;
+  font-size: 0.82em;
+  font-weight: 600;
+  color: var(--ehds-green-text);
+  text-align: center;
+}
+
+.reveal .takeaway::before {
+  content: "Key takeaway";
+  display: block;
+  font-size: 0.7em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ehds-green-text);
+  opacity: 0.7;
+  margin-bottom: 0.2em;
+}
+
+/* === Tables === */
+.reveal table {
+  font-size: 0.72em;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.8em 0;
+}
+
+.reveal table th {
+  background: var(--ehds-teal);
+  color: var(--ehds-white);
+  font-weight: 600;
+  padding: 0.5em 0.7em;
+  text-align: left;
+  border: none;
+}
+
+.reveal table td {
+  padding: 0.45em 0.7em;
+  border-bottom: 1px solid var(--ehds-gray-bg);
+  vertical-align: top;
+  line-height: 1.45;
+}
+
+.reveal table tr:nth-child(even) td {
+  background: var(--ehds-gray-bg);
+}
+
+.reveal table tr:last-child td {
+  border-bottom: 2px solid var(--ehds-teal);
+}
+
+/* === Two-column layout === */
+.reveal .cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5em;
+  margin: 0.8em 0;
+}
+
+.reveal .cols-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1em;
+  margin: 0.8em 0;
+}
+
+/* === Cards === */
+.reveal .card {
+  background: var(--ehds-white);
+  border: 1px solid var(--ehds-gray-bg);
+  border-radius: 10px;
+  padding: 0.6em 0.8em;
+  font-size: 0.75em;
+  box-shadow: 0 2px 8px rgba(13, 79, 79, 0.06);
+}
+
+.reveal .card-title {
+  font-weight: 700;
+  color: var(--ehds-teal);
+  font-size: 0.95em;
+  margin-bottom: 0.2em;
+}
+
+.reveal .card-teal {
+  border-top: 3px solid var(--ehds-teal);
+}
+
+.reveal .card-amber {
+  border-top: 3px solid var(--ehds-amber);
+}
+
+.reveal .card-green {
+  border-top: 3px solid var(--ehds-green-border);
+}
+
+/* === Expandable / accordion === */
+.reveal .expandable {
+  background: var(--ehds-white);
+  border: 1px solid var(--ehds-gray-bg);
+  border-radius: 8px;
+  margin: 0.5em 0;
+  overflow: hidden;
+  font-size: 0.75em;
+}
+
+.reveal .expandable-header {
+  padding: 0.5em 0.8em;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ehds-teal);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--ehds-gray-bg);
+  transition: background 0.2s;
+}
+
+.reveal .expandable-header:hover {
+  background: var(--ehds-green);
+}
+
+.reveal .expandable-header .chevron {
+  font-size: 0.8em;
+  color: var(--ehds-amber);
+  transition: transform 0.3s;
+}
+
+.reveal .expandable.open .expandable-header .chevron {
+  transform: rotate(90deg);
+}
+
+.reveal .expandable-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0 0.8em;
+}
+
+.reveal .expandable.open .expandable-body {
+  max-height: 600px;
+  padding: 0.5em 0.8em 0.8em;
+}
+
+/* === Pills / tags === */
+.reveal .pill {
+  display: inline-block;
+  font-size: 0.6em;
+  font-weight: 600;
+  padding: 0.15em 0.6em;
+  border-radius: 100px;
+  letter-spacing: 0.03em;
+  margin: 0.1em;
+}
+
+.reveal .pill-teal {
+  background: var(--ehds-teal);
+  color: var(--ehds-white);
+}
+
+.reveal .pill-green {
+  background: var(--ehds-green);
+  color: var(--ehds-green-text);
+  border: 1px solid var(--ehds-green-border);
+}
+
+.reveal .pill-amber {
+  background: var(--ehds-amber-bg);
+  color: #8d6e00;
+  border: 1px solid var(--ehds-amber-border);
+}
+
+/* === Flow diagram elements === */
+.reveal .flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  margin: 1em 0;
+  flex-wrap: wrap;
+}
+
+.reveal .flow-node {
+  background: var(--ehds-teal);
+  color: var(--ehds-white);
+  padding: 0.5em 1em;
+  border-radius: 10px;
+  font-size: 0.72em;
+  font-weight: 600;
+  text-align: center;
+  min-width: 120px;
+}
+
+.reveal .flow-node.green {
+  background: var(--ehds-green-text);
+}
+
+.reveal .flow-node.amber {
+  background: var(--ehds-amber);
+  color: var(--ehds-teal-dark);
+}
+
+.reveal .flow-arrow {
+  font-size: 1.2em;
+  color: var(--ehds-teal-light);
+  font-weight: 700;
+}
+
+/* === Loop diagram === */
+.reveal .loop-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em 0;
+}
+
+.reveal .loop-svg text {
+  font-family: var(--r-main-font);
+}
+
+/* === Tooltip === */
+.reveal .tip {
+  position: relative;
+  cursor: help;
+  border-bottom: 2px dotted var(--ehds-amber);
+  color: var(--ehds-teal);
+  font-weight: 600;
+}
+
+.reveal .tip .tip-text {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ehds-teal-dark);
+  color: var(--ehds-white);
+  font-size: 0.7em;
+  font-weight: 400;
+  padding: 0.5em 0.8em;
+  border-radius: 6px;
+  white-space: normal;
+  width: 260px;
+  text-align: center;
+  z-index: 100;
+  transition: opacity 0.2s, visibility 0.2s;
+  pointer-events: none;
+}
+
+.reveal .tip .tip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--ehds-teal-dark);
+}
+
+.reveal .tip:hover .tip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* === Title slide === */
+.reveal .title-slide {
+  text-align: center;
+  padding-top: 80px;
+}
+
+.reveal .title-slide h1 {
+  font-size: 2.8em;
+  margin-bottom: 0.2em;
+}
+
+.reveal .title-slide .subtitle {
+  font-size: 1em;
+  color: var(--ehds-gray);
+  font-weight: 400;
+  margin-bottom: 1.5em;
+}
+
+.reveal .title-slide .meta {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin-top: 2em;
+}
+
+.reveal .title-slide .meta-item {
+  text-align: center;
+}
+
+.reveal .title-slide .meta-number {
+  font-size: 2em;
+  font-weight: 800;
+  color: var(--ehds-teal);
+  display: block;
+}
+
+.reveal .title-slide .meta-label {
+  font-size: 0.6em;
+  color: var(--ehds-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* === Progress bar === */
+.reveal .progress {
+  color: var(--ehds-amber);
+}
+
+/* === Fragment styling === */
+.reveal .fragment {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.reveal .fragment.visible {
+  opacity: 1;
+}
+
+.reveal .fragment:not(.visible) {
+  opacity: 0.15;
+}
+
+/* === Print / PDF adjustments === */
+@media print {
+  .reveal section {
+    padding: 20px 40px;
+  }
+  .reveal .expandable-body {
+    max-height: none !important;
+    padding: 0.5em 0.8em 0.8em !important;
+  }
+  .reveal .expandable .chevron {
+    display: none;
+  }
+  .reveal .fragment {
+    opacity: 1 !important;
+  }
+  .reveal .tip .tip-text {
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    display: block !important;
+    width: auto !important;
+    background: var(--ehds-gray-bg) !important;
+    color: var(--ehds-text) !important;
+    padding: 0.3em 0.5em !important;
+    margin-top: 0.3em !important;
+    border-radius: 4px !important;
+    font-size: 0.65em !important;
+  }
+  .reveal .tip .tip-text::after {
+    display: none !important;
+  }
+}
