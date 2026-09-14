@@ -25,15 +25,18 @@ test.describe('Handbook', () => {
     expect(firstHref).toContain('#ch-');
   });
 
-  test('does not contain team logistics terms', async ({ page }) => {
+  test('does not contain team logistics or framing terms', async ({ page }) => {
     await page.goto('/handbook.html');
     const body = (await page.locator('body').textContent())?.toLowerCase() || '';
-    const logisticsTerms = [
+    const forbiddenTerms = [
       'group roles', 'presenter assignment', 'speaking role',
       'handover instructions', 'work distribution table',
-      'task allocation',
+      'task allocation', 'assigned speakers', 'handovers',
+      'university seminar', "colleagues' notes",
+      "colleagues' reading notes", "colleagues' contribution",
+      'seminar handbook', 'team preparation',
     ];
-    for (const term of logisticsTerms) {
+    for (const term of forbiddenTerms) {
       expect(body).not.toContain(term);
     }
   });
@@ -46,6 +49,18 @@ test.describe('Handbook', () => {
     }
   });
 
+  test('uses correct legal article references', async ({ page }) => {
+    await page.goto('/handbook.html');
+    const body = (await page.locator('body').textContent())?.toLowerCase() || '';
+    // Article 61(5) is the significant-findings provision, not Article 105
+    expect(body).toContain('61(5)');
+    expect(body).toContain('58(3)');
+    // Article 105 must be associated with entry into force, not significant findings
+    expect(body).toContain('105 (entry into force');
+    // Article 78 is the data quality and utility label
+    expect(body).toContain('article 78');
+  });
+
   test('revised PDF exists and has reasonable page count', () => {
     const pdfPath = REPO_ROOT + 'EHDS_Presentation_Handbook_Revised.pdf';
     expect(existsSync(pdfPath)).toBeTruthy();
@@ -54,6 +69,13 @@ test.describe('Handbook', () => {
     const pages = pagesMatch ? parseInt(pagesMatch[1], 10) : 0;
     expect(pages).toBeGreaterThanOrEqual(20);
     expect(pages).toBeLessThanOrEqual(40);
+  });
+
+  test('revised PDF contains model answer body text', () => {
+    const pdfPath = REPO_ROOT + 'EHDS_Presentation_Handbook_Revised.pdf';
+    const text = execSync('pdftotext ' + JSON.stringify(pdfPath) + ' -', { encoding: 'utf-8' });
+    expect(text).toContain('MODEL ANSWER');
+    expect(text.toLowerCase()).toContain('unit harmonisation fixes a syntactic problem');
   });
 
   test('renders at mobile width without overflow', async ({ page }) => {

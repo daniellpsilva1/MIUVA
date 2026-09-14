@@ -2,7 +2,7 @@
   "name": "ehds-presentation",
   "version": "1.0.0",
   "private": true,
-  "description": "EHDS seminar — interactive presentation and handbook",
+  "description": "EHDS — interactive presentation and handbook",
   "scripts": {
     "dev": "node scripts/serve.mjs",
     "lint": "eslint js/presentation.js scripts/ tests/ playwright.config.mjs eslint.config.mjs",

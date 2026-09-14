@@ -11,6 +11,12 @@ const LOGISTICS_TERMS = [
   'coordinator', 'task allocation',
 ];
 
+const FRAMING_TERMS = [
+  'university seminar', "colleagues' notes",
+  "colleagues' contribution", "colleagues' reading",
+  'seminar handbook',
+];
+
 const CONCEPT_TERMS = [
   'primary use', 'secondary use', 'pseudonymisation', 'anonymisation',
   'interoperability', 'data quality', 'closing the loop',
@@ -42,6 +48,14 @@ test.describe('Presentation content', () => {
     const body = await page.locator('body').textContent();
     for (const term of LOGISTICS_TERMS) {
       expect(body?.toLowerCase()).not.toContain(term);
+    }
+  });
+
+  test('does not contain seminar framing or colleagues attribution', async ({ page }) => {
+    await page.goto('/index.html');
+    const body = (await page.locator('body').textContent())?.toLowerCase() || '';
+    for (const term of FRAMING_TERMS) {
+      expect(body).not.toContain(term.toLowerCase());
     }
   });
 

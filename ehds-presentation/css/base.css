@@ -1,9 +1,11 @@
 /* css/base.css — shared local fonts and restrained visual tokens.
    Both the presentation (theme.css) and the handbook (handbook.css) import
-   this file. Keep presentation-specific layout out of base.css. */
+   this file. Keep presentation-specific layout out of base.css.
 
-/* Newsreader (OFL 1.1) — variable optical-size serif used for editorial body.
-   Titillium Web (OFL 1.1) — sans used for labels, captions and UI controls. */
+   Fonts: Newsreader (OFL 1.1, Copyright 2020 The Newsreader Project Authors)
+   and Titillium Web (OFL 1.1, Copyright 2009 The Titillium Web Project Authors).
+   Both are redistributed under the SIL Open Font License, Version 1.1.
+   See assets/fonts/OFL.txt for the full licence text. */
 
 @font-face {
   font-display: swap;
