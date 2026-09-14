@@ -1,0 +1,90 @@
+/* css/base.css — shared local fonts and restrained visual tokens.
+   Both the presentation (theme.css) and the handbook (handbook.css) import
+   this file. Keep presentation-specific layout out of base.css. */
+
+/* Newsreader (OFL 1.1) — variable optical-size serif used for editorial body.
+   Titillium Web (OFL 1.1) — sans used for labels, captions and UI controls. */
+
+@font-face {
+  font-display: swap;
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 400 500;
+  src: url('../assets/fonts/newsreader-italic.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Newsreader';
+  font-style: normal;
+  font-weight: 400 700;
+  src: url('../assets/fonts/newsreader-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Titillium Web';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../assets/fonts/titilliumweb-italic-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/titilliumweb-normal-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../assets/fonts/titilliumweb-normal-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../assets/fonts/titilliumweb-normal-700.woff2') format('woff2');
+}
+
+:root {
+  /* Colour tokens — editorial documentary palette. */
+  --ehds-forest: #1f3a2e;
+  --ehds-gold: #b8893a;
+  --ehds-gold-soft: #d8b878;
+  --ehds-ink: #1a1f2b;
+  --ehds-ink-soft: #3a4150;
+  --ehds-navy: #14233f;
+  --ehds-navy-deep: #0c1830;
+  --ehds-paper: #f4efe6;
+  --ehds-paper-warm: #ece4d3;
+  --ehds-rule: #c9bfa9;
+  --ehds-wine: #6a1f2a;
+  --ehds-wine-soft: #8a3a44;
+
+  /* Typography tokens. */
+  --ehds-font-display: 'Newsreader', 'Times New Roman', Georgia, serif;
+  --ehds-font-ui: 'Titillium Web', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Spacing scale (rem). */
+  --ehds-space-1: 0.25rem;
+  --ehds-space-2: 0.5rem;
+  --ehds-space-3: 0.75rem;
+  --ehds-space-4: 1rem;
+  --ehds-space-5: 1.5rem;
+  --ehds-space-6: 2.25rem;
+  --ehds-space-7: 3rem;
+  --ehds-space-8: 4.5rem;
+
+  /* Source-label colours. */
+  --ehds-source-law: #14233f;
+  --ehds-source-report: #1f3a2e;
+  --ehds-source-note: #6a1f2a;
+  --ehds-source-teach: #b8893a;
+}

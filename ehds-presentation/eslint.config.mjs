@@ -1,0 +1,46 @@
+export default [
+  {
+    ignores: [
+      'lib/**',
+      'node_modules/**',
+      'playwright-report/**',
+      'test-results/**',
+    ],
+  },
+  {
+    files: ['js/**/*.js', 'scripts/**/*.mjs', 'tests/**/*.mjs', 'playwright.config.mjs', 'eslint.config.mjs'],
+    languageOptions: {
+      ecmaVersion: 2024,
+      sourceType: 'module',
+      globals: {
+        document: 'readonly',
+        window: 'readonly',
+        console: 'readonly',
+        Reveal: 'readonly',
+        RevealNotes: 'readonly',
+        requestAnimationFrame: 'readonly',
+        cancelAnimationFrame: 'readonly',
+        setTimeout: 'readonly',
+        clearTimeout: 'readonly',
+        HTMLElement: 'readonly',
+        Node: 'readonly',
+        Event: 'readonly',
+        KeyboardEvent: 'readonly',
+        URL: 'readonly',
+        fetch: 'readonly',
+        process: 'readonly',
+        Buffer: 'readonly',
+        require: 'readonly',
+        __dirname: 'readonly',
+        URLSearchParams: 'readonly',
+      },
+    },
+    rules: {
+      'no-undef': 'error',
+      'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      'no-console': 'off',
+      'prefer-const': 'error',
+      'no-var': 'error',
+    },
+  },
+];

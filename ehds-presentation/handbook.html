@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EHDS Handbook — European Health Data Space</title>
+  <meta name="description" content="An in-depth handbook on the European Health Data Space, prepared for a university seminar. Covers primary and secondary use, governed access, data quality, interoperability, closing the loop, and a critical assessment.">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/handbook.css">
+</head>
+<body class="handbook" data-handbook-version="revised">
+  <a class="handbook-skip" href="#handbook-main">Skip to content</a>
+
+  <header class="handbook-cover" id="handbook-cover">
+    <p class="handbook-eyebrow">University seminar handbook</p>
+    <h1 class="handbook-title">The European Health Data Space</h1>
+    <p class="handbook-subtitle">A working guide to primary and secondary use, governed access, data quality, and the loop from research back to care</p>
+    <p class="handbook-meta">Revised edition · Prepared from the EIT Health Think Tank report (April 2024), colleagues' reading notes, and Regulation (EU) 2025/327</p>
+    <p class="handbook-meta handbook-meta-note">This handbook accompanies a 10-slide seminar. It carries the depth the audience does not see on screen. It is not a substitute for the cited primary sources, and it does not reproduce team preparation logistics.</p>
+  </header>
+
+  <nav class="handbook-toc" id="handbook-toc" aria-label="Contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#ch-orientation">1. Orientation and reading map</a></li>
+      <li><a href="#ch-foundations">2. EHDS foundations</a></li>
+      <li><a href="#ch-purpose">3. Purpose and rights</a></li>
+      <li><a href="#ch-access">4. Governed secondary use</a></li>
+      <li><a href="#ch-quality">5. Quality and fitness for purpose</a></li>
+      <li><a href="#ch-standards">6. Standards, FAIR and equity</a></li>
+      <li><a href="#ch-practice">7. Making reuse feasible in healthcare</a></li>
+      <li><a href="#ch-loop">8. Closing the loop</a></li>
+      <li><a href="#ch-assessment">9. Critical assessment</a></li>
+      <li><a href="#ch-companion">10. Slide companion</a></li>
+      <li><a href="#ch-learning">11. Learning and discussion</a></li>
+      <li><a href="#ch-references">12. References and sources</a></li>
+    </ol>
+  </nav>
+
+  <main id="handbook-main">
+
+    <section id="ch-orientation">
+      <h2>1. Orientation and reading map</h2>
+
+      <p class="handbook-lead">The European Health Data Space (EHDS) is a regulation that tries to make health data work better for people, clinicians, researchers, and policymakers across the European Union. It is not a single database. It is a legal, governance, and interoperability framework that changes who can use which health data, for which purposes, under which conditions.</p>
+
+      <h3>What this handbook is for</h3>
+      <p>This handbook supports a short university seminar. The seminar gives classmates a broad working understanding of the EHDS. The handbook goes deeper, because the group's preparation needs to be more thorough than what the audience sees on slides. Use it to study the mechanisms, the evidence, and the open questions—not to memorise a list of articles.</p>
+
+      <h3>Central argument</h3>
+      <p>The EHDS joins two activities that are often treated separately: using health data to care for an individual, and reusing health data for research, innovation, policy, and public health. The framework's promise is that the same data can serve both, safely. Its difficulty is that data recorded for care is rarely ready for research, that access must be governed rather than simply opened, and that a permitted analysis is not the same as a validated change in clinical practice.</p>
+
+      <h3>Five concept groups</h3>
+      <p>The seminar and this handbook are organised around five concept groups. They recur in every chapter, because each one explains a different part of the framework.</p>
+      <dl class="handbook-concepts">
+        <dt>Purpose</dt>
+        <dd>Primary use serves the individual; secondary use serves a wider population. Purpose, not sensitivity alone, determines the rules that apply.</dd>
+        <dt>Governance</dt>
+        <dd>Secondary use is mediated by Health Data Access Bodies that assess applications, issue permits, and supervise access in a secure environment.</dd>
+        <dt>Quality</dt>
+        <dd>Data must be accurate, complete, consistent, and fit for a specific question. Interoperability makes data exchangeable; it does not make them correct.</dd>
+        <dt>Interoperability</dt>
+        <dd>Systems must exchange and understand data across borders and organisations. Standards and metadata make meaning shared; they do not by themselves repair missing or biased data.</dd>
+        <dt>Closing the loop</dt>
+        <dd>Research findings must be evaluated, adopted into workflows, and monitored before they change care. A permitted analysis is not itself a validated intervention.</dd>
+      </dl>
+
+      <h3>Source and date distinctions</h3>
+      <p>This handbook draws on three kinds of source, and the distinction matters.</p>
+      <ul class="handbook-sources">
+        <li><strong>Report findings</strong> come from the EIT Health Think Tank report of April 2024. They reflect roundtables and interviews conducted in 2023 and early 2024. They describe a state of preparation, not the final legal text.</li>
+        <li><strong>Legal facts</strong> come from Regulation (EU) 2025/327, published in the Official Journal on 5 March 2025 and entering into force on 26 March 2025. Where the report and the regulation differ on legal status, the regulation prevails.</li>
+        <li><strong>Colleagues' notes</strong> come from a shared reading summary prepared by classmates. They are useful interpretations and reminders, not primary sources. Where they oversimplify, this handbook corrects them and explains why.</li>
+      </ul>
+      <p>Fictional teaching examples—Sofia, the glucose records, the access pathway—are labelled as such. They are not findings from the report and they are not legal procedures. They exist to make a mechanism visible.</p>
+
+      <h3>How to read this handbook</h3>
+      <p>Chapters 2 to 8 build the explanation in order. Chapter 9 steps back and assesses what the evidence can and cannot establish. Chapter 10 is a companion to each slide. Chapter 11 contains learning goals, a practice question, a glossary, and discussion prompts. Chapter 12 lists the sources and the verification date. If you are short on time, read chapters 3, 4, 5, and 8: they carry the core of the argument.</p>
+    </section>
+
+    <section id="ch-foundations">
+      <h2>2. EHDS foundations</h2>
+
+      <p class="handbook-lead">The EHDS is a regulation built on a simple premise: health data should be easier to share and reuse across Europe, but only under conditions that patients, clinicians, and the public can trust. The framework tries to join two systems that have historically been separate.</p>
+
+      <h3>What the framework changes</h3>
+      <p>Before the EHDS, a patient's ability to access their own health data across borders depended heavily on national law and bilateral arrangements. A researcher who wanted to reuse data from several countries faced incompatible rules, separate application processes, and inconsistent protections. The EHDS sets common rules for both activities: it gives individuals rights over their data, and it gives researchers, innovators, and policymakers a governed path to reuse data held in other Member States.</p>
+
+      <h3>Two infrastructures, one framework</h3>
+      <p>The EHDS is often described as if it were one service. It is more accurate to think of it as one legal framework supporting two infrastructures.</p>
+      <dl class="handbook-infrastructures">
+        <dt>MyHealth@EU</dt>
+        <dd>The primary-use infrastructure. It supports cross-border exchange of electronic health records for the care of the individual—for example, a doctor in one Member State retrieving a patient's medication history from another.</dd>
+        <dt>HealthData@EU</dt>
+        <dd>The secondary-use infrastructure. It connects Health Data Access Bodies and data holders so that researchers, innovators, and policymakers can request and analyse data under permits, in a governed and protected way.</dd>
+      </dl>
+      <p>The two infrastructures are connected but distinct. A record that travels for care under MyHealth@EU does not automatically become available for research under HealthData@EU. Secondary use requires its own application, assessment, and permit.</p>
+
+      <h3>Stakeholders and what they gain</h3>
+      <p>The framework names several groups of beneficiaries, and each one gains something specific—but also bears conditions.</p>
+      <ul>
+        <li><strong>Patients</strong> gain rights to access, port, restrict, and request rectification of their data, and the ability to opt out of secondary use in most cases. They also carry the burden of understanding those rights.</li>
+        <li><strong>Healthcare professionals</strong> gain better access to relevant records across borders, which can improve safety and continuity. They also carry the obligation to record data in ways that are structured and reusable.</li>
+        <li><strong>Researchers</strong> gain a more predictable path to data held across the EU. They also carry the obligation to apply, justify, and work within a secure environment.</li>
+        <li><strong>Policymakers and public-health authorities</strong> gain access to evidence for decisions. They also carry the obligation to use data for permitted purposes only.</li>
+      </ul>
+
+      <h3>A staged timeline</h3>
+      <p>The EHDS does not apply all at once. Regulation (EU) 2025/327 was published in the Official Journal on 5 March 2025 and entered into force on 26 March 2025, but most obligations apply later, in stages.</p>
+      <ol class="handbook-timeline">
+        <li><strong>26 March 2025</strong> — Entry into force. The regulation exists as law, but most obligations are not yet active.</li>
+        <li><strong>26 March 2027</strong> — Deadline for many implementing acts and the establishment of key governance structures.</li>
+        <li><strong>26 March 2029</strong> — First primary-use priority categories and most secondary-use rules begin to apply. This is the date that matters most for understanding when the framework becomes operational for most purposes.</li>
+        <li><strong>26 March 2031</strong> — Remaining primary-use categories and certain secondary-use categories, including genomic data, begin to apply.</li>
+        <li><strong>26 March 2035</strong> — Third countries and international organisations may apply to join HealthData@EU.</li>
+      </ol>
+      <p class="handbook-correction">A common simplification places the start of secondary use in 2031. That is incomplete. Most secondary-use categories apply from 2029; 2031 extends the framework to more sensitive categories, not the beginning of the system.</p>
+
+      <h3>What the EHDS is not</h3>
+      <p>Several things the EHDS is <em>not</em> are as important as what it is.</p>
+      <ul>
+        <li>It is <strong>not a single EU health database</strong>. Data remain held by health data holders—hospitals, registries, laboratories—under national law. The EHDS sets the conditions for access and exchange, not a central repository.</li>
+        <li>It is <strong>not a free-for-all for researchers</strong>. Secondary use requires an application, an assessment by a Health Data Access Body, a permit, and analysis in a secure environment.</li>
+        <li>It is <strong>not a guarantee of data quality</strong>. The framework requires data-quality labelling and stewardship, but it cannot make incomplete or biased data fit for a question they were not recorded to answer.</li>
+        <li>It is <strong>not a replacement for the GDPR</strong>. The EHDS builds on the GDPR; it does not lower its protections. Where the EHDS adds specific rules for health data, those rules apply alongside the GDPR's general framework.</li>
+      </ul>
+    </section>
+
+    <section id="ch-purpose">
+      <h2>3. Purpose and rights</h2>
+
+      <p class="handbook-lead">The single most important distinction in the EHDS is the distinction between primary and secondary use. Purpose, not sensitivity alone, determines which rules apply, which rights are engaged, and which infrastructure carries the data.</p>
+
+      <h3>Primary use: data for the individual</h3>
+      <p>Primary use means using health data to provide healthcare to the individual the data concern. The clearest example is a clinician treating a patient: reading a medication history, ordering a test, or sharing a record with a colleague involved in the care.</p>
+      <p>Cross-border care is still primary use. If a doctor in Spain treats a Dutch patient and retrieves that patient's history through MyHealth@EU, the purpose is the care of the individual in front of them. The fact that the data crossed a border does not turn the use into research.</p>
+      <p>Primary use also covers the individual's own access to their data. Under the EHDS, natural persons have rights to access their data, obtain a copy in a portable format, and request the insertion, rectification, or restriction of data concerning them.</p>
+
+      <h3>Secondary use: data for a wider population</h3>
+      <p>Secondary use means reusing health data for purposes other than the direct care of the individual. The regulation lists permitted categories, including scientific research, product development, innovation, policy-making, regulatory activities, and public health. The defining feature is that the data are used to answer a question about a population or a phenomenon, not to treat the person whose data they are.</p>
+      <p>Secondary use is not limited to anonymous data. It can include personal data, including pseudonymised data, when the purpose is permitted and the access is governed. This is a point where colleagues' notes sometimes oversimplify: removing a name does not make data anonymous, and secondary use does not require anonymisation before access.</p>
+
+      <h3>Why the boundary matters</h3>
+      <p>The boundary matters because the two uses engage different rights, safeguards, and infrastructures. Primary use engages the patient's rights to access and control their data in the context of their own care. Secondary use engages the patient's opt-out right, the governance of a Health Data Access Body, and the secure-environment requirements.</p>
+      <p>It also matters because the same record can serve both purposes at different times. A glucose measurement recorded to adjust a patient's insulin is primary use. The same measurement, later selected from a cohort to study the relationship between fasting glucose and cardiovascular events, is secondary use. The record does not change; the purpose does.</p>
+
+      <h3>Patient rights under the EHDS</h3>
+      <p>The EHDS gives natural persons a set of rights over their health data. These rights build on the GDPR and add specific provisions for the health-data context.</p>
+      <dl class="handbook-rights">
+        <dt>Access</dt>
+        <dd>The right to obtain information about and access to one's health data held by a health data holder.</dd>
+        <dt>Portability</dt>
+        <dd>The right to receive a copy of one's data in a portable, interoperable format, so that the data can be transferred between providers.</dd>
+        <dt>Rectification and completion</dt>
+        <dd>The right to request the correction of inaccurate data and the completion of incomplete data. This is a right to request rectification through the holder; it is not a right to directly rewrite a clinical record, which remains a professional responsibility.</dd>
+        <dt>Restriction</dt>
+        <dd>The right to request that the processing of one's data be restricted in defined circumstances.</dd>
+        <dt>Information</dt>
+        <dd>The right to be informed about the use of one's data, including in the context of secondary use.</dd>
+        <dt>Opt-out from secondary use</dt>
+        <dd>In most cases, individuals can opt out of their data being used for secondary use. The opt-out is subject to exceptions for reasons of public interest defined in the regulation, such as certain public-health and regulatory uses.</dd>
+      </dl>
+      <p class="handbook-correction">A common simplification says patients can "edit" their records directly. The regulation gives a right to request rectification; the clinical record itself is amended by the health data holder under professional and legal responsibility. The distinction protects both the patient and the integrity of the record.</p>
+
+      <h3>The GDPR relationship</h3>
+      <p>The EHDS does not replace the GDPR. It is a lex specialis—a more specific law—that adds rules for health data within the GDPR's general framework. Where the EHDS sets a specific rule for health data, that rule applies; where it does not, the GDPR continues to govern. The two instruments are designed to be read together, not in opposition.</p>
+    </section>
+
+    <section id="ch-access">
+      <h2>4. Governed secondary use</h2>
+
+      <p class="handbook-lead">Secondary use is not open access. It is governed access. Between a researcher's question and the data they want to analyse stands a Health Data Access Body, an application, a permit, a secure environment, and a review of what may leave it.</p>
+
+      <h3>The actors</h3>
+      <p>Three roles recur throughout the secondary-use pathway. Keeping them distinct is essential to understanding the governance.</p>
+      <dl class="handbook-actors">
+        <dt>Health data holder</dt>
+        <dd>The entity that holds the data—a hospital, registry, laboratory, or other organisation. The holder retains the data under national law and prepares them for access.</dd>
+        <dt>Health Data Access Body (HDAB)</dt>
+        <dd>A public body designated by each Member State to act as the gatekeeper for secondary use. The HDAB assesses applications, issues permits, supervises access, and protects the rights of the individuals whose data are used.</dd>
+        <dt>Health data user</dt>
+        <dd>The researcher, innovator, or institution that requests and uses the data for a permitted secondary-use purpose.</dd>
+      </dl>
+      <p>The HDAB is a gatekeeper in a specific sense: it controls access to data, not the production of data. It does not own the data and it does not replace the holder. Its role is to make access conditional on the regulation's requirements.</p>
+
+      <h3>Discoverability and catalogues</h3>
+      <p>Before a user can apply for data, they need to know what exists. The EHDS provides for data catalogues—discoverable inventories of datasets held across the Union—that allow users to find and assess the relevance of available data without exposing the data themselves. The catalogue describes the dataset, not the people in it.</p>
+
+      <h3>The access pathway</h3>
+      <p>The pathway from a research question to a permitted output has several stages. Each stage exists for a reason, and skipping one defeats the governance.</p>
+      <ol class="handbook-pathway">
+        <li><strong>Question and catalogue.</strong> The user frames a research question and searches the catalogue for relevant datasets.</li>
+        <li><strong>Application.</strong> The user submits an application to the HDAB, describing the purpose, the data requested, and the proposed analysis.</li>
+        <li><strong>Assessment.</strong> The HDAB assesses the application against the regulation's requirements: is the purpose permitted, is the data necessary, are the safeguards adequate, and have opt-outs been respected?</li>
+        <li><strong>Permit.</strong> If the assessment is positive, the HDAB issues a permit. The permit is conditional; it is not a property right over the data.</li>
+        <li><strong>Necessary data, prepared.</strong> The holder prepares the data specified in the permit, applying minimisation and, where appropriate, pseudonymisation or anonymisation.</li>
+        <li><strong>Secure environment.</strong> The user analyses the data in a secure processing environment that prevents unauthorised export and re-identification.</li>
+        <li><strong>Output review.</strong> Only non-personal outputs—such as anonymised statistical results—may leave the secure environment, after review to prevent re-identification.</li>
+      </ol>
+      <p class="handbook-teach">The seminar's access-pathway interaction is a teaching illustration of this sequence. It is not an actual permit service, and it does not collect any information from the audience.</p>
+
+      <h3>What may leave the secure environment</h3>
+      <p>This is one of the most important and most misunderstood points. The secure environment is not a convenience; it is a boundary. The data themselves do not leave. What leaves is a non-personal output—typically an anonymised statistical result, a model, or an aggregate that has been reviewed to ensure it cannot be used to re-identify individuals.</p>
+      <p>This means that "downloading a dataset" is not the normal mode of EHDS secondary use. Download is limited to non-personal data, including anonymised statistical outputs. Personal data are analysed inside the secure environment; only the results, suitably protected, leave.</p>
+
+      <h3>Permitted and prohibited purposes</h3>
+      <p>The regulation lists purposes for which secondary use is permitted. These include scientific research, product development, innovation, policy-making, regulatory activities, and public health. Some purposes are explicitly prohibited—most notably, marketing and advertising, and the development of products that could harm individuals or groups.</p>
+      <p>The boundary between permitted research and prohibited commercial use is not always obvious in advance. That is why the HDAB assessment matters: it determines whether a specific application falls within a permitted category.</p>
+
+      <h3>Opt-out and its limits</h3>
+      <p>Individuals can opt out of secondary use of their data in most cases. The opt-out is a right, not a default; the regulation assumes secondary use is possible unless the individual has opted out, subject to the public-interest exceptions. Those exceptions allow certain uses—particularly for public health and regulatory activities—to proceed even where opt-outs have been exercised, because the public interest outweighs the individual preference in defined circumstances.</p>
+      <p>The opt-out is therefore real but not absolute. Presenting it as either "you can always opt out" or "you cannot opt out" is wrong. The accurate statement is that the opt-out applies to most secondary use, with defined public-interest exceptions.</p>
+
+      <h3>Limits of the gatekeeper metaphor</h3>
+      <p>Calling the HDAB a "gatekeeper" is useful but incomplete. The HDAB controls access, but it does not guarantee that the resulting science is good, that the data are fit for the question, or that the findings will change care. Governance is a condition for trustworthy access; it is not a substitute for scientific quality, data quality, or clinical evaluation. The next chapters turn to those conditions.</p>
+    </section>
+
+    <section id="ch-quality">
+      <h2>5. Quality and fitness for purpose</h2>
+
+      <p class="handbook-lead">Data quality is not a single property. A dataset can be perfectly accurate for one question and useless for another. The EHDS asks whether data are sufficiently accurate, complete, consistent, and fit for purpose—and fitness is always relative to a question.</p>
+
+      <h3>The dimensions of quality</h3>
+      <p>Quality is usually broken into several dimensions. They are not independent: a problem in one often creates problems in others.</p>
+      <dl class="handbook-quality-dim">
+        <dt>Accuracy</dt>
+        <dd>Does the recorded value reflect the true value? A glucose reading entered with the wrong unit is inaccurate even if the number is correctly transcribed.</dd>
+        <dt>Completeness</dt>
+        <dd>Are the data missing? Missingness matters because it is rarely random: patients with more severe disease, less access to care, or different insurance status are often over- or under-represented in the missing data.</dd>
+        <dt>Consistency</dt>
+        <dd>Do the data agree across records and systems? The same patient coded differently in two registries is a consistency failure, even if each record is individually accurate.</dd>
+        <dt>Validity</dt>
+        <dd>Does the variable measure what it claims to measure? A "diabetes" code in an administrative dataset may reflect billing logic rather than a clinical diagnosis.</dd>
+        <dt>Uniqueness</dt>
+        <dd>Is each entity recorded once? Duplicate records inflate counts and bias estimates.</dd>
+        <dt>Timeliness</dt>
+        <dd>Are the data current enough for the question? A five-year-old medication list may be accurate as a historical record but misleading for current prescribing.</dd>
+      </dl>
+
+      <h3>Quality is not interoperability</h3>
+      <p>This distinction is central and often blurred. Interoperability asks whether systems can exchange and understand data consistently across systems and borders. Quality asks whether the data themselves are accurate, complete, and fit for purpose.</p>
+      <p>You can have interoperable data that are wrong: two systems exchange a glucose value in the same unit, but the value was entered incorrectly. You can have high-quality data that are not interoperable: a single hospital's records are accurate and complete, but no other system can read their format. The EHDS needs both, and one does not produce the other.</p>
+
+      <h3>The glucose example, fully worked</h3>
+      <p>The seminar uses a small, fictional example to make this concrete. Three records of a fasting glucose measurement are presented.</p>
+      <ul class="handbook-glucose">
+        <li><strong>Record A:</strong> 7.0 mmol/L, fasting status recorded.</li>
+        <li><strong>Record B:</strong> 126 mg/dL, fasting status unknown.</li>
+        <li><strong>Record C:</strong> "slightly elevated, follow-up recommended" — a qualitative note, no numeric value.</li>
+      </ul>
+      <p>The first thing to notice is that records A and B use different units. 7.0 mmol/L and 126 mg/dL are approximately equivalent: the conversion is a multiplication by about 18. Harmonising the units is a syntactic repair. It makes the two records comparable in form.</p>
+      <p>But harmonising units does not recover the missing fasting status in record B. A glucose value means something different if the patient was fasting than if they had just eaten. Without that context, the value cannot be interpreted correctly for a study of fasting glucose. The unit conversion fixed one problem and left another untouched.</p>
+      <p>Record C is a different kind of failure. It contains no numeric value at all. No transformation can turn "slightly elevated" into a measurement that can be pooled with the others without inventing a number. Treating qualitative text as if it were a measurement would manufacture data that do not exist.</p>
+      <p class="handbook-teach">The example is a teaching aid. It does not diagnose any condition, and it does not claim that 7.0 mmol/L is a clinical threshold. It shows that harmonisation fixes some problems and leaves others—and that the remaining problems are often the harder ones.</p>
+
+      <h3>Missingness and bias</h3>
+      <p>Missing data are not a technical nuisance; they are a threat to validity. If the missing data are missing for reasons related to the outcome—sicker patients are less likely to have complete records, poorer patients are less likely to have any records—then the analysis of the available data gives a biased answer, no matter how large the sample.</p>
+      <p>This is why a large sample size does not repair systematic error. A study of 100,000 records with the same bias gives a more precise estimate of the wrong answer, not a correct answer. The EHDS can make more data available, but it cannot make biased data unbiased.</p>
+
+      <h3>Provenance and duplication</h3>
+      <p>Two further properties matter. Provenance is the record of where data came from, how they were collected, and what transformations they have undergone. Without provenance, a researcher cannot judge whether a value is a direct measurement, a derived calculation, or a copied entry. Duplication is the opposite problem: the same encounter recorded twice, in the same system or across systems, inflates counts and biases estimates unless it is detected and resolved.</p>
+
+      <h3>The data quality and utility label</h3>
+      <p>The regulation introduces a data quality and utility label, set out in Article 78. The label is not a single score; it covers documentation, technical quality, data-quality management, coverage, access and provision timing, and modifications. It is a structured description that allows a user to judge whether a dataset is fit for a particular question.</p>
+      <p>The label is a tool for transparency, not a guarantee. A dataset can have a complete label and still be unfit for a specific question. The label tells you what is known about the data; it does not change what the data are.</p>
+    </section>
+
+    <section id="ch-standards">
+      <h2>6. Standards, FAIR and equity</h2>
+
+      <p class="handbook-lead">Standards make data exchangeable. FAIR principles make data findable, accessible, interoperable, and reusable. Equity asks who is represented—and who is not. The EHDS needs all three, and none of them is a technical detail.</p>
+
+      <h3>Structure versus shared meaning</h3>
+      <p>A standard can specify structure—the fields a record must contain—without specifying meaning—the codes that fill those fields. Two systems can both have a "diagnosis" field and still record the same condition under different codes. Shared meaning requires shared code systems, mappings between them, and metadata that explain what each code means in context.</p>
+      <p>This is why interoperability is harder than it looks. Connecting systems is a technical problem; making them understand each other is a semantic problem. The EHDS pushes toward common standards, but it does not mandate a single technology stack. The choice of standards is left to implementing acts and governance, not fixed in the regulation itself.</p>
+
+      <h3>Metadata, data dictionaries, and provenance</h3>
+      <p>Metadata—data about the data—are what make a dataset interpretable. A data dictionary explains what each variable means, the codes it uses, the units it expects, and the values it can take. Provenance records where the data came from and what has happened to them. Without metadata and provenance, a researcher cannot judge fitness for purpose, and a reviewer cannot judge whether an analysis is sound.</p>
+      <p>The data quality and utility label, discussed in the previous chapter, is in part a metadata requirement: it forces holders to document what they have in a structured way.</p>
+
+      <h3>FAIR principles</h3>
+      <p>The FAIR principles—Findable, Accessible, Interoperable, Reusable—are a guide, not a law. They describe properties data should have to support reuse. The EHDS aligns with FAIR in spirit: catalogues make data findable, permits make access governed, standards support interoperability, and quality labels support reuse. But FAIR is not a checklist that, once satisfied, guarantees good science. A dataset can be FAIR and biased.</p>
+
+      <h3>TEHDAS and the report's discussion</h3>
+      <p>The EIT Health report discusses the TEHDAS project (Towards European Health Data Space), a predecessor initiative that explored how secondary use could work across borders. The report uses TEHDAS to illustrate the practical challenges of building cross-border governance: different national rules, different levels of digitisation, and different expectations about who controls access. The EHDS regulation is the legal response to those challenges; TEHDAS was part of the preparatory work.</p>
+
+      <h3>Underrepresentation and digital exclusion</h3>
+      <p>Equity is a quality issue. If a dataset under-represents a group—older patients, rural patients, patients with certain insurance types, patients who do not use digital tools—then analyses of that dataset give answers that are biased toward the represented groups. A finding about "patients with diabetes" that is actually a finding about urban, insured, digitally engaged patients is not generalisable in the way its label suggests.</p>
+      <p>Digital exclusion compounds this. Patients who cannot or do not use digital health tools generate fewer records, or records in different formats. Including them requires effort—paper records, proxy reporting, outreach—that the EHDS does not by itself provide.</p>
+
+      <h3>Patient-generated data and free text</h3>
+      <p>Two kinds of data sit at the edge of the framework and illustrate its limits. Patient-generated data—from wearables, apps, and home monitors—can enrich the record, but their quality, provenance, and meaning vary widely. Including them can improve coverage and timeliness; it can also introduce noise and bias if the devices are inaccurate or the users are unrepresentative.</p>
+      <p>Free text—clinical notes written in natural language—contains a great deal of information that structured fields do not capture. Extracting that information reliably requires natural-language processing, which must be validated against the clinical meaning. The report discusses this as a promising but demanding route: the information is there, but turning it into reusable data is hard, and getting it wrong can introduce errors at scale.</p>
+      <p class="handbook-correction">The framework does not mandate a specific technology stack for any of this. Claims that the EHDS requires a particular standard, tool, or vendor are not supported by the regulation.</p>
+    </section>
+
+    <section id="ch-practice">
+      <h2>7. Making reuse feasible in healthcare</h2>
+
+      <p class="handbook-lead">The EHDS can set rules for access, but the data have to exist in a usable form first. Making clinical records reusable is work, and most of that work falls on healthcare organisations and the people who work in them. This chapter is about that work, and why it is not free.</p>
+
+      <h3>Recording once, using many times</h3>
+      <p>The ideal of "record once" is simple: a clinician enters information once, in a structured way, and that information can be reused for care, reporting, quality improvement, and research without being re-entered or re-coded. The reality is harder. Clinical systems are often built for billing or scheduling, not for research. Structured entry takes time, and that time is not always funded or recognised.</p>
+      <p>The EHDS does not remove this burden; it makes it more visible. If records are not structured, the framework cannot make them reusable by rule. The work of structuring, coding, and documenting has to happen at the point of care, by the people who provide it.</p>
+
+      <h3>User-centred structured entry</h3>
+      <p>Structured entry that ignores clinical workflow fails. If a clinician has to click through twenty fields to record a single encounter, the fields will be filled badly or not at all. User-centred design means building structured entry into the existing workflow, with sensible defaults, validation that catches errors without blocking care, and interfaces that do not punish the clinician for doing the right thing.</p>
+      <p>This is a design problem, not just a policy problem. The EHDS can require structured data; it cannot, by itself, make the entry of that data tolerable.</p>
+
+      <h3>Technical and data-steward support</h3>
+      <p>Healthcare organisations need people whose job is to make data reusable: data stewards who respond to access requests, data engineers who prepare extracts, and data-quality officers who monitor the state of the data. These roles cost money. The EHDS assumes they exist; it does not fund them. The report is explicit about this gap: the framework sets expectations, but the resources to meet them are a national and organisational responsibility.</p>
+
+      <h3>Validated legacy-text extraction</h3>
+      <p>Many existing records are free text. Turning them into structured data requires natural-language processing, and that processing must be validated: it must be checked against the clinical meaning, on real records, by people who understand both the clinical context and the technology. Unvalidated extraction can introduce errors at scale, and those errors are hard to detect because they look like clean structured data.</p>
+      <p>The report treats this as promising but demanding. It is not a shortcut to reusable data; it is a route that works when it is done carefully and fails when it is not.</p>
+
+      <h3>Clinical service continuity</h3>
+      <p>The first job of a healthcare organisation is care. Preparing data for reuse is secondary to that job, and it has to be done in a way that does not disrupt it. If data preparation pulls clinicians away from patients, or if access requests slow clinical systems, the framework has failed in practice even if it has succeeded in law.</p>
+      <p>This is why the report discusses workload and funding as substantive issues, not as logistics to be dismissed. The EHDS adds work to healthcare organisations; whether that work is sustainable depends on whether it is recognised, supported, and paid for.</p>
+
+      <h3>Country contrasts: Ireland and Spain</h3>
+      <p>The report's 2023 consultations observed sharp differences in readiness across Member States. Ireland was described as relying heavily on paper documentation, with limited structured digital records at the time of the consultations. Spain was described as more advanced in data standards and in the use of health data for secondary purposes.</p>
+      <p class="handbook-correction">These observations are dated. They reflect the state of preparation in 2023, not a permanent ranking. Both countries have continued to develop their systems, and the EHDS itself will push convergence. The point of the contrast is not to rank countries but to show that the starting points are unequal—and that a framework with common deadlines applies to countries at very different stages.</p>
+      <p>This is the practical face of the equity problem from chapter 6. A common deadline does not produce a common starting point. Countries that begin with paper records and limited standards have further to travel, and the same deadline that is achievable for one may be unrealistic for another.</p>
+    </section>
+
+    <section id="ch-loop">
+      <h2>8. Closing the loop</h2>
+
+      <p class="handbook-lead">Research is not the last stop. A finding from a permitted analysis is not, by itself, a change in care. Between a result and a better outcome stands evaluation, adoption, training, and monitoring. This chapter is about that gap, and why closing the loop is harder than opening access.</p>
+
+      <h3>The loop, stated</h3>
+      <p>The loop that colleagues' notes describe is real and important:</p>
+      <blockquote class="handbook-loop">Primary care → Data → Secondary use → New insights → Better healthcare → Primary care</blockquote>
+      <p>Each arrow is a step, and each step can fail. Data may not be recorded. Secondary use may not be permitted or may not produce a useful insight. Insights may not be evaluated. Evaluated insights may not be adopted. Adopted changes may not be monitored. The loop is a chain, and a chain is only as strong as its weakest link.</p>
+
+      <h3>Hypothesis versus causal evidence</h3>
+      <p>An association in data is not a causal claim. Patients who take a particular medication may have better outcomes because of the medication, or because they were healthier to begin with, or because they had better access to care. Distinguishing these requires study design—randomisation, controlled comparison, or methods that approximate them—not just more data.</p>
+      <p>The EHDS makes more data available, but more data does not by itself produce causal evidence. A large observational dataset can show that two things are associated; it cannot, without further analysis, show that one causes the other. This is why the loop has an evaluation stage, not just a research stage.</p>
+
+      <h3>Validation and evaluation</h3>
+      <p>Before a finding changes practice, it has to be validated. Does the finding replicate in a different population? Does the proposed intervention work when it is tried, not just when it is observed? Evaluation is the step that turns a research finding into a candidate intervention. Skipping it turns associations into treatments, which is how harm happens.</p>
+
+      <h3>Clinical workflow adoption</h3>
+      <p>An evaluated intervention still has to be adopted. Clinical workflows are stable for good reasons: they encode accumulated experience, and changing them has consequences. Adoption requires that the intervention fit into the workflow, that clinicians be trained in it, and that the system support it—through guidance, reimbursement, and infrastructure.</p>
+      <p>This is why a finding that is correct in a study can fail in practice. The study showed the intervention worked under study conditions; adoption tests whether it works under clinical conditions, with real clinicians, real patients, and real constraints.</p>
+
+      <h3>Training and reimbursement</h3>
+      <p>Two specific adoption barriers recur. Training: clinicians need to know what the new practice is, why it is better, and how to do it. Reimbursement: if the new practice costs time or money and is not paid for, it will not happen, however good the evidence. The EHDS does not by itself address either; they remain national and organisational responsibilities.</p>
+
+      <h3>Monitoring and improved recording</h3>
+      <p>Once an intervention is adopted, it has to be monitored. Does it produce the expected outcomes in practice? Does it produce unexpected harms? Monitoring closes the loop back to data: the outcomes of the intervention become new data, which feed back into the next cycle of research and evaluation.</p>
+      <p>This is also where the loop reconnects to recording. If the new practice is not recorded in a structured way, it cannot be monitored. The quality of the loop depends on the quality of the data at every turn.</p>
+
+      <h3>Return of significant findings</h3>
+      <p>The regulation provides for the return of significant findings to individuals whose data were used. Where a permitted analysis reveals information of importance to the health of an individual, the framework sets out a path for that information to be returned, through the health data holder, so that the individual can act on it. This is a specific, governed mechanism—not a general right to receive everything a researcher finds.</p>
+
+      <h3>Why a permitted analysis is not a validated intervention</h3>
+      <p>This is the chapter's central point, and it is the one most often lost. The EHDS governs access to data for research. It does not, by itself, validate the research, evaluate the findings, adopt them into practice, or monitor their effects. Each of those is a separate step, with separate actors and separate evidence. A permitted analysis is a starting point, not a conclusion. The loop closes only when all the steps are taken.</p>
+    </section>
+
+    <section id="ch-assessment">
+      <h2>9. Critical assessment</h2>
+
+      <p class="handbook-lead">A seminar on the EHDS should not end with either enthusiasm or scepticism. It should end with a clear sense of what the evidence establishes, what it does not, and what remains open. This chapter is that assessment.</p>
+
+      <h3>What the report can establish</h3>
+      <p>The EIT Health report is based on roundtables and interviews with experts and stakeholders conducted in 2023 and early 2024. It can establish what those experts observed, what they recommended, and where they disagreed. It is a record of expert opinion and practical experience, not a systematic review of evidence.</p>
+      <p>This means the report is good at describing the landscape—the challenges of data quality, the uneven readiness across countries, the workload of preparing data—and weaker at proving that any particular intervention works. Its recommendations are informed by experience, but they are recommendations, not validated results.</p>
+
+      <h3>What the report cannot establish</h3>
+      <p>The report cannot establish that its recommended interventions will be affordable, equitable, or effective at scale. It cannot establish that the EHDS regulation, which was not final at the time of writing, will achieve its aims. And it cannot speak for the current legal state, because the regulation has since been adopted and entered into force.</p>
+      <p>This is why this handbook distinguishes report findings from legal facts. The report describes a state of preparation; the regulation sets the rules. Where the two differ on legal status, the regulation prevails.</p>
+
+      <h3>Recommended interventions versus proven effects</h3>
+      <p>The report recommends structured entry, data stewards, validated text extraction, and funded support, among other things. These are plausible recommendations, supported by the experience of the experts consulted. They are not proven effects. Whether structured entry improves data quality enough to justify its cost, whether data stewards are affordable at scale, whether text extraction is reliable enough for research use—these are empirical questions that the EHDS will answer over time, not assumptions that can be asserted now.</p>
+
+      <h3>2024 recommendations and law now in force</h3>
+      <p>The report was written before the regulation was final. Some of its recommendations have been incorporated into the legal text; others have not. Some of its concerns—about funding, about readiness, about the gap between common deadlines and unequal starting points—remain live. Reading the report as if it were a description of the law as it stands now would be misleading; reading it as a description of the challenges that motivated the law is accurate.</p>
+
+      <h3>Practical funding and readiness uncertainties</h3>
+      <p>The most important open question is whether the framework can be implemented as intended. The regulation sets deadlines and requirements; it does not provide the funding, the staff, or the standards. Member States have to build the infrastructure, designate the HDABs, and prepare the data. Countries at different starting points face the same deadlines. Whether all of them can meet those deadlines, and at what cost, is uncertain.</p>
+      <p>This is where colleagues' concerns about time, money, standards, and privacy are most relevant. They are not objections to the EHDS; they are the conditions under which it will succeed or fail. A framework that is right in principle can still fail in practice if the conditions are not met.</p>
+
+      <h3>Two supported conclusions</h3>
+      <p>Two conclusions are well supported by the available evidence.</p>
+      <ol>
+        <li><strong>The EHDS joins data collection and benefit in a way that previous frameworks did not.</strong> By setting common rules for both primary and secondary use, and by governing access through HDABs and secure environments, it creates a path from care data to research data that is more coherent than the patchwork it replaces. That is a real strength.</li>
+        <li><strong>Expert implementation recommendations do not prove affordable, equitable delivery.</strong> The report's recommendations are informed, but they do not establish that the framework can be implemented as intended across all Member States, on the deadlines set, with the resources available. That remains to be seen.</li>
+      </ol>
+      <p>Holding both conclusions at once is the point. The framework is promising and its implementation is uncertain. Neither claim cancels the other.</p>
+    </section>
+
+    <section id="ch-companion">
+      <h2>10. Slide companion</h2>
+
+      <p class="handbook-lead">This chapter is keyed to the ten slides of the seminar. Each entry gives the slide's purpose, the explanation behind it, the interaction cue and its fallback, the source anchors, and a likely class question. There are no assigned speakers or handovers; the group decides delivery internally.</p>
+
+      <h3 id="companion-cover">Slide 1 — What changes when a health record can travel?</h3>
+      <p><strong>Purpose.</strong> Open with a concrete change: a record that can move across borders changes what care and research are possible.</p>
+      <p><strong>Explanation.</strong> The EHDS is a framework, not a database. It joins primary and secondary use under common rules. The opening should make the audience curious about how that works, not list articles.</p>
+      <p><strong>Interaction.</strong> No interaction on this slide; it sets the scene.</p>
+      <p><strong>Sources.</strong> Regulation (EU) 2025/327; EIT Health report, introduction.</p>
+      <p><strong>Likely question.</strong> "Is the EHDS one database or many?" Answer: many holders, one framework.</p>
+
+      <h3 id="companion-purposes">Slide 2 — One record. Two purposes.</h3>
+      <p><strong>Purpose.</strong> Establish the central distinction: the same record can serve care and research, and purpose determines the rules.</p>
+      <p><strong>Explanation.</strong> A doctor abroad treating Sofia is primary use. The same record later used to study a cohort is secondary use. The record does not change; the purpose does.</p>
+      <p><strong>Interaction.</strong> Purpose classification: present the cross-border care question, reveal that it is still primary use. Fallback: state the answer directly.</p>
+      <p><strong>Sources.</strong> Regulation (EU) 2025/327, Arts. 5–9 (rights), Art. 53 (secondary-use purposes); colleagues' notes on primary/secondary use.</p>
+      <p><strong>Likely question.</strong> "If the data crossed a border, isn't it research?" Answer: no—purpose, not geography, defines the use.</p>
+
+      <h3 id="companion-access">Slide 3 — How would a researcher get access?</h3>
+      <p><strong>Purpose.</strong> Show that secondary use is governed access, not open access.</p>
+      <p><strong>Explanation.</strong> The pathway: question and catalogue, application, HDAB assessment, permit, necessary prepared data, secure environment, reviewed non-personal output. Each stage exists for a reason.</p>
+      <p><strong>Interaction.</strong> Stepped pathway with Previous/Next controls and fragment equivalence. Optional research/marketing comparison shows "potentially eligible; assessment required", not automatic approval. Fallback: describe the pathway linearly.</p>
+      <p><strong>Sources.</strong> Regulation (EU) 2025/327, Arts. 66–73 (applications, permits, opt-out, secure processing); colleagues' notes on HDABs.</p>
+      <p><strong>Likely question.</strong> "Can a researcher just download the data?" Answer: no—analysis happens in a secure environment; only reviewed non-personal outputs leave.</p>
+
+      <h3 id="companion-privacy">Slide 4 — What does removing a name actually protect?</h3>
+      <p><strong>Purpose.</strong> Correct the common conflation of pseudonymisation with anonymisation.</p>
+      <p><strong>Explanation.</strong> Pseudonymisation replaces identifiers with codes but allows re-linking through a separately held key. Anonymisation makes individuals no longer identifiable. Removing a name alone does neither.</p>
+      <p><strong>Interaction.</strong> Side-by-side comparison of a pseudonymised record and an anonymised statistical output. No cosmetic "toggle" that fakes anonymisation. Fallback: describe both records in prose.</p>
+      <p><strong>Sources.</strong> Regulation (EU) 2025/327, Arts. 66–73; colleagues' notes on pseudonymisation and anonymisation.</p>
+      <p><strong>Likely question.</strong> "If the name is gone, isn't it anonymous?" Answer: not necessarily—other fields can re-identify, and a key may exist.</p>
+
+      <h3 id="companion-quality">Slide 5 — Can these three glucose records answer the same question?</h3>
+      <p><strong>Purpose.</strong> Show that harmonisation fixes some quality problems and leaves others.</p>
+      <p><strong>Explanation.</strong> Records A (7.0 mmol/L, fasting), B (126 mg/dL, fasting unknown), and C (qualitative note). Unit harmonisation makes A and B comparable in form; it does not recover B's missing fasting status or turn C's text into a measurement.</p>
+      <p><strong>Interaction.</strong> Three-step demonstration: unit equivalence, missing context, unresolved qualitative record. Reset control for rehearsal. Fallback: walk through the three records in prose.</p>
+      <p><strong>Sources.</strong> EIT Health report, chapter 4 (data quality); teaching example is fictional and labelled as such.</p>
+      <p><strong>Likely question.</strong> "Why not just convert the units and use the data?" Answer: conversion fixes syntax, not context or missingness.</p>
+
+      <h3 id="companion-fitness">Slide 6 — Usable for which question—and for whom?</h3>
+      <p><strong>Purpose.</strong> Distinguish interoperability from quality, and quality from fitness for a specific question.</p>
+      <p><strong>Explanation.</strong> A data passport contrasts exchange/meaning with validity, completeness, provenance, and coverage. Counting recorded tests is not the same as studying treatment effectiveness; harmonisation does not remove selection bias.</p>
+      <p><strong>Interaction.</strong> Compact passport panel; no staged reveal needed. Fallback: describe the passport fields.</p>
+      <p><strong>Sources.</strong> EIT Health report, chapter 4; Regulation (EU) 2025/327, Art. 78 (data quality and utility label).</p>
+      <p><strong>Likely question.</strong> "If the data are interoperable, aren't they good enough?" Answer: interoperability makes data exchangeable; it does not make them correct or representative.</p>
+
+      <h3 id="companion-practice">Slide 7 — Who makes a clinical record reusable?</h3>
+      <p><strong>Purpose.</strong> Show that reuse depends on work at the point of care, and that work is not free.</p>
+      <p><strong>Explanation.</strong> Structured entry, recording once, metadata, funded support, validated text extraction. Clinical care remains the priority. Ireland/Spain contrast shows unequal starting points, dated to 2023.</p>
+      <p><strong>Interaction.</strong> Workflow panel with a small dated evidence comparison. Fallback: describe the workflow and the contrast in prose.</p>
+      <p><strong>Sources.</strong> EIT Health report, chapters 4–5; colleagues' notes on country readiness.</p>
+      <p><strong>Likely question.</strong> "Who pays for the extra work?" Answer: currently national and organisational budgets; the regulation sets expectations, not funding.</p>
+
+      <h3 id="companion-loop">Slide 8 — What has to happen before research changes care?</h3>
+      <p><strong>Purpose.</strong> Show the gap between a research finding and a change in practice.</p>
+      <p><strong>Explanation.</strong> Research → evaluation → adoption → monitoring. Use Sofia to explain association versus intervention. A permitted analysis is not a validated intervention.</p>
+      <p><strong>Interaction.</strong> Staged learning loop with a visible evaluation/adoption gap and a monitoring return path. Fallback: describe the loop in prose.</p>
+      <p><strong>Sources.</strong> EIT Health report, chapter 5; colleagues' notes on closing the loop.</p>
+      <p><strong>Likely question.</strong> "If a study shows an effect, why isn't that enough?" Answer: a study shows an association under study conditions; adoption tests whether it works in practice.</p>
+
+      <h3 id="companion-assessment">Slide 9 — A coherent framework. Unequal starting points.</h3>
+      <p><strong>Purpose.</strong> Give a balanced assessment, not a card grid of pros and cons.</p>
+      <p><strong>Explanation.</strong> Strength: the framework joins data collection and benefit. Limitation: expert recommendations do not prove affordable, equitable delivery. Integrate colleagues' time/budget concern.</p>
+      <p><strong>Interaction.</strong> Two-part composition, not a list. Fallback: state the two conclusions in prose.</p>
+      <p><strong>Sources.</strong> EIT Health report, chapters 4–5 and conclusions; colleagues' notes on implementation challenges.</p>
+      <p><strong>Likely question.</strong> "Is the EHDS a good idea?" Answer: the framework is coherent; whether it works depends on implementation, which is uncertain.</p>
+
+      <h3 id="companion-discussion">Slide 10 — What should we be able to explain—and would we trust it?</h3>
+      <p><strong>Purpose.</strong> Close with the learning goals and the trust question.</p>
+      <p><strong>Explanation.</strong> Three learning statements, a three-sentence summary, and the trust question. Optional second question: what makes a dataset fit for a particular question?</p>
+      <p><strong>Interaction.</strong> No staged interaction; this is the discussion slide. Fallback: read the learning goals and open the discussion.</p>
+      <p><strong>Sources.</strong> All cited sources; the trust question is the colleagues' contribution.</p>
+      <p><strong>Likely question.</strong> The trust question itself: under what conditions would you trust your data being reused under the EHDS?</p>
+    </section>
+
+    <section id="ch-learning">
+      <h2>11. Learning and discussion</h2>
+
+      <h3>Learning goals</h3>
+      <p>By the end of the seminar, the audience should be able to:</p>
+      <ol class="handbook-goals">
+        <li>Distinguish primary from secondary use, and explain why purpose—not sensitivity alone—determines the rules.</li>
+        <li>Describe the governed access pathway for secondary use, including the role of the HDAB, the permit, and the secure environment.</li>
+        <li>Distinguish pseudonymisation from anonymisation, and explain what removing a name does and does not protect.</li>
+        <li>Distinguish data quality from interoperability, and explain why harmonisation does not repair missing context or bias.</li>
+        <li>Describe the loop from research to care, and explain why a permitted analysis is not a validated intervention.</li>
+      </ol>
+
+      <h3>Practice question</h3>
+      <p class="handbook-question">A researcher applies to use hospital records to study the relationship between fasting glucose and cardiovascular events. The HDAB approves the application. The researcher receives data in which glucose values are recorded in two different units, fasting status is missing for many records, and some records contain only qualitative notes. The researcher harmonises the units and proceeds with the analysis. What problems remain, and what should the researcher do?</p>
+      <details>
+        <summary>Model answer</summary>
+        <p>Unit harmonisation fixes a syntactic problem: the values are now in a common form. It does not fix the missing fasting status, which is a contextual problem: a glucose value cannot be interpreted for a fasting-glucose study without knowing whether the patient was fasting. It does not fix the qualitative notes, which contain no numeric value and cannot be pooled without inventing data. The remaining problems are missingness (possibly non-random, biasing the sample), validity (the qualitative records cannot contribute to a numeric analysis), and potential selection bias (the records that are complete may not represent the population). The researcher should report the missingness, exclude or separately analyse the qualitative records rather than converting them, assess whether the missingness is related to the outcome, and state the limitations of the analysis clearly. A larger sample does not repair these problems; it makes the bias more precise.</p>
+      </details>
+
+      <h3>Glossary</h3>
+      <dl class="handbook-glossary">
+        <dt>Anonymisation</dt>
+        <dd>Processing that makes individuals no longer identifiable by any means reasonably likely to be used. Anonymised data are not personal data under the GDPR.</dd>
+        <dt>Data quality and utility label</dt>
+        <dd>A structured description required by Article 78, covering documentation, technical quality, data-quality management, coverage, access and provision timing, and modifications.</dd>
+        <dt>FAIR principles</dt>
+        <dd>Findable, Accessible, Interoperable, Reusable. A guide for data management, not a legal requirement.</dd>
+        <dt>Health Data Access Body (HDAB)</dt>
+        <dd>A public body designated by a Member State to assess applications, issue permits, and supervise secondary-use access.</dd>
+        <dt>Health data holder</dt>
+        <dd>The entity that holds health data under national law—hospital, registry, laboratory—and prepares it for access.</dd>
+        <dt>HealthData@EU</dt>
+        <dd>The secondary-use infrastructure connecting HDABs and data holders across the EU.</dd>
+        <dt>Interoperability</dt>
+        <dd>The ability of systems to exchange and understand data consistently across systems and borders.</dd>
+        <dt>MyHealth@EU</dt>
+        <dd>The primary-use infrastructure supporting cross-border exchange of electronic health records for care.</dd>
+        <dt>Primary use</dt>
+        <dd>Use of health data to provide healthcare to the individual the data concern.</dd>
+        <dt>Pseudonymisation</dt>
+        <dd>Processing that replaces identifiers with codes, allowing potential re-linking through a separately held key. Pseudonymised data remain personal data.</dd>
+        <dt>Secondary use</dt>
+        <dd>Reuse of health data for purposes other than the direct care of the individual, such as research, innovation, policy-making, and public health.</dd>
+        <dt>Secure processing environment</dt>
+        <dd>A protected setting in which permitted data are analysed, preventing unauthorised export and re-identification.</dd>
+      </dl>
+
+      <h3>Discussion prompts</h3>
+      <ol class="handbook-discussion">
+        <li><strong>Trust question.</strong> Under what conditions would you trust your own health data being reused under the EHDS? What would have to be true for the safeguards to be credible to you?</li>
+        <li><strong>Fitness question.</strong> What makes a dataset fit for a particular research question? Give an example of a dataset that is accurate but unfit.</li>
+        <li><strong>Equity question.</strong> If Member States start from very different points, what should the EU do—extend deadlines, provide funding, or accept unequal implementation?</li>
+      </ol>
+
+      <h3>Rehearsal checklist</h3>
+      <p>The timed route runs approximately 14 minutes 45 seconds of explanation plus 2 minutes 30 seconds of discussion, for a total of about 17 minutes 15 seconds—within the 15–20 minute window. The following checklist supports rehearsal without assigning roles.</p>
+      <ul class="handbook-rehearsal">
+        <li>Slide 1 (cover): 0:45 — set the scene, do not list articles.</li>
+        <li>Slide 2 (purposes): 1:30 — reveal the classification, keep the corrective explanation short.</li>
+        <li>Slide 3 (access): 1:45 — step through the pathway; do not rush the secure-environment boundary.</li>
+        <li>Slide 4 (privacy): 1:15 — make the pseudonymisation/anonymisation distinction concrete.</li>
+        <li>Slide 5 (quality): 2:00 — let the glucose example breathe; the missing-context point is the key.</li>
+        <li>Slide 6 (fitness): 1:30 — distinguish interoperability from quality; do not over-explain FAIR.</li>
+        <li>Slide 7 (practice): 1:30 — name the workload; date the country contrast to 2023.</li>
+        <li>Slide 8 (loop): 1:45 — emphasise the evaluation/adoption gap.</li>
+        <li>Slide 9 (assessment): 1:15 — hold both conclusions at once.</li>
+        <li>Slide 10 (discussion): 1:00 + 2:30 — state the learning goals, then open the trust question.</li>
+      </ul>
+      <p>If a segment runs long, cut from the explanation, not the discussion. The audience's questions are more valuable than an extra sentence on any slide.</p>
+    </section>
+
+    <section id="ch-references">
+      <h2>12. References and sources</h2>
+
+      <h3>Primary sources</h3>
+      <ol class="handbook-references">
+        <li>European Commission, <em>European Health Data Space</em>, overview and implementation timeline. <a href="https://health.ec.europa.eu/ehealth-digital-health-and-care/european-health-data-space-regulation-ehds_en" rel="noopener">health.ec.europa.eu/.../european-health-data-space-regulation-ehds_en</a>. Accessed for this revision.</li>
+        <li>Regulation (EU) 2025/327 of the European Parliament and of the Council on the European Health Data Space, Official Journal, 5 March 2025. <a href="https://eur-lex.europa.eu/eli/reg/2025/327/oj/eng" rel="noopener">eur-lex.europa.eu/eli/reg/2025/327/oj/eng</a>. Articles cited: 5–9 (patient rights), 53 (secondary-use purposes), 66–73 (applications, permits, opt-out, secure processing), 78 (data quality and utility label), 79 (EU dataset catalogue), 105 (significant findings).</li>
+        <li>EIT Health Think Tank, <em>Implementing the EHDS across Europe</em>, April 2024. Chapters cited: introduction and method (pp. 14–17), data quality (pp. 70–83), primary/secondary-use relationship (pp. 84–96).</li>
+        <li>Colleagues' reading notes, <em>European Health Data Space (EHDS).pdf</em>. Used as interpretation and reminders; corrected where oversimplified.</li>
+      </ol>
+
+      <h3>Printed-page mapping</h3>
+      <p>Page references to the EIT Health report refer to the printed page numbers in the supplied PDF, not the PDF's internal page counter. The data-quality chapter runs printed pages 70–83; the primary/secondary-use relationship runs printed pages 84–96.</p>
+
+      <h3>Verification date</h3>
+      <p>Legal claims in this handbook were checked against Regulation (EU) 2025/327 as published in the Official Journal. The verification date for the legal timeline is the date of this revision. The EIT Health report reflects the state of expert consultation in 2023 and early 2024 and does not describe the regulation as adopted.</p>
+
+      <h3>Acknowledgement</h3>
+      <p>The specific course factsheet was not supplied for this revision. Where the factsheet's exact wording would have clarified an assignment requirement, this handbook follows the Canvas instructions provided and the supplied source material. Any claim attributed to the factsheet is avoided; readers with the original factsheet should verify those requirements directly.</p>
+    </section>
+  </main>
+
+  <footer class="handbook-footer">
+    <p>EHDS seminar handbook, revised edition. Prepared from the EIT Health Think Tank report (April 2024), colleagues' reading notes, and Regulation (EU) 2025/327. Fictional teaching examples are labelled as such. This handbook does not reproduce team preparation logistics.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,366 @@
+/* css/handbook.css — reading and A4 print layout for handbook.html.
+   Shares base.css tokens/fonts with the deck but does not import theme.css. */
+
+.handbook {
+  background: var(--ehds-paper);
+  color: var(--ehds-ink);
+  font-family: var(--ehds-font-display);
+  font-size: 11pt;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.handbook-skip {
+  background: var(--ehds-navy);
+  color: var(--ehds-paper);
+  left: -999px;
+  padding: var(--ehds-space-3) var(--ehds-space-4);
+  position: absolute;
+  top: 0;
+  z-index: 100;
+}
+
+.handbook-skip:focus {
+  left: 0;
+}
+
+/* Cover */
+.handbook-cover {
+  background: var(--ehds-navy-deep);
+  color: var(--ehds-paper);
+  margin: 0;
+  padding: var(--ehds-space-8) var(--ehds-space-6);
+  text-align: left;
+}
+
+.handbook-eyebrow {
+  color: var(--ehds-gold-soft);
+  font-family: var(--ehds-font-ui);
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  margin: 0 0 var(--ehds-space-4);
+  text-transform: uppercase;
+}
+
+.handbook-title {
+  font-family: var(--ehds-font-display);
+  font-size: 2.6rem;
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0 0 var(--ehds-space-3);
+}
+
+.handbook-subtitle {
+  color: var(--ehds-paper-warm);
+  font-size: 1.2rem;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0 0 var(--ehds-space-5);
+  max-width: 42rem;
+}
+
+.handbook-meta {
+  color: var(--ehds-paper-warm);
+  font-family: var(--ehds-font-ui);
+  font-size: 0.85rem;
+  margin: 0 0 var(--ehds-space-2);
+}
+
+.handbook-meta-note {
+  font-style: italic;
+  max-width: 38rem;
+  opacity: 0.85;
+}
+
+/* Table of contents */
+.handbook-toc {
+  background: var(--ehds-paper-warm);
+  border-bottom: 1px solid var(--ehds-rule);
+  padding: var(--ehds-space-6);
+}
+
+.handbook-toc h2 {
+  font-family: var(--ehds-font-ui);
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  margin: 0 0 var(--ehds-space-4);
+  text-transform: uppercase;
+}
+
+.handbook-toc ol {
+  columns: 2;
+  column-gap: var(--ehds-space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.handbook-toc li {
+  break-inside: avoid;
+  margin: 0 0 var(--ehds-space-2);
+}
+
+.handbook-toc a {
+  color: var(--ehds-navy);
+  font-family: var(--ehds-font-ui);
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.handbook-toc a:hover,
+.handbook-toc a:focus {
+  text-decoration: underline;
+}
+
+/* Main content */
+.handbook main {
+  margin: 0 auto;
+  max-width: 44rem;
+  padding: var(--ehds-space-7) var(--ehds-space-5);
+}
+
+.handbook section {
+  margin: 0 0 var(--ehds-space-8);
+}
+
+.handbook h2 {
+  border-bottom: 2px solid var(--ehds-navy);
+  font-size: 1.7rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 var(--ehds-space-5);
+  padding: 0 0 var(--ehds-space-3);
+}
+
+.handbook h3 {
+  color: var(--ehds-navy);
+  font-family: var(--ehds-font-ui);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin: var(--ehds-space-6) 0 var(--ehds-space-3);
+  text-transform: uppercase;
+}
+
+.handbook p {
+  margin: 0 0 var(--ehds-space-4);
+}
+
+.handbook-lead {
+  color: var(--ehds-ink-soft);
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.5;
+  margin: 0 0 var(--ehds-space-5);
+}
+
+.handbook ul,
+.handbook ol {
+  margin: 0 0 var(--ehds-space-4);
+  padding-left: var(--ehds-space-5);
+}
+
+.handbook li {
+  margin: 0 0 var(--ehds-space-2);
+}
+
+.handbook strong {
+  color: var(--ehds-navy);
+  font-weight: 600;
+}
+
+.handbook em {
+  font-style: italic;
+}
+
+.handbook a {
+  color: var(--ehds-navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.handbook a:hover,
+.handbook a:focus {
+  color: var(--ehds-wine);
+}
+
+/* Definition lists used for concepts, rights, actors, etc. */
+.handbook dl {
+  margin: 0 0 var(--ehds-space-5);
+}
+
+.handbook dt {
+  color: var(--ehds-navy);
+  font-family: var(--ehds-font-ui);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: var(--ehds-space-4) 0 var(--ehds-space-1);
+  text-transform: uppercase;
+}
+
+.handbook dd {
+  margin: 0 0 var(--ehds-space-2);
+  padding-left: var(--ehds-space-4);
+}
+
+/* Callouts */
+.handbook-correction,
+.handbook-teach {
+  border-left: 3px solid var(--ehds-wine);
+  font-size: 0.95rem;
+  margin: var(--ehds-space-5) 0;
+  padding: var(--ehds-space-2) var(--ehds-space-4);
+}
+
+.handbook-teach {
+  border-left-color: var(--ehds-gold);
+  font-style: italic;
+}
+
+.handbook-loop {
+  background: var(--ehds-paper-warm);
+  border-left: 3px solid var(--ehds-navy);
+  font-family: var(--ehds-font-ui);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: var(--ehds-space-4) 0;
+  padding: var(--ehds-space-3) var(--ehds-space-4);
+}
+
+.handbook-question {
+  background: var(--ehds-paper-warm);
+  border-left: 3px solid var(--ehds-forest);
+  font-style: italic;
+  padding: var(--ehds-space-3) var(--ehds-space-4);
+}
+
+.handbook details {
+  margin: var(--ehds-space-3) 0 var(--ehds-space-5);
+}
+
+.handbook summary {
+  color: var(--ehds-navy);
+  cursor: pointer;
+  font-family: var(--ehds-font-ui);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.handbook summary:focus {
+  outline: 2px solid var(--ehds-navy);
+  outline-offset: 2px;
+}
+
+/* Footer */
+.handbook-footer {
+  background: var(--ehds-paper-warm);
+  border-top: 1px solid var(--ehds-rule);
+  color: var(--ehds-ink-soft);
+  font-family: var(--ehds-font-ui);
+  font-size: 0.8rem;
+  padding: var(--ehds-space-5);
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .handbook-toc ol {
+    columns: 1;
+  }
+  .handbook main {
+    padding: var(--ehds-space-5) var(--ehds-space-4);
+  }
+  .handbook-title {
+    font-size: 2rem;
+  }
+}
+
+/* Print — A4 */
+@media print {
+  .handbook {
+    background: #fff;
+    color: #000;
+    font-size: 10.5pt;
+  }
+
+  .handbook-skip {
+    display: none;
+  }
+
+  .handbook-cover {
+    background: #fff;
+    border-bottom: 2px solid #000;
+    color: #000;
+    padding: 0 0 12pt;
+    text-align: left;
+  }
+
+  .handbook-eyebrow,
+  .handbook-meta,
+  .handbook-meta-note {
+    color: #333;
+  }
+
+  .handbook-subtitle {
+    color: #333;
+  }
+
+  .handbook-toc {
+    background: #fff;
+    border-bottom: 1px solid #999;
+    padding: 12pt 0;
+  }
+
+  .handbook main {
+    max-width: none;
+    padding: 0;
+  }
+
+  .handbook section {
+    break-inside: auto;
+    margin: 0 0 18pt;
+  }
+
+  .handbook h2 {
+    break-after: avoid;
+    break-inside: avoid;
+  }
+
+  .handbook h3 {
+    break-after: avoid;
+    break-inside: avoid;
+  }
+
+  .handbook p,
+  .handbook li {
+    orphans: 2;
+    widows: 2;
+  }
+
+  .handbook dl {
+    break-inside: avoid;
+  }
+
+  .handbook-correction,
+  .handbook-teach,
+  .handbook-loop,
+  .handbook-question {
+    break-inside: avoid;
+  }
+
+  .handbook-footer {
+    background: #fff;
+    border-top: 1px solid #999;
+    color: #333;
+    padding-top: 12pt;
+  }
+
+  @page {
+    margin: 18mm 18mm 16mm;
+    size: A4;
+  }
+}
