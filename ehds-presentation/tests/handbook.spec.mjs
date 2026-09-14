@@ -86,4 +86,27 @@ test.describe('Handbook', () => {
     });
     expect(hasHorizontalScroll).toBeFalsy();
   });
+
+  test('lists all five beneficiary groups including industry', async ({ page }) => {
+    await page.goto('/handbook.html');
+    const body = (await page.locator('body').textContent())?.toLowerCase() || '';
+    for (const term of ['citizens', 'professionals', 'researchers', 'policymakers', 'industry']) {
+      expect(body).toContain(term);
+    }
+  });
+
+  test('contains both discussion questions', async ({ page }) => {
+    await page.goto('/handbook.html');
+    const body = (await page.locator('body').textContent())?.toLowerCase() || '';
+    expect(body).toContain('trust');
+    expect(body).toContain('responsibility');
+  });
+
+  test('contains the three introductory learning goals', async ({ page }) => {
+    await page.goto('/handbook.html');
+    const body = (await page.locator('body').textContent())?.toLowerCase() || '';
+    expect(body).toContain('what the ehds is');
+    expect(body).toContain('primary versus secondary use');
+    expect(body).toContain('who benefits');
+  });
 });

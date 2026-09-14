@@ -75,6 +75,7 @@
 
       <h3>How to read this handbook</h3>
       <p>Chapters 2 to 8 build the explanation in order. Chapter 9 steps back and assesses what the evidence can and cannot establish. Chapter 10 is a companion to each slide. Chapter 11 contains learning goals, a practice question, a glossary, and discussion prompts. Chapter 12 lists the sources and the verification date for the legal timeline. If you are short on time, read chapters 3, 4, 5, and 8: they carry the core of the argument.</p>
+      <p>The presentation itself follows a six-part route: what the EHDS is, the key ideas, how they fit together, an assessment, the learning goals, and discussion questions. This handbook goes deeper than the slides on every one of those parts.</p>
     </section>
 
     <section id="ch-foundations">
@@ -99,12 +100,13 @@
       <p>The EHDS is not only a framework for data sharing; it also sets requirements for electronic health record (EHR) systems themselves. The regulation establishes interoperability requirements that EHR systems must meet to participate in cross-border exchange and secondary use. These include standards for data structure, terminology, and exchange formats. The framework, the infrastructures, and the data holders are distinct layers: the framework sets the rules, the infrastructures provide the technical pathways, and the data holders (hospitals, registries, laboratories) hold and prepare the data. A rule does not make a system interoperable; that requires standards, implementation, and certification of the systems themselves.</p>
 
       <h3>Stakeholders and what they gain</h3>
-      <p>The framework names several groups of beneficiaries, and each one gains something specific—but also bears conditions.</p>
+      <p>The framework names several groups of beneficiaries, and each one gains something specific—but also bears conditions. These are intended benefits, not guaranteed outcomes.</p>
       <ul>
-        <li><strong>Patients</strong> gain rights to access, port, restrict, and request rectification of their data, and the ability to opt out of secondary use in most cases. They also carry the burden of understanding those rights.</li>
+        <li><strong>Citizens and patients</strong> gain rights to access, port, restrict, and request rectification of their data, and the ability to opt out of secondary use in most cases. They also carry the burden of understanding those rights.</li>
         <li><strong>Healthcare professionals</strong> gain better access to relevant records across borders, which can improve safety and continuity. They also carry the obligation to record data in ways that are structured and reusable.</li>
         <li><strong>Researchers</strong> gain a more predictable path to data held across the EU. They also carry the obligation to apply, justify, and work within a secure environment.</li>
         <li><strong>Policymakers and public-health authorities</strong> gain access to evidence for decisions. They also carry the obligation to use data for permitted purposes only.</li>
+        <li><strong>Industry and innovators</strong> gain a common EHR-system market and easier access to permitted pseudonymised and anonymised data for applied research and innovation. They also carry the obligation to work within the same governance as everyone else.</li>
       </ul>
 
       <h3>A staged timeline</h3>
@@ -297,6 +299,23 @@
       <p>Two kinds of data sit at the edge of the framework and illustrate its limits. Patient-generated data—from wearables, apps, and home monitors—can enrich the record, but their quality, provenance, and meaning vary widely. Including them can improve coverage and timeliness; it can also introduce noise and bias if the devices are inaccurate or the users are unrepresentative.</p>
       <p>Free text—clinical notes written in natural language—contains a great deal of information that structured fields do not capture. Extracting that information reliably requires natural-language processing, which must be validated against the clinical meaning. The report discusses this as a promising but demanding route: the information is there, but turning it into reusable data is hard, and getting it wrong can introduce errors at scale.</p>
       <p class="handbook-correction">The framework does not mandate a specific technology stack for any of this. Claims that the EHDS requires a particular standard, tool, or vendor are not supported by the regulation.</p>
+
+      <h3>Course connections</h3>
+      <p>The EHDS does not stand alone; it operationalises ideas from earlier topics in the course. The connections are conceptual, not legal mandates.</p>
+      <dl class="handbook-courses">
+        <dt>1a — Information models & reference models</dt>
+        <dd>The EHDS EHR exchange format and certification mechanism operationalise the logical information reference models and semantic interoperability principles into EU legislation.</dd>
+        <dt>1b — Controlled terminologies & data structuring</dt>
+        <dd>Standardised coding for secondary use relies on controlled reference terminologies and mapping techniques to turn free text into cross-border comparable data.</dd>
+        <dt>1c — Sociotechnical approach & workflow integration</dt>
+        <dd>The "enter-once" principle aligns with a sociotechnical approach: structured capture must be embedded in clinical workflows to relieve administrative burden and ensure source quality.</dd>
+        <dt>1d — Registry governance & quality feedback loop</dt>
+        <dd>Registry governance and feedback loops support the HDAB's data-safety role and the closed-loop mechanism linking primary care, secondary research and clinical practice.</dd>
+        <dt>2a — Legislative background & policy maturity</dt>
+        <dd>The EHDS is the EU's top-level legal response to the legal fragmentation, inconsistent GDPR interpretations and infrastructure gaps identified in earlier analysis.</dd>
+        <dt>2d — Data-quality assessment (fitness for use)</dt>
+        <dd>Practical quantitative and qualitative tools give HDABs and researchers ways to evaluate whether EHR data are fit for a particular purpose.</dd>
+      </dl>
     </section>
 
     <section id="ch-practice">
@@ -313,7 +332,8 @@
       <p>This is a design problem, not just a policy problem. The EHDS can require structured data; it cannot, by itself, make the entry of that data tolerable.</p>
 
       <h3>Technical and data-steward support</h3>
-      <p>Healthcare organisations need people whose job is to make data reusable: data stewards who respond to access requests, data engineers who prepare extracts, and data-quality officers who monitor the state of the data. These roles cost money. The EHDS assumes they exist; it does not fund them. The report is explicit about this gap: the framework sets expectations, but the resources to meet them are a national and organisational responsibility.</p>
+      <p>Healthcare organisations need people whose job is to make data reusable: data stewards who respond to access requests, data engineers who prepare extracts, and data-quality officers who monitor the state of the data. These roles cost money. The EHDS sets expectations, but the resources to meet them are a national and organisational responsibility; the regulation's recitals discuss Union and national resources, but adequate funding is not guaranteed. The report is explicit about this gap.</p>
+      <p>Making records reusable is shared work. Professionals record data during care; institutions provide usable systems, stewards and validated text extraction; governments and the EU coordinate standards, capacity and resources. No single actor carries the whole burden, and no single actor can make the framework succeed alone.</p>
 
       <h3>Validated legacy-text extraction</h3>
       <p>Many existing records are free text. Turning them into structured data requires natural-language processing, and that processing must be validated: it must be checked against the clinical meaning, on real records, by people who understand both the clinical context and the technology. Unvalidated extraction can introduce errors at scale, and those errors are hard to detect because they look like clean structured data.</p>
@@ -338,6 +358,7 @@
       <p>The loop that the presentation describes is real and important:</p>
       <blockquote class="handbook-loop">Primary care → Data → Secondary use → New insights → Better healthcare → Primary care</blockquote>
       <p>Each arrow is a step, and each step can fail. Data may not be recorded. Secondary use may not be permitted or may not produce a useful insight. Insights may not be evaluated. Evaluated insights may not be adopted. Adopted changes may not be monitored. The loop is a chain, and a chain is only as strong as its weakest link.</p>
+      <p>This loop connects to clinical quality registries from earlier in the course (Doc 1d): registry governance and feedback loops support the HDAB's data-safety role and the closed-loop mechanism linking primary care, secondary research and clinical practice. The loop is not new; the EHDS gives it a common legal frame.</p>
 
       <h3>Hypothesis versus causal evidence</h3>
       <p>An association in data is not a causal claim. Patients who take a particular medication may have better outcomes because of the medication, or because they were healthier to begin with, or because they had better access to care. Distinguishing these requires study design—randomisation, controlled comparison, or methods that approximate them—not just more data.</p>
@@ -388,10 +409,10 @@
       <p>This is where concerns about time, money, standards, and privacy are most relevant. They are not objections to the EHDS; they are the conditions under which it will succeed or fail. A framework that is right in principle can still fail in practice if the conditions are not met.</p>
 
       <h3>Two supported conclusions</h3>
-      <p>Two conclusions are well supported by the available evidence.</p>
+      <p>Two conclusions are well supported by the available evidence, and the presentation frames them as "convincing" and "challenging".</p>
       <ol>
-        <li><strong>The EHDS joins data collection and benefit in a way that previous frameworks did not.</strong> By setting common rules for both primary and secondary use, and by governing access through HDABs and secure environments, it creates a path from care data to research data that is more coherent than the patchwork it replaces. That is a real strength.</li>
-        <li><strong>Expert implementation recommendations do not prove affordable, equitable delivery.</strong> The report's recommendations are informed, but they do not establish that the framework can be implemented as intended across all Member States, on the deadlines set, with the resources available. That remains to be seen.</li>
+        <li><strong>Convincing: common rules are valuable because practical quality measures address real barriers.</strong> The report does not only identify limitations — it proposes practical solutions: common data standards, interoperable systems, structured data collection, consistent metadata, and training healthcare professionals to record data in a standardised way. By setting common rules for both primary and secondary use, and by governing access through HDABs and secure environments, the EHDS creates a path from care data to research data more coherent than the patchwork it replaces.</li>
+        <li><strong>Challenging: implementation depends on resources, standards and capability.</strong> The report's recommendations are informed, but they do not establish that the framework can be implemented as intended across all Member States, on the deadlines set, with the resources available. Different starting points, workflow changes and budgets make delivery uncertain; adequate funding is not guaranteed. This connects to the legal fragmentation and infrastructure gaps identified earlier in the course (Doc 2a). That remains to be seen.</li>
       </ol>
       <p>Holding both conclusions at once is the point. The framework is promising and its implementation is uncertain. Neither claim cancels the other.</p>
     </section>
@@ -402,23 +423,23 @@
       <p class="handbook-lead">This chapter is keyed to the ten slides of the presentation. Each entry gives the slide's purpose, the explanation behind it, the interaction cue and its fallback, the source anchors, and a likely audience question.</p>
 
       <h3 id="companion-cover">Slide 1 — European Health Data Space</h3>
-      <p><strong>Purpose.</strong> Open with a concrete change: a record that can move across borders changes what care and research are possible.</p>
-      <p><strong>Explanation.</strong> The EHDS is a framework, not a database. It joins primary and secondary use under common rules. It sets EHR-system interoperability requirements and distinguishes the framework, the infrastructures (MyHealth@EU for care, HealthData@EU for reuse), and the data holders. The opening should make the audience curious about how that works, not list articles.</p>
+      <p><strong>Purpose.</strong> Open with a plain-language explanation and place the topic on the map of health data recording and reuse.</p>
+      <p><strong>Explanation.</strong> The EHDS is a common EU framework that makes it easier and safer to share and reuse health data across Europe, supporting patients, healthcare professionals, researchers and policymakers while protecting individuals' privacy. It is a framework, not a database. It joins primary and secondary use under common rules and sets EHR-system interoperability requirements. The opening should make the audience curious about how that works, not list articles.</p>
       <p><strong>Interaction.</strong> No interaction on this slide; it sets the scene.</p>
       <p><strong>Sources.</strong> Regulation (EU) 2025/327; EIT Health report, introduction.</p>
       <p><strong>Likely question.</strong> "Is the EHDS one database or many?" Answer: many holders, one framework.</p>
 
       <h3 id="companion-purposes">Slide 2 — One record. Two purposes.</h3>
-      <p><strong>Purpose.</strong> Establish the central distinction: the same record can serve care and research, and purpose determines the rules.</p>
-      <p><strong>Explanation.</strong> A doctor abroad treating Sofia is primary use. The same record later used to study a cohort is secondary use. The record does not change; the purpose does.</p>
+      <p><strong>Purpose.</strong> Establish the central distinction: the same record can serve care and research, and purpose determines the rules. Name who the framework is designed to benefit.</p>
+      <p><strong>Explanation.</strong> A doctor abroad treating Sofia is primary use. The same record later used to study a cohort is secondary use. Secondary use is not limited to research: it also covers innovation, policy-making, regulatory activities and public health. The record does not change; the purpose does. A benefits band names the five groups the framework serves — citizens, health professionals, researchers, policymakers and industry — as intended benefits, not guaranteed outcomes.</p>
       <p><strong>Interaction.</strong> Purpose classification: present the cross-border care question, reveal that it is still primary use. Fallback: state the answer directly.</p>
       <p><strong>Sources.</strong> Regulation (EU) 2025/327, Arts. 5–9 (rights), Art. 53 (secondary-use purposes).</p>
       <p><strong>Likely question.</strong> "If the data crossed a border, isn't it research?" Answer: no—purpose, not geography, defines the use.</p>
 
       <h3 id="companion-access">Slide 3 — How would a researcher get access?</h3>
       <p><strong>Purpose.</strong> Show that secondary use is governed access, not open access.</p>
-      <p><strong>Explanation.</strong> The pathway: question and catalogue, application, HDAB assessment, permit, necessary prepared data, secure environment, reviewed non-personal output. Each stage exists for a reason.</p>
-      <p><strong>Interaction.</strong> Stepped pathway with Previous/Next controls and fragment equivalence. Optional research/marketing comparison shows "potentially eligible; assessment required", not automatic approval. Fallback: describe the pathway linearly.</p>
+      <p><strong>Explanation.</strong> The pathway: question and catalogue, application, HDAB assessment, permit, necessary prepared data, secure environment, reviewed non-personal output. The HDAB is a public gatekeeper every EU country must designate; it assesses purpose, necessity and safeguards — it does not merely remove names. Each stage exists for a reason.</p>
+      <p><strong>Interaction.</strong> Stepped pathway with Previous/Next controls and fragment equivalence. Fallback: describe the pathway linearly.</p>
       <p><strong>Sources.</strong> Regulation (EU) 2025/327, Arts. 66–73 (applications, permits, opt-out, secure processing).</p>
       <p><strong>Likely question.</strong> "Can a researcher just download the data?" Answer: no—analysis happens in a secure environment; only reviewed non-personal outputs leave.</p>
 
@@ -438,47 +459,52 @@
 
       <h3 id="companion-fitness">Slide 6 — Usable for which question—and for whom?</h3>
       <p><strong>Purpose.</strong> Distinguish interoperability from quality, and quality from fitness for a specific question.</p>
-      <p><strong>Explanation.</strong> Two groups: interoperability (exchange, meaning) versus fitness for purpose (validity, completeness, provenance, coverage). Counting recorded tests is not the same as studying treatment effectiveness; harmonisation does not remove selection bias.</p>
+      <p><strong>Explanation.</strong> Two groups: interoperability (exchange, meaning) versus fitness for purpose (validity, completeness, provenance, coverage). Counting recorded tests is not the same as studying treatment effectiveness; harmonisation does not remove selection bias. A course-connection line links the slide to earlier topics: information models (1a), shared terminology (1b) and data-quality assessment (2d).</p>
       <p><strong>Interaction.</strong> Two-group passport panel with a contrast example. Fallback: describe the passport fields.</p>
       <p><strong>Sources.</strong> EIT Health report, chapter 4; Regulation (EU) 2025/327, Art. 78 (data quality and utility label).</p>
       <p><strong>Likely question.</strong> "If the data are interoperable, aren't they good enough?" Answer: interoperability makes data exchangeable; it does not make them correct or representative.</p>
 
       <h3 id="companion-practice">Slide 7 — Who makes a clinical record reusable?</h3>
-      <p><strong>Purpose.</strong> Show that reuse depends on work at the point of care, and that work is not free.</p>
-      <p><strong>Explanation.</strong> The workflow: capture once, structure and validate, steward and document, prepare for reuse. Clinical care remains the priority. Ireland/Spain contrast shows unequal starting points, dated to 2023 consultations. Spain has limitations in recording and free-text persistence.</p>
+      <p><strong>Purpose.</strong> Show that reuse depends on shared work, and that work is not free.</p>
+      <p><strong>Explanation.</strong> The workflow: capture once, structure and validate, steward and document, prepare for reuse. Making records reusable is shared responsibility: professionals record during care; institutions provide usable systems and stewardship; governments and the EU coordinate standards, capacity and resources. Clinical care remains the priority. Ireland/Spain contrast shows unequal starting points, dated to 2023 consultations. Spain has limitations in recording and free-text persistence.</p>
       <p><strong>Interaction.</strong> Full-width workflow with a dated evidence band below. Fallback: describe the workflow and the contrast in prose.</p>
       <p><strong>Sources.</strong> EIT Health report, chapters 4–5.</p>
       <p><strong>Likely question.</strong> "Who pays for the extra work?" Answer: currently national and organisational budgets; the regulation sets expectations and its recitals discuss Union and national resources, but it does not guarantee adequate funding.</p>
 
       <h3 id="companion-loop">Slide 8 — What has to happen before research changes care?</h3>
       <p><strong>Purpose.</strong> Show the gap between a research finding and a change in practice.</p>
-      <p><strong>Explanation.</strong> Research → evaluation → adoption → monitoring, in a two-row cycle with a prominent evaluation/adoption boundary. A permitted analysis is not a validated intervention. The return path feeds new data back into the next cycle.</p>
+      <p><strong>Explanation.</strong> A framing line makes the wider chain explicit: care and recording → governed reuse → insights → evaluated and adopted improvements → new care data. The diagram shows research → evaluation → adoption → monitoring, in a two-row cycle with a prominent evaluation/adoption boundary. A permitted analysis is not a validated intervention. The return path feeds new data back into the next cycle. This connects to clinical quality registries (Doc 1d).</p>
       <p><strong>Interaction.</strong> Staged learning loop with a visible evaluation/adoption boundary and a return path. Fallback: describe the loop in prose.</p>
       <p><strong>Sources.</strong> EIT Health report, chapter 5.</p>
       <p><strong>Likely question.</strong> "If a study shows an effect, why isn't that enough?" Answer: a study shows an association under study conditions; adoption tests whether it works in practice.</p>
 
       <h3 id="companion-assessment">Slide 9 — Common rules. Unequal readiness.</h3>
       <p><strong>Purpose.</strong> Give a balanced assessment, not a card grid of pros and cons.</p>
-      <p><strong>Explanation.</strong> Two editorial statements separated by a rule. First: the framework joins data collection and benefit under common rules — a coherent path. Second: implementation depends on resources, standards, and capability; common deadlines apply to countries at very different stages; adequate funding is not guaranteed. Distinguish stakeholder recommendations from measured outcomes.</p>
+      <p><strong>Explanation.</strong> Two editorial statements labelled "convincing" and "challenging", separated by a rule. Convincing: common rules are valuable because practical quality measures — standards, structured recording, metadata and training — address real barriers to reuse. Challenging: implementation depends on resources, standards and capability; different starting points, workflow changes and budgets make delivery uncertain; adequate funding is not guaranteed. Distinguish stakeholder recommendations from measured outcomes.</p>
       <p><strong>Interaction.</strong> Two-part composition, not a list. Fallback: state the two conclusions in prose.</p>
       <p><strong>Sources.</strong> EIT Health report, chapters 4–5 and conclusions.</p>
       <p><strong>Likely question.</strong> "Is the EHDS a good idea?" Answer: the framework is coherent; whether it works depends on implementation, which is uncertain.</p>
 
       <h3 id="companion-discussion">Slide 10 — Better care takes more than shared data</h3>
-      <p><strong>Purpose.</strong> Close with substantive conclusions and the trust question.</p>
-      <p><strong>Explanation.</strong> Three conclusions: purpose determines use; governed access still needs fit-for-purpose data; research must be evaluated and integrated into care. The trust question: what would make this use of health data trustworthy to you?</p>
-      <p><strong>Interaction.</strong> No staged interaction; this is the discussion slide. Fallback: state the conclusions and open the discussion.</p>
+      <p><strong>Purpose.</strong> Close with three learning takeaways and two discussion questions.</p>
+      <p><strong>Explanation.</strong> Three learning takeaways: what the EHDS is — a common framework joining care and reuse under governed access; primary versus secondary use — purpose determines the rules, and governed access still needs fit-for-purpose data; who benefits — citizens, professionals, researchers, policymakers and industry, once research is evaluated and adopted into care. Two discussion questions: would you trust your health data to be shared and used across Europe, why or why not; and should responsibility for high-quality data rest mainly on professionals, or be shared across institutions, governments and the EU.</p>
+      <p><strong>Interaction.</strong> No staged interaction; this is the discussion slide. Fallback: state the takeaways and open both questions.</p>
       <p><strong>Sources.</strong> All cited sources.</p>
-      <p><strong>Likely question.</strong> The trust question itself: under what conditions would you trust your data being reused under the EHDS?</p>
+      <p><strong>Likely question.</strong> The two discussion questions themselves.</p>
     </section>
 
     <section id="ch-learning">
       <h2>11. Learning and discussion</h2>
 
       <h3>Learning goals</h3>
-      <p>By the end of the presentation, the audience should be able to:</p>
+      <p>The presentation foregrounds three introductory learning goals; the handbook adds deeper objectives below them. By the end of the presentation, the audience should be able to:</p>
       <ol class="handbook-goals">
-        <li>Distinguish primary from secondary use, and explain why purpose—not sensitivity alone—determines the rules.</li>
+        <li><strong>What the EHDS is.</strong> Explain in one or two plain-language sentences that it is a common EU framework for sharing and reusing health data, not a single database.</li>
+        <li><strong>Primary versus secondary use.</strong> Distinguish the two, and explain why purpose — not sensitivity alone — determines the rules.</li>
+        <li><strong>Who benefits and what are the benefits.</strong> Name the five groups (citizens, professionals, researchers, policymakers, industry) and what each one gains, while distinguishing intended benefits from guaranteed outcomes.</li>
+      </ol>
+      <p>The deeper objectives, supporting exam preparation:</p>
+      <ol class="handbook-goals" start="4">
         <li>Describe the governed access pathway for secondary use, including the role of the HDAB, the permit, and the secure environment.</li>
         <li>Distinguish pseudonymisation from anonymisation, and explain what removing a name does and does not protect.</li>
         <li>Distinguish data quality from interoperability, and explain why harmonisation does not repair missing context or bias.</li>
@@ -522,9 +548,10 @@
 
       <h3>Discussion prompts</h3>
       <ol class="handbook-discussion">
-        <li><strong>Trust question.</strong> Under what conditions would you trust your own health data being reused under the EHDS? What would have to be true for the safeguards to be credible to you?</li>
-        <li><strong>Fitness question.</strong> What makes a dataset fit for a particular research question? Give an example of a dataset that is accurate but unfit.</li>
-        <li><strong>Equity question.</strong> If Member States start from very different points, what should the EU do—extend deadlines, provide funding, or accept unequal implementation?</li>
+        <li><strong>Trust question.</strong> Would you trust your health data to be shared and used across Europe? Why or why not? What would have to be true for the safeguards to be credible to you?</li>
+        <li><strong>Responsibility question.</strong> Should healthcare professionals be primarily responsible for providing high-quality data, or should this responsibility be shared more equally between healthcare institutions, governments and the EU?</li>
+        <li><strong>Fitness question (optional follow-up).</strong> What makes a dataset fit for a particular research question? Give an example of a dataset that is accurate but unfit.</li>
+        <li><strong>Equity question (optional follow-up).</strong> If Member States start from very different points, what should the EU do—extend deadlines, provide funding, or accept unequal implementation?</li>
       </ol>
 
       <h3>Rehearsal checklist</h3>
@@ -539,7 +566,7 @@
         <li>Slide 7 (practice): 1:30 — name the workload; date the country contrast to 2023.</li>
         <li>Slide 8 (loop): 1:45 — emphasise the evaluation/adoption gap.</li>
         <li>Slide 9 (assessment): 1:15 — hold both conclusions at once.</li>
-        <li>Slide 10 (discussion): 1:00 + 2:30 — state the learning goals, then open the trust question.</li>
+        <li>Slide 10 (discussion): 1:00 + 2:30 — state the three learning takeaways, then open both discussion questions.</li>
       </ul>
       <p>If a segment runs long, cut from the explanation, not the discussion. The audience's questions are more valuable than an extra sentence on any slide.</p>
     </section>

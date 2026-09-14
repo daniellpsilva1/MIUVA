@@ -79,4 +79,63 @@ test.describe('Presentation content', () => {
     const body = (await page.locator('body').textContent())?.toLowerCase() || '';
     expect(body).toContain('fictional');
   });
+
+  test('cover slide states plain-language purpose in visible text', async ({ page }) => {
+    await page.goto('/index.html');
+    const text = (await slideTextExcludingNotes(page, 'cover')).toLowerCase();
+    expect(text).toContain('health data recording and reuse');
+  });
+
+  test('purposes slide lists all five beneficiary groups in visible text', async ({ page }) => {
+    await page.goto('/index.html');
+    const text = (await slideTextExcludingNotes(page, 'purposes')).toLowerCase();
+    for (const term of ['citizens', 'professionals', 'researchers', 'policymakers', 'industry']) {
+      expect(text).toContain(term);
+    }
+  });
+
+  test('access slide introduces the HDAB as a public gatekeeper in visible text', async ({ page }) => {
+    await page.goto('/index.html');
+    const text = (await slideTextExcludingNotes(page, 'access')).toLowerCase();
+    expect(text).toContain('health data access body');
+    expect(text).toContain('gatekeeper');
+  });
+
+  test('assessment slide labels convincing and challenging in visible text', async ({ page }) => {
+    await page.goto('/index.html');
+    const text = (await slideTextExcludingNotes(page, 'assessment')).toLowerCase();
+    expect(text).toContain('convincing');
+    expect(text).toContain('challenging');
+  });
+
+  test('discussion slide shows three learning goals in visible text', async ({ page }) => {
+    await page.goto('/index.html');
+    const text = (await slideTextExcludingNotes(page, 'discussion')).toLowerCase();
+    expect(text).toContain('what the ehds is');
+    expect(text).toContain('primary versus secondary use');
+    expect(text).toContain('who benefits');
+  });
+
+  test('discussion slide shows both discussion questions in visible text', async ({ page }) => {
+    await page.goto('/index.html');
+    const text = (await slideTextExcludingNotes(page, 'discussion')).toLowerCase();
+    expect(text).toContain('trust');
+    expect(text).toContain('responsibility');
+  });
+
+  test('fitness slide names a course connection in visible text', async ({ page }) => {
+    await page.goto('/index.html');
+    const text = (await slideTextExcludingNotes(page, 'fitness')).toLowerCase();
+    expect(text).toContain('course');
+  });
 });
+
+async function slideTextExcludingNotes(page, slideId) {
+  return page.evaluate((id) => {
+    const section = document.getElementById(id);
+    if (!section) return '';
+    const clone = section.cloneNode(true);
+    clone.querySelectorAll('aside.notes').forEach((n) => n.remove());
+    return clone.textContent || '';
+  }, slideId);
+}
