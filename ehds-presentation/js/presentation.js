@@ -203,6 +203,27 @@
         window.Reveal.navigateFragment(-1);
       });
     }
+
+    document.querySelectorAll('[data-quality-advance]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const f = getFragmentIndex();
+        if (f < MAX_QUALITY - 1) window.Reveal.navigateFragment(f + 1);
+      });
+    });
+  }
+
+  function initAskCards() {
+    document.querySelectorAll('[data-ask-card]').forEach(function (card) {
+      if (card.getAttribute('data-bound')) return;
+      card.setAttribute('data-bound', 'true');
+      card.addEventListener('click', function () {
+        const open = card.classList.contains('is-open');
+        document.querySelectorAll('[data-ask-card]').forEach(function (c) {
+          c.classList.remove('is-open');
+        });
+        if (!open) card.classList.add('is-open');
+      });
+    });
   }
 
   function updateLoopView(f) {
@@ -272,6 +293,7 @@
     initAccess();
     initLoop();
     initQuality();
+    initAskCards();
     updateSlideState(getSlideId(findCurrentSlide()));
   }
 

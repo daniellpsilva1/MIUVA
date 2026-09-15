@@ -41,11 +41,17 @@
   <div class="reveal">
     <div class="slides">
 
-      <section id="cover" class="slide-cover" data-background-color="#0c1830">
-        <p class="slide-kicker">Topic 04 · Health data recording and reuse</p>
-        <h1 class="slide-title-cover">The European Health Data Space</h1>
-        <p class="slide-subtitle-cover">A common EU framework that makes it easier and safer to share and reuse health data across Europe — supporting patients, healthcare professionals, researchers and policymakers while protecting individuals' privacy.</p>
-        <p class="slide-source-cover">EIT Health Think Tank (2024), chapters 4–5 · Regulation (EU) 2025/327</p>
+      <section id="cover" class="slide-cover slide-content" data-background-color="#f4efe6">
+        <div class="cover-layout">
+          <div class="cover-copy">
+            <p class="slide-kicker">Topic 04 · Health data recording and reuse</p>
+            <h1 class="slide-title-cover">The European Health Data Space</h1>
+            <p class="ask-line">Before we start: in one sentence, what do you think the EHDS is?</p>
+            <p class="slide-subtitle-cover">A common EU framework that makes it easier and safer to share and reuse health data across Europe — supporting patients, healthcare professionals, researchers and policymakers while protecting individuals' privacy.</p>
+          </div>
+          <img class="cover-figure" src="assets/images/ehds-commission.jpg" width="480" height="480" alt="European Commission graphic: The European Health Data Space">
+        </div>
+        <p class="slide-source">EIT Health Think Tank (2024), chapters 4–5 · Regulation (EU) 2025/327</p>
         <aside class="notes">
           Open with a concrete change: a record that can move across borders changes what care and research are possible. The EHDS is a framework, not a database. It joins primary and secondary use under common rules. It sets EHR-system interoperability requirements and distinguishes the framework, the infrastructures (MyHealth@EU for care, HealthData@EU for reuse), and the data holders (hospitals, registries, laboratories). Do not list articles here; make the audience curious about how it works. Spend about 1 minute. Transition: the central distinction is purpose.
         </aside>
@@ -53,22 +59,26 @@
 
       <section id="purposes" class="slide-purposes slide-content" data-background-color="#f4efe6">
         <h2 class="slide-heading">One record. Two purposes.</h2>
+        <p class="ask-line">Show of hands first: is the Spanish doctor using Sofia’s record for care, or for research?</p>
         <div class="purposes-stage">
-          <div class="purposes-record">
-            <div class="record-label">Sofia's record</div>
-            <div class="record-line">Glucose 7.0 mmol/L · fasting · 14 Jan</div>
-            <div class="record-note">Fictional teaching example</div>
-          </div>
-          <div class="purposes-branches">
-            <div class="branch branch-primary" data-purpose="primary">
-              <div class="branch-question">A doctor in Spain treats Sofia.</div>
-              <div class="branch-answer fragment" data-fragment-answer>Primary use — care of the individual.</div>
-              <div class="branch-source">MyHealth@EU</div>
+          <img class="purposes-figure" src="assets/images/primary-secondary.jpg" width="640" height="360" alt="Diagram of primary use versus secondary use">
+          <div class="purposes-right">
+            <div class="purposes-record">
+              <div class="record-label">Sofia's record</div>
+              <div class="record-line">Glucose 7.0 mmol/L · fasting · 14 Jan</div>
+              <div class="record-note">Fictional teaching example</div>
             </div>
-            <div class="branch branch-secondary" data-purpose="secondary">
-              <div class="branch-question">A researcher studies glucose trends in a cohort.</div>
-              <div class="branch-answer fragment" data-fragment-answer>Secondary use — a question about a population.</div>
-              <div class="branch-source">HealthData@EU</div>
+            <div class="purposes-branches">
+              <div class="branch branch-primary" data-purpose="primary">
+                <div class="branch-question">A doctor in Spain treats Sofia.</div>
+                <div class="branch-answer fragment" data-fragment-answer>Primary use — care of the individual.</div>
+                <div class="branch-source">MyHealth@EU</div>
+              </div>
+              <div class="branch branch-secondary" data-purpose="secondary">
+                <div class="branch-question">A researcher studies glucose trends in a cohort.</div>
+                <div class="branch-answer fragment" data-fragment-answer>Secondary use — a question about a population.</div>
+                <div class="branch-source">HealthData@EU</div>
+              </div>
             </div>
           </div>
         </div>
@@ -150,15 +160,17 @@
             </div>
           </div>
         </div>
-        <div class="access-controls">
-          <button type="button" class="pathway-btn" data-pathway-prev disabled>Previous</button>
-          <button type="button" class="pathway-btn" data-pathway-next>Next</button>
-        </div>
         <span class="stage-trigger fragment" data-stage="1"></span>
         <span class="stage-trigger fragment" data-stage="2"></span>
         <span class="stage-trigger fragment" data-stage="3"></span>
-        <p class="access-boundary fragment" data-step="4">The data do not leave. Only reviewed, non-personal results do.</p>
-        <p class="slide-source">Reg. (EU) 2025/327, Arts. 66–73 · Teaching illustration, not a permit service</p>
+        <p class="access-boundary fragment" data-step="4">The data stay inside. Only reviewed results come out.</p>
+        <div class="slide-dock">
+          <div class="access-controls">
+            <button type="button" class="pathway-btn" data-pathway-prev disabled>Previous</button>
+            <button type="button" class="pathway-btn" data-pathway-next>Next</button>
+          </div>
+          <p class="slide-source">Reg. (EU) 2025/327, Arts. 66–73 · Teaching illustration, not a permit service</p>
+        </div>
         <aside class="notes">
           Secondary use is governed access, not open access. Step through the pathway: question and catalogue, application, HDAB assessment, permit, secure environment, reviewed non-personal output. Emphasise the secure-environment boundary: the data themselves do not leave; only reviewed non-personal outputs do. This is the most misunderstood point. The optional research/marketing comparison shows "potentially eligible; assessment required", not automatic approval. Label the whole scene as a teaching illustration. About 2 minutes. Transition: what does removing a name actually protect?
         </aside>
@@ -206,38 +218,41 @@
 
       <section id="quality" class="slide-quality slide-content" data-background-color="#f4efe6">
         <h2 class="slide-heading">Can these three glucose records answer the same question?</h2>
+        <p class="ask-line">Raise a hand: which of these would you trust in a study of fasting glucose?</p>
         <p class="quality-question">Question: compare fasting glucose measurements across three records. Fictional teaching example.</p>
         <div class="quality-stage" data-quality-stage>
-          <div class="quality-record" data-record="A">
+          <button type="button" class="quality-record" data-record="A" data-quality-advance>
             <div class="record-label">Record A</div>
             <div class="quality-value">7.0 mmol/L</div>
             <div class="quality-context">Fasting: yes</div>
             <div class="quality-annotation" data-annotation="A"></div>
-          </div>
-          <div class="quality-record" data-record="B">
+          </button>
+          <button type="button" class="quality-record" data-record="B" data-quality-advance>
             <div class="record-label">Record B</div>
             <div class="quality-value">126 mg/dL</div>
             <div class="quality-context">Fasting: unknown</div>
             <div class="quality-annotation" data-annotation="B"></div>
-          </div>
-          <div class="quality-record" data-record="C">
+          </button>
+          <button type="button" class="quality-record" data-record="C" data-quality-advance>
             <div class="record-label">Record C</div>
             <div class="quality-value">"slightly elevated"</div>
             <div class="quality-context">No numeric value</div>
             <div class="quality-annotation" data-annotation="C"></div>
-          </div>
+          </button>
         </div>
         <div class="quality-reveal">
-          <p class="quality-step fragment" data-quality-step="1">Step 1: 7.0 mmol/L ≈ 126 mg/dL. Unit harmonisation makes A and B comparable in form.</p>
-          <p class="quality-step fragment" data-quality-step="2">Step 2: B's fasting status is still missing. C has no number to convert. Context and validity remain unresolved.</p>
-          <p class="quality-step fragment" data-quality-step="3">Step 3: Harmonisation fixes syntax. It does not recover missing context, invent measurements, or remove bias.</p>
+          <p class="quality-step fragment" data-quality-step="1">A and B are roughly the same number — once you convert the units. C still has no number.</p>
+          <p class="quality-step fragment" data-quality-step="2">B never recorded fasting. C is a note, not a measurement. You cannot recover that later.</p>
+          <p class="quality-step fragment" data-quality-step="3">Matching formats is not the same as answering the question. Missing context stays missing.</p>
         </div>
-        <div class="quality-controls">
-          <button type="button" class="quality-btn" data-quality-prev disabled>Previous</button>
-          <button type="button" class="quality-btn" data-quality-next>Next</button>
-          <button type="button" class="quality-btn quality-reset" data-quality-reset>Reset</button>
+        <div class="slide-dock">
+          <div class="quality-controls">
+            <button type="button" class="quality-btn" data-quality-prev disabled>Previous</button>
+            <button type="button" class="quality-btn" data-quality-next>Next</button>
+            <button type="button" class="quality-btn quality-reset" data-quality-reset>Reset</button>
+          </div>
+          <p class="slide-source">EIT Health (2024), ch. 4 · Fictional teaching example</p>
         </div>
-        <p class="slide-source">EIT Health (2024), ch. 4 · Fictional teaching example</p>
         <aside class="notes">
           The key teaching example. Three records: A (7.0 mmol/L, fasting), B (126 mg/dL, fasting unknown), C (qualitative note). Step 1: the units are approximately equivalent — conversion is a multiplication by about 18. Step 2: harmonising units does not recover B's missing fasting status, and C has no number to convert. Step 3: harmonisation fixes syntax, not context, missingness, or bias. These are exactly the problems the group identified across Europe: datasets are often incomplete, paper-based records and free-text notes make data hard to structure and compare, and some groups are underrepresented. Let the example breathe; the missing-context point is the key. No medical diagnosis is implied. About 2 minutes. Transition: so the data are exchangeable — but are they fit for the question?
         </aside>
@@ -302,6 +317,7 @@
 
       <section id="practice" class="slide-practice slide-content" data-background-color="#f4efe6">
         <h2 class="slide-heading">Who makes a clinical record reusable?</h2>
+        <p class="ask-line">Quick poll: should extra recording work sit with the clinician, the hospital, or the government?</p>
         <div class="practice-workflow-full">
           <div class="workflow-step">
             <div class="workflow-num">1</div>
@@ -340,15 +356,16 @@
             </div>
           </div>
         </div>
-        <p class="practice-conclusion">Shared responsibility: professionals record during care; institutions provide usable systems and stewardship; governments and the EU coordinate standards, capacity and resources. Care comes first.</p>
+        <p class="practice-conclusion">Care comes first. Recording well is shared work — not an extra job dumped on the ward.</p>
         <p class="slide-source">EIT Health (2024), chs. 4–5</p>
         <aside class="notes">
           Making records reusable is shared work. Professionals record data during care; institutions provide usable systems, stewards and validated text extraction; governments and the EU coordinate standards, capacity and resources. Structured entry, recording once, metadata, funded support. The "enter-once" principle aligns with the sociotechnical approach from earlier in the course (Doc 1c): structured capture must be embedded in clinical workflows to relieve administrative burden, not added on top of it. Clinical care remains the priority. The Ireland/Spain contrast is dated to 2023 consultations — not a permanent ranking. The point is unequal starting points under common deadlines. Name the workload; do not dismiss it as logistics. About 1 minute 30 seconds. Transition: even if the data are ready and the research is done, what has to happen before it changes care?
         </aside>
       </section>
 
-      <section id="loop" class="slide-loop" data-background-color="#0c1830">
-        <h2 class="slide-heading slide-heading-light">What has to happen before research changes care?</h2>
+      <section id="loop" class="slide-loop slide-content" data-background-color="#f4efe6">
+        <h2 class="slide-heading">What has to happen before research changes care?</h2>
+        <p class="ask-line">If a study finds something useful tomorrow — what still has to happen before Sofia’s doctor changes treatment?</p>
         <p class="loop-chain">Care & recording → governed reuse → insights → evaluated and adopted improvements → new care data</p>
         <div class="loop-diagram-large" data-loop-diagram>
           <div class="loop-row">
@@ -388,7 +405,7 @@
         <span class="stage-trigger fragment" data-stage="1"></span>
         <span class="stage-trigger fragment" data-stage="2"></span>
         <p class="loop-gap fragment" data-loop-gap>A permitted analysis is not a validated intervention.</p>
-        <p class="slide-source slide-source-light">EIT Health (2024), ch. 5 · Closing the loop</p>
+        <p class="slide-source">EIT Health (2024), ch. 5 · Closing the loop</p>
         <aside class="notes">
           The loop: research, evaluation, adoption, monitoring, and back. The framing line makes the wider chain explicit: care and recording feed governed reuse, which produces insights, which must be evaluated and adopted before they change care, which produces new data. Each step can fail. An association is not a causal claim; more data does not by itself produce causal evidence. Evaluation turns a finding into a candidate intervention. Adoption requires training and reimbursement. Monitoring closes the loop back to data. This connects to clinical quality registries from earlier in the course (Doc 1d): registry governance and feedback loops support the HDAB's data-safety role and the closed-loop mechanism linking primary care, secondary research and clinical practice. Emphasise the evaluation/adoption gap — this is where the loop most often breaks. A permitted analysis is not a validated intervention. About 1 minute 45 seconds. Transition: step back — what should we conclude?
         </aside>
@@ -415,8 +432,8 @@
         </aside>
       </section>
 
-      <section id="discussion" class="slide-discussion" data-background-color="#0c1830">
-        <h2 class="slide-heading slide-heading-light">Better care takes more than shared data.</h2>
+      <section id="discussion" class="slide-discussion slide-content" data-background-color="#f4efe6">
+        <h2 class="slide-heading">Better care takes more than shared data.</h2>
         <div class="discussion-goals">
           <div class="goal-item">
             <span class="goal-label">What the EHDS is</span>
@@ -431,11 +448,18 @@
             <p class="goal-text">Citizens, professionals, researchers, policymakers and industry — once research is evaluated and adopted into care.</p>
           </div>
         </div>
+        <p class="ask-line">Now to you. Click a question, then take a show of hands.</p>
         <div class="discussion-questions">
-          <p class="question-item">Would you trust your health data to be shared and used across Europe? Why or why not?</p>
-          <p class="question-item">Should responsibility for high-quality data rest mainly on professionals, or be shared across institutions, governments and the EU?</p>
+          <button type="button" class="ask-card" data-ask-card>
+            <span class="ask-prompt">Would you trust your health data to be shared and used across Europe? Why or why not?</span>
+            <span class="ask-hint">Keep this non-personal. Ask what would make sharing feel safer — not whether anyone has a diagnosis.</span>
+          </button>
+          <button type="button" class="ask-card" data-ask-card>
+            <span class="ask-prompt">Should responsibility for high-quality data rest mainly on professionals, or be shared across institutions, governments and the EU?</span>
+            <span class="ask-hint">Invite one voice for “clinicians first”, one for “the system has to make it easy”.</span>
+          </button>
         </div>
-        <p class="slide-source slide-source-light">All cited sources · Regulation (EU) 2025/327 · EIT Health (2024)</p>
+        <p class="slide-source">All cited sources · Regulation (EU) 2025/327 · EIT Health (2024)</p>
         <aside class="notes">
           Three learning takeaways: what the EHDS is — a common framework joining care and reuse under governed access; primary versus secondary use — purpose determines the rules, and governed access still needs fit-for-purpose data; who benefits — citizens, professionals, researchers, policymakers and industry, once research is evaluated and adopted into care. Then open both discussion questions: the trust question — would you trust your health data to be shared and used across Europe, why or why not; and the responsibility question — should responsibility for high-quality data rest mainly on professionals, or be shared across institutions, governments and the EU. Keep both non-leading; avoid inviting personal medical disclosure. End on this slide; do not add a thank-you slide. About 1 minute for the takeaways, then up to 2 minutes for discussion. If running long, cut from the explanation, not the discussion.
         </aside>
