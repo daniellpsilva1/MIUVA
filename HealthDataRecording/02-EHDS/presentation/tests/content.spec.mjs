@@ -94,11 +94,11 @@ test.describe('Presentation content', () => {
     }
   });
 
-  test('framework road card reveals on click', async ({ page }) => {
+  test('framework road card reveals with the arrow keys', async ({ page }) => {
     await page.goto('/index.html');
     await goToSlide(page, 'framework');
     const card = page.locator('#framework .road-card').first();
-    await card.click();
+    await page.keyboard.press('ArrowRight');
     await expect(card).toHaveClass(/is-revealed/);
     await expect(card).toHaveAttribute('aria-expanded', 'true');
   });
@@ -114,11 +114,11 @@ test.describe('Presentation content', () => {
     expect(await page.locator('#myths [data-card].is-revealed').count()).toBe(0);
   });
 
-  test('journey card reveals its verdict on click', async ({ page }) => {
+  test('journey card reveals its verdict with the arrow keys', async ({ page }) => {
     await page.goto('/index.html');
     await goToSlide(page, 'journey');
     const card = page.locator('#journey .journey-card').first();
-    await card.click();
+    await page.keyboard.press('ArrowRight');
     await expect(card).toHaveClass(/is-revealed/);
     await expect(card).toHaveAttribute('aria-expanded', 'true');
   });
@@ -129,25 +129,27 @@ test.describe('Presentation content', () => {
     const card = page.locator('#myths .myth-card[data-myth]').first();
     const counter = page.locator('#myths [data-myth-counter]');
     await expect(counter).toHaveText('Myths busted: 0 / 4');
-    await card.click();
+    await page.keyboard.press('ArrowRight');
     await expect(card).toHaveClass(/is-revealed/);
     await expect(counter).toHaveText('Myths busted: 1 / 4');
   });
 
-  test('europe card reveals the country on click', async ({ page }) => {
+  test('europe card reveals the country with the arrow keys', async ({ page }) => {
     await page.goto('/index.html');
     await goToSlide(page, 'europe');
     const card = page.locator('#europe .europe-card').first();
-    await card.click();
+    await page.keyboard.press('ArrowRight');
     await expect(card).toHaveClass(/is-revealed/);
     await expect(card.locator('.europe-country strong')).toHaveText('Germany');
   });
 
-  test('loop node click reveals its break panel', async ({ page }) => {
+  test('loop node reveals its break panel with the arrow keys', async ({ page }) => {
     await page.goto('/index.html');
     await goToSlide(page, 'loop');
+    await page.keyboard.press('ArrowRight');
+    await page.keyboard.press('ArrowRight');
+    await page.keyboard.press('ArrowRight');
     const node = page.locator('#loop .loop-node[data-loop-stage="2"]');
-    await node.click();
     await expect(node).toHaveClass(/is-revealed/);
     await page.waitForTimeout(400);
     const opacity = await node.locator('.loop-break').evaluate(

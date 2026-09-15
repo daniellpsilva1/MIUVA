@@ -63,7 +63,7 @@
   z-index: 100;
 }
 
-/* Slide counter — discreet, clear of the nav arrows */
+/* Slide counter — discreet, bottom-right */
 .slide-counter {
   bottom: 14px;
   color: var(--ehds-ink-soft);
@@ -72,7 +72,7 @@
   letter-spacing: 0.08em;
   opacity: 0.65;
   position: fixed;
-  right: 100px;
+  right: 20px;
   z-index: 90;
 }
 
@@ -152,14 +152,14 @@
   font-weight: 700;
 }
 
-/* Interactive cards — clickable affordance, content-sized */
+/* Cards — content-sized; verdicts step in with fragments */
 [data-card] {
   background: var(--ehds-paper-warm);
   border: 1px solid var(--ehds-rule);
   border-left: 4px solid var(--ehds-rule);
   box-shadow: 0 1px 3px rgba(26, 31, 43, 0.08);
   color: var(--ehds-ink);
-  cursor: pointer;
+  cursor: default;
   display: flex;
   flex-direction: column;
   font-family: var(--ehds-font-ui);
@@ -167,15 +167,11 @@
   padding: 16px 18px 20px;
   position: relative;
   text-align: left;
-  transition: border-left-color 200ms ease, box-shadow 200ms ease,
-              transform 200ms ease;
+  transition: border-left-color 200ms ease, box-shadow 200ms ease;
 }
 
-[data-card]:hover,
-[data-card]:focus-visible {
+[data-card].is-revealed {
   border-left-color: var(--ehds-gold);
-  box-shadow: 0 3px 8px rgba(26, 31, 43, 0.14);
-  transform: translateY(-2px);
 }
 
 .tap-cue {
@@ -219,7 +215,11 @@
 [data-card].is-revealed .journey-verdict,
 [data-card].is-revealed .myth-verdict,
 [data-card].is-revealed .europe-country,
-[data-card].is-revealed .loop-break {
+[data-card].is-revealed .loop-break,
+[data-card].visible .journey-verdict,
+[data-card].visible .myth-verdict,
+[data-card].visible .europe-country,
+[data-card].visible .loop-break {
   opacity: 1;
 }
 
@@ -280,14 +280,13 @@
   outline-offset: 2px;
 }
 
-/* Source line — right gutter reserved for the nav arrows */
 .slide-source {
   color: var(--ehds-ink-soft);
   font-family: var(--ehds-font-ui);
   font-size: 14px;
   font-style: italic;
   margin: 0;
-  padding-right: 120px;
+  padding-right: 72px;
   padding-top: 8px;
 }
 
@@ -460,7 +459,8 @@
   width: 20px;
 }
 
-[data-card].is-revealed .road-teaser {
+[data-card].is-revealed .road-teaser,
+[data-card].visible .road-teaser {
   opacity: 0;
   pointer-events: none;
 }
@@ -476,7 +476,8 @@
   transition: opacity 250ms ease;
 }
 
-[data-card].is-revealed .road-body {
+[data-card].is-revealed .road-body,
+[data-card].visible .road-body {
   opacity: 1;
 }
 
@@ -962,11 +963,13 @@
   font-weight: 400;
 }
 
-#myths:has(.tl-card.is-revealed) .tl-tick.tl-hot {
+#myths:has(.tl-card.is-revealed) .tl-tick.tl-hot,
+#myths:has(.tl-card.visible) .tl-tick.tl-hot {
   color: var(--ehds-gold);
 }
 
-#myths:has(.tl-card.is-revealed) .tl-tick.tl-hot::before {
+#myths:has(.tl-card.is-revealed) .tl-tick.tl-hot::before,
+#myths:has(.tl-card.visible) .tl-tick.tl-hot::before {
   background: var(--ehds-gold);
 }
 
@@ -1480,56 +1483,32 @@
   color: var(--ehds-wine);
 }
 
-/* Entrance motion — staggered fade-up, only when JS added .has-motion */
-.reveal.has-motion .present :is(
-  .journey-card, .myth-card, .europe-card, .country-card, .loop-node,
-  .path-step, .quality-record, .road-card, .goal-row, .ask-card, .stat-tile
-) {
-  transition: opacity 260ms ease, transform 260ms ease,
-              border-left-color 200ms ease, box-shadow 200ms ease;
-}
-
-.reveal.has-motion .present :is(
-  .journey-card, .myth-card, .europe-card, .country-card, .loop-node,
-  .path-step, .quality-record, .road-card, .goal-row, .ask-card, .stat-tile
-):not(.is-in) {
-  opacity: 0;
-  transform: translateY(10px);
-}
-
-/* Fragments — crossfade */
+/* Fragments — card shells stay visible; only the verdict fades in */
 .reveal .fragment {
   opacity: 0;
-  transition: opacity 250ms ease;
+  transition: opacity 280ms ease;
 }
 
 .reveal .fragment.visible {
   opacity: 1;
 }
 
+.reveal .fragment[data-card] {
+  opacity: 1;
+}
+
 /* Stage triggers — invisible fragments that establish sequence */
 .stage-trigger {
   height: 0;
-  opacity: 0;
+  opacity: 0 !important;
   overflow: hidden;
   position: absolute;
   width: 0;
 }
 
-/* Reveal chrome — subtle controls, keep progress */
+/* Reveal chrome — progress only; arrow controls are off */
 .reveal .controls {
-  color: var(--ehds-ink-soft);
-}
-
-.reveal .controls button {
-  transform: scale(0.6);
-}
-
-.reveal .controls .navigate-left,
-.reveal .controls .navigate-right,
-.reveal .controls .navigate-up,
-.reveal .controls .navigate-down {
-  opacity: 0.55;
+  display: none;
 }
 
 .reveal .progress {

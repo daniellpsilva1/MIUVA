@@ -60,60 +60,51 @@ test.describe('Presentation navigation and interaction', () => {
     expect(currentId).toBe('framework');
   });
 
-  test('access pathway Next/Previous controls work', async ({ page }) => {
+  test('access pathway steps with the arrow keys', async ({ page }) => {
     await page.goto('/index.html', { waitUntil: 'networkidle' });
     await waitForReveal(page);
     await goToSlide(page, 'access');
 
-    const next = page.locator('[data-pathway-next]');
-    const prev = page.locator('[data-pathway-prev]');
-
-    // base state already shows step 1 active (f = -1)
     const initialActive = page.locator('#access .path-step.is-active');
     expect(await initialActive.first().getAttribute('data-step')).toBe('0');
 
-    await next.click();
+    await page.keyboard.press('ArrowRight');
     await page.waitForTimeout(200);
     const activeStep = page.locator('#access .path-step.is-active');
-    const stepNum = await activeStep.first().getAttribute('data-step');
-    expect(stepNum).toBe('1');
+    expect(await activeStep.first().getAttribute('data-step')).toBe('1');
 
-    await prev.click();
+    await page.keyboard.press('ArrowLeft');
     await page.waitForTimeout(200);
     const activeAfterPrev = page.locator('#access .path-step.is-active');
-    const stepNumAfter = await activeAfterPrev.first().getAttribute('data-step');
-    expect(stepNumAfter).toBe('0');
+    expect(await activeAfterPrev.first().getAttribute('data-step')).toBe('0');
   });
 
-  test('quality demonstration steps forward and resets', async ({ page }) => {
+  test('quality demonstration steps forward and back', async ({ page }) => {
     await page.goto('/index.html', { waitUntil: 'networkidle' });
     await waitForReveal(page);
     await goToSlide(page, 'quality');
 
-    const next = page.locator('[data-quality-next]');
-    const reset = page.locator('[data-quality-reset]');
-
-    await next.click();
-    await next.click();
+    await page.keyboard.press('ArrowRight');
+    await page.keyboard.press('ArrowRight');
     await page.waitForTimeout(200);
     const revealed = await page.locator('#quality .quality-record.is-revealed').count();
     expect(revealed).toBe(2);
 
-    await reset.click();
+    await page.evaluate(() => window.Reveal.navigateFragment(-1));
     await page.waitForTimeout(200);
     const revealedAfterReset = await page.locator('#quality .quality-record.is-revealed').count();
     expect(revealedAfterReset).toBe(0);
   });
 
-  test('loop diagram nodes are keyboard accessible', async ({ page }) => {
+  test('loop diagram nodes reveal in order with the arrow keys', async ({ page }) => {
     await page.goto('/index.html', { waitUntil: 'networkidle' });
     await waitForReveal(page);
     await goToSlide(page, 'loop');
 
-    const node = page.locator('#loop .loop-node[data-loop-stage="1"]').first();
-    await node.focus();
-    await page.keyboard.press('Enter');
+    await page.keyboard.press('ArrowRight');
+    await page.keyboard.press('ArrowRight');
     await page.waitForTimeout(200);
+    const node = page.locator('#loop .loop-node[data-loop-stage="1"]').first();
     const isRevealed = await node.evaluate((el) => el.classList.contains('is-revealed'));
     expect(isRevealed).toBeTruthy();
   });
