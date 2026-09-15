@@ -125,12 +125,10 @@
 }
 
 .handbook h2 {
-  border-bottom: 2px solid var(--ehds-navy);
   font-size: 1.7rem;
   font-weight: 600;
   line-height: 1.2;
   margin: 0 0 var(--ehds-space-5);
-  padding: 0 0 var(--ehds-space-3);
 }
 
 .handbook h3 {
@@ -148,15 +146,11 @@
 }
 
 /*
- * Book-style first-line indent: the opening paragraph after a heading
- * stays flush; later body paragraphs indent. Leads, questions, boxes
+ * Book-style first-line indent on body paragraphs, including the first
+ * paragraph after a heading. Leads, exam questions, legal notes, boxes
  * and the footer stay flush.
  */
-.handbook main > section > p + p:not(.handbook-question):not(.handbook-correction):not(.handbook-lead),
-.handbook main > section > :is(
-  .hb-example, .hb-jargon, .hb-mistake, .hb-quote,
-  table, ul, ol, dl, details, blockquote
-) + p:not(.handbook-question):not(.handbook-correction):not(.handbook-lead) {
+.handbook main > section > p:not(.handbook-lead):not(.handbook-question):not(.handbook-correction) {
   text-indent: 1.35em;
 }
 

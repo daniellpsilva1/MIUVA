@@ -47,7 +47,7 @@
         </header>
         <p class="ask-line">Is the EHDS a database? Vote: yes or no.</p>
         <div class="framework-layout">
-          <div class="road-card road-care fragment" data-card aria-expanded="false">
+          <div class="road-card road-care" data-card aria-expanded="false">
             <span class="road-kicker">Road 1 · Care</span>
             <span class="road-tag">Her data follow her</span>
             <span class="road-stage">
@@ -56,7 +56,7 @@
               <span class="road-question">Which infrastructure carries it?</span>
               <span class="road-question">Which rule applies?</span>
             </span>
-            <span class="road-body">
+            <span class="road-body fragment">
               <span class="road-chip road-chip-primary">Primary use</span>
               <span class="road-infra">MyHealth@EU — the care infrastructure</span>
               <span class="road-point">A doctor abroad can read her medication list and lab results</span>
@@ -70,7 +70,7 @@
             <div class="record-line">Glucose 7.0 mmol/L · fasting · 14 Jan</div>
             <div class="record-note">Fictional example</div>
           </div>
-          <div class="road-card road-reuse fragment" data-card aria-expanded="false">
+          <div class="road-card road-reuse" data-card aria-expanded="false">
             <span class="road-kicker">Road 2 · Reuse</span>
             <span class="road-tag">Her data help answer bigger questions</span>
             <span class="road-stage">
@@ -79,7 +79,7 @@
               <span class="road-question">Which infrastructure carries it?</span>
               <span class="road-question">Which rule applies?</span>
             </span>
-            <span class="road-body">
+            <span class="road-body fragment">
               <span class="road-chip road-chip-secondary">Secondary use</span>
               <span class="road-infra">HealthData@EU — the reuse infrastructure</span>
               <span class="road-point">Research, innovation, policy-making, public health</span>
@@ -128,25 +128,25 @@
             </div>
           </div>
           <div class="journey-cards" data-card-group>
-            <div class="journey-card fragment" data-card aria-expanded="false">
+            <div class="journey-card" data-card aria-expanded="false">
               <span class="journey-scenario">On holiday in Spain, an emergency doctor opens her medication list.</span>
-              <span class="journey-verdict verdict-primary"><strong>Primary use</strong> — care of Sofia · <em>MyHealth@EU</em></span>
+              <span class="journey-verdict fragment verdict-primary"><strong>Primary use</strong> — care of Sofia · <em>MyHealth@EU</em></span>
             </div>
-            <div class="journey-card fragment" data-card aria-expanded="false">
+            <div class="journey-card" data-card aria-expanded="false">
               <span class="journey-scenario">Sofia checks her own results on her phone.</span>
-              <span class="journey-verdict verdict-primary"><strong>Primary use</strong> — her own access is a right</span>
+              <span class="journey-verdict fragment verdict-primary"><strong>Primary use</strong> — her own access is a right</span>
             </div>
-            <div class="journey-card fragment" data-card aria-expanded="false">
+            <div class="journey-card" data-card aria-expanded="false">
               <span class="journey-scenario">A university studies glucose trends in 50,000 patients.</span>
-              <span class="journey-verdict verdict-secondary"><strong>Secondary use</strong> — a population question · <em>HealthData@EU</em></span>
+              <span class="journey-verdict fragment verdict-secondary"><strong>Secondary use</strong> — a population question · <em>HealthData@EU</em></span>
             </div>
-            <div class="journey-card fragment" data-card aria-expanded="false">
+            <div class="journey-card" data-card aria-expanded="false">
               <span class="journey-scenario">The health ministry decides where to open diabetes clinics.</span>
-              <span class="journey-verdict verdict-secondary"><strong>Secondary use</strong> — policy-making counts too</span>
+              <span class="journey-verdict fragment verdict-secondary"><strong>Secondary use</strong> — policy-making counts too</span>
             </div>
-            <div class="journey-card fragment" data-card aria-expanded="false">
+            <div class="journey-card" data-card aria-expanded="false">
               <span class="journey-scenario">An insurer wants her data to set her premium.</span>
-              <span class="journey-verdict verdict-banned"><strong>Not permitted</strong> — insurance, advertising and harm to the person are banned</span>
+              <span class="journey-verdict fragment verdict-banned"><strong>Not permitted</strong> — insurance, advertising and harm to the person are banned</span>
             </div>
           </div>
         </div>
@@ -168,23 +168,23 @@
           <span class="jargon-chip"><strong>Secure processing environment</strong> — the locked reading room</span>
         </div>
         <div class="access-pathway" data-pathway>
-          <button type="button" class="path-step" data-step="0" data-rail-btn>
+          <div class="path-step" data-step="0">
             <span class="path-num">1</span>
             <span class="path-label">Find</span>
             <span class="path-body">
               <span class="path-detail">A catalogue shows what exists, where, and how good it is. Nothing is requested yet.</span>
               <span class="artefact">Primary-care diabetes cohort · NL · 2015–2024 · quality label ★★★☆ · pseudonymised</span>
             </span>
-          </button>
-          <button type="button" class="path-step" data-step="1" data-rail-btn>
+          </div>
+          <div class="path-step" data-step="1">
             <span class="path-num">2</span>
             <span class="path-label">Apply</span>
             <span class="path-body">
               <span class="path-detail">A public health data access body in each country checks purpose and need, then issues a permit.</span>
               <span class="artefact artefact-permit">Permit · purpose: research · data: minimised · valid 12 months</span>
             </span>
-          </button>
-          <button type="button" class="path-step" data-step="2" data-rail-btn>
+          </div>
+          <div class="path-step" data-step="2">
             <span class="path-num">3</span>
             <span class="path-label">Analyse</span>
             <span class="path-body">
@@ -193,15 +193,15 @@
                 <span class="ab-inside"><em>Inside</em>personal data · analysis · researcher</span><span class="ab-wall"></span><span class="ab-outside"><em>Outside</em><s>raw data — blocked</s></span>
               </span>
             </span>
-          </button>
-          <button type="button" class="path-step" data-step="3" data-rail-btn>
+          </div>
+          <div class="path-step" data-step="3">
             <span class="path-num">4</span>
             <span class="path-label">Take out</span>
             <span class="path-body">
               <span class="path-detail">Only checked, non-personal results leave. The data stay.</span>
               <span class="artefact artefact-output">n = 1,240 · mean fasting glucose 6.8 mmol/L · reviewed ✓</span>
             </span>
-          </button>
+          </div>
         </div>
         <span class="stage-trigger fragment" data-stage="0"></span>
         <span class="stage-trigger fragment" data-stage="1"></span>
@@ -221,25 +221,25 @@
         </header>
         <p class="ask-line">Vote with your hands before we flip each card.</p>
         <div class="myth-grid" data-card-group>
-          <div class="myth-card fragment" data-card data-myth aria-expanded="false">
+          <div class="myth-card" data-card data-myth aria-expanded="false">
             <span class="myth-statement">“The EHDS is one big EU database.”</span>
-            <span class="myth-verdict"><span class="myth-stamp stamp-myth">Myth</span><span class="myth-why">Data stay with hospitals, registries and labs. The EHDS is the rulebook plus the connections between them.</span></span>
+            <span class="myth-verdict fragment"><span class="myth-stamp stamp-myth">Myth</span><span class="myth-why">Data stay with hospitals, registries and labs. The EHDS is the rulebook plus the connections between them.</span></span>
           </div>
-          <div class="myth-card fragment" data-card data-myth aria-expanded="false">
+          <div class="myth-card" data-card data-myth aria-expanded="false">
             <span class="myth-statement">“If my name is removed, my data are anonymous.”</span>
-            <span class="myth-verdict"><span class="myth-stamp stamp-myth">Myth</span><span class="myth-why">That’s pseudonymisation: a code replaces the name and a key can link it back, so it’s still personal data. Anonymisation means nobody can be identified any more.</span></span>
+            <span class="myth-verdict fragment"><span class="myth-stamp stamp-myth">Myth</span><span class="myth-why">That’s pseudonymisation: a code replaces the name and a key can link it back, so it’s still personal data. Anonymisation means nobody can be identified any more.</span></span>
           </div>
-          <div class="myth-card fragment" data-card aria-expanded="false">
+          <div class="myth-card" data-card aria-expanded="false">
             <span class="myth-statement">“I can opt out of my data being reused.”</span>
-            <span class="myth-verdict"><span class="myth-stamp stamp-fact">Fact</span><span class="myth-why">(Mostly.) You can opt out of secondary use; a few public-interest exceptions remain.</span></span>
+            <span class="myth-verdict fragment"><span class="myth-stamp stamp-fact">Fact</span><span class="myth-why">(Mostly.) You can opt out of secondary use; a few public-interest exceptions remain.</span></span>
           </div>
-          <div class="myth-card fragment" data-card data-myth aria-expanded="false">
+          <div class="myth-card" data-card data-myth aria-expanded="false">
             <span class="myth-statement">“Any company can buy access to the data.”</span>
-            <span class="myth-verdict"><span class="myth-stamp stamp-myth">Myth</span><span class="myth-why">Only listed purposes, through a permit. Insurance pricing and advertising are banned outright.</span></span>
+            <span class="myth-verdict fragment"><span class="myth-stamp stamp-myth">Myth</span><span class="myth-why">Only listed purposes, through a permit. Insurance pricing and advertising are banned outright.</span></span>
           </div>
-          <div class="myth-card tl-card fragment" data-card data-myth aria-expanded="false">
+          <div class="myth-card tl-card" data-card data-myth aria-expanded="false">
             <span class="myth-statement">“This already applies today.”</span>
-            <span class="myth-verdict"><span class="myth-stamp stamp-myth">Myth</span><span class="myth-why">So far. In force since March 2025, but the duties arrive in stages: most secondary-use rules from 2029; more sensitive categories such as genomic data from 2031.</span></span>
+            <span class="myth-verdict fragment"><span class="myth-stamp stamp-myth">Myth</span><span class="myth-why">So far. In force since March 2025, but the duties arrive in stages: most secondary-use rules from 2029; more sensitive categories such as genomic data from 2031.</span></span>
           </div>
         </div>
         <div class="myth-timeline" aria-hidden="true">
@@ -254,7 +254,7 @@
           <p class="slide-source">Regulation (EU) 2025/327</p>
         </div>
         <aside class="notes">
-          Script cue: take a quick show-of-hands vote on each statement, then reveal. Interaction: Right arrow flips the five cards in order. Press “r” to open or reset all. Fallback: read each verdict aloud — slow down on pseudonymisation versus anonymisation. End on the timeline: in force since March 2025, most secondary-use rules from 2029, sensitive categories including genomic data from 2031. About 2 minutes. Transition: rules are one thing — are the data good enough?
+          Script cue: take a quick show-of-hands vote on each statement, then reveal. Interaction: all five statements are visible from the start; Right arrow flips myth or fact in order. Press “r” to open or reset all. Fallback: read each verdict aloud — slow down on pseudonymisation versus anonymisation. About 2 minutes. Transition: rules are one thing — are the data good enough?
         </aside>
       </section>
 
@@ -266,24 +266,24 @@
         <blockquote class="quality-quote">“The quality of data is always terrible until people start using it for a purpose.”<cite> — Harald Wagener, Berlin Institute of Health, quoted in the report</cite></blockquote>
         <p class="ask-line">Which of these three records would you trust in a study of fasting glucose? <span class="ask-note">Fictional example</span></p>
         <div class="quality-stage" data-quality-stage>
-          <button type="button" class="quality-record" data-record="A" data-quality-advance>
+          <div class="quality-record" data-record="A">
             <span class="record-label">Record A</span>
             <span class="quality-value">7.0 mmol/L</span>
             <span class="quality-context">Fasting: yes</span>
             <span class="quality-annotation" data-annotation="A">Usable. A number, a unit, and the context.</span>
-          </button>
-          <button type="button" class="quality-record" data-record="B" data-quality-advance>
+          </div>
+          <div class="quality-record" data-record="B">
             <span class="record-label">Record B</span>
             <span class="quality-value">126 mg/dL</span>
             <span class="quality-context">Fasting: unknown</span>
             <span class="quality-annotation" data-annotation="B">Same value as A once you divide by 18 — units are the easy fix. But was she fasting? Nobody wrote it down, and you can’t recover that later.</span>
-          </button>
-          <button type="button" class="quality-record" data-record="C" data-quality-advance>
+          </div>
+          <div class="quality-record" data-record="C">
             <span class="record-label">Record C</span>
             <span class="quality-value">“slightly elevated”</span>
             <span class="quality-context">No number</span>
             <span class="quality-annotation" data-annotation="C">A note, not a number. Free text is still how most clinical data get entered — the report says so for Spain.</span>
-          </button>
+          </div>
         </div>
         <span class="stage-trigger fragment" data-stage="0"></span>
         <span class="stage-trigger fragment" data-stage="1"></span>
@@ -308,29 +308,29 @@
         </header>
         <p class="ask-line">Guess the country.</p>
         <div class="europe-grid" data-card-group>
-          <div class="europe-card fragment" data-card aria-expanded="false">
+          <div class="europe-card" data-card aria-expanded="false">
             <span class="europe-finding">“The national EHR has become a collection of scanned PDFs — some with handwritten updates.”</span>
-            <span class="europe-country"><strong>Germany</strong> <em>Behind</em></span>
+            <span class="europe-country fragment" data-fragment-index="0"><strong>Germany</strong> <em>Behind</em></span>
           </div>
-          <div class="europe-card fragment" data-card aria-expanded="false">
+          <div class="europe-card" data-card aria-expanded="false">
             <span class="europe-finding">“Nurses have no access to the national EHR and keep records in spreadsheets.”</span>
-            <span class="europe-country"><strong>Austria</strong> <em>Behind</em></span>
+            <span class="europe-country fragment" data-fragment-index="0"><strong>Austria</strong> <em>Behind</em></span>
           </div>
-          <div class="europe-card fragment" data-card aria-expanded="false">
+          <div class="europe-card" data-card aria-expanded="false">
             <span class="europe-finding">“Hospitals still rely largely on paper; making records fit for reuse is beyond current data teams.”</span>
-            <span class="europe-country"><strong>Ireland</strong> <em>Behind</em></span>
+            <span class="europe-country fragment" data-fragment-index="0"><strong>Ireland</strong> <em>Behind</em></span>
           </div>
-          <div class="europe-card fragment" data-card aria-expanded="false">
+          <div class="europe-card" data-card aria-expanded="false">
             <span class="europe-finding">“A leader in data standards — yet only a small share of EMR fields is filled in; most is free text.”</span>
-            <span class="europe-country"><strong>Spain</strong> <em>Mixed</em></span>
+            <span class="europe-country fragment" data-fragment-index="0"><strong>Spain</strong> <em>Mixed</em></span>
           </div>
-          <div class="europe-card fragment" data-card aria-expanded="false">
+          <div class="europe-card" data-card aria-expanded="false">
             <span class="europe-finding">“70 years of national registries: a wealth of high-quality data ready for reuse.”</span>
-            <span class="europe-country"><strong>Sweden</strong> <em>Ahead</em></span>
+            <span class="europe-country fragment" data-fragment-index="0"><strong>Sweden</strong> <em>Ahead</em></span>
           </div>
-          <div class="europe-card fragment" data-card aria-expanded="false">
+          <div class="europe-card" data-card aria-expanded="false">
             <span class="europe-finding">“A claims database covering the entire population, now being converted to a common research format (OMOP).”</span>
-            <span class="europe-country"><strong>France</strong> <em>Ahead</em></span>
+            <span class="europe-country fragment" data-fragment-index="0"><strong>France</strong> <em>Ahead</em></span>
           </div>
         </div>
         <div class="europe-bands">
@@ -342,7 +342,7 @@
           <p class="slide-source">EIT Health Think Tank (2024), ch. 4–5</p>
         </div>
         <aside class="notes">
-          Script cue: read a finding, let the room guess the country, then reveal. Interaction: Right arrow flips the six postcards in order. Press “r” to open or reset all. Fallback: read the country names after the guesses. Land on the two bands: the Estonian figure, and missingness. Stress the footnote — 2023 expert roundtables, a snapshot, not a ranking. About 2 minutes. Transition: pull the threads together into one loop.
+          Script cue: read a finding, let the room guess the country, then reveal. Interaction: all six findings are visible from the start; one Right arrow reveals every country name. Fallback: read the country names after the guesses. Land on the two bands. About 2 minutes. Transition: pull the threads together into one loop.
         </aside>
       </section>
 
@@ -353,39 +353,39 @@
         </header>
         <p class="ask-line">Where do you think the loop breaks most often?</p>
         <div class="loop-chain" data-card-group>
-          <div class="loop-node fragment" data-card data-loop-stage="0" aria-expanded="false">
+          <div class="loop-node" data-card data-loop-stage="0" aria-expanded="false">
             <span class="loop-node-num">1</span>
             <span class="loop-node-label">Recording</span>
             <span class="loop-node-caption">a clinician types it in</span>
-            <span class="loop-break">Paper and free text never make it in. Forms built for billing, not for questions.</span>
+            <span class="loop-break fragment">Paper and free text never make it in. Forms built for billing, not for questions.</span>
           </div>
           <span class="loop-arrow" aria-hidden="true">→</span>
-          <div class="loop-node fragment" data-card data-loop-stage="1" aria-expanded="false">
+          <div class="loop-node" data-card data-loop-stage="1" aria-expanded="false">
             <span class="loop-node-num">2</span>
             <span class="loop-node-label">Care</span>
             <span class="loop-node-caption">primary use</span>
-            <span class="loop-break">Silos that don’t talk — interoperability is still the universal problem.</span>
+            <span class="loop-break fragment">Silos that don’t talk — interoperability is still the universal problem.</span>
           </div>
           <span class="loop-arrow" aria-hidden="true">→</span>
-          <div class="loop-node fragment" data-card data-loop-stage="2" aria-expanded="false">
+          <div class="loop-node" data-card data-loop-stage="2" aria-expanded="false">
             <span class="loop-node-num">3</span>
             <span class="loop-node-label">Governed reuse</span>
             <span class="loop-node-caption">secondary use</span>
-            <span class="loop-break">Slow contracts, high cost, unclear who pays.</span>
+            <span class="loop-break fragment">Slow contracts, high cost, unclear who pays.</span>
           </div>
           <span class="loop-arrow" aria-hidden="true">→</span>
-          <div class="loop-node fragment" data-card data-loop-stage="3" aria-expanded="false">
+          <div class="loop-node" data-card data-loop-stage="3" aria-expanded="false">
             <span class="loop-node-num">4</span>
             <span class="loop-node-label">Insight</span>
             <span class="loop-node-caption">a finding, not yet proof</span>
-            <span class="loop-break">An association isn’t proof. Biased data give biased tools — the report cites breast-cancer AI that scored images differently depending on the scanner.</span>
+            <span class="loop-break fragment">An association isn’t proof. Biased data give biased tools — the report cites breast-cancer AI that scored images differently depending on the scanner.</span>
           </div>
           <span class="loop-arrow" aria-hidden="true">→</span>
-          <div class="loop-node fragment" data-card data-loop-stage="4" aria-expanded="false">
+          <div class="loop-node" data-card data-loop-stage="4" aria-expanded="false">
             <span class="loop-node-num">5</span>
             <span class="loop-node-label">Back to care</span>
             <span class="loop-node-caption">evaluated, adopted, paid for ↺</span>
-            <span class="loop-break">No reimbursement path, fear of AI, no time to change workflows — needs change management.</span>
+            <span class="loop-break fragment">No reimbursement path, fear of AI, no time to change workflows — needs change management.</span>
           </div>
         </div>
         <div class="loop-return" aria-hidden="true"><span>↺ new records feed the next cycle</span></div>
@@ -450,24 +450,24 @@
         </div>
         <div class="friend-test">
           <p class="friend-prompt"><strong>The friend test</strong> — turn to your neighbour: explain the EHDS in three sentences.</p>
-          <button type="button" class="friend-timer" data-timer data-timer-seconds="60"><span class="timer-label">Start 60 s</span><span class="timer-display">01:00</span></button>
+          <div class="friend-timer" data-timer data-timer-seconds="60" aria-live="polite"><span class="timer-label">60 s</span><span class="timer-display">01:00</span></div>
         </div>
         <div class="closing-questions">
-          <button type="button" class="ask-card" data-ask-card aria-expanded="false">
+          <div class="ask-card">
             <span class="ask-prompt">Would you trust your health data to be shared and used across Europe? Why or why not?</span>
-            <span class="ask-hint">Keep this non-personal. Ask what would make sharing feel safer — not whether anyone has a diagnosis.</span>
-          </button>
-          <button type="button" class="ask-card" data-ask-card aria-expanded="false">
+            <span class="ask-hint fragment">Keep this non-personal. Ask what would make sharing feel safer — not whether anyone has a diagnosis.</span>
+          </div>
+          <div class="ask-card">
             <span class="ask-prompt">Should responsibility for high-quality data rest mainly on professionals, or be shared across institutions, governments and the EU?</span>
-            <span class="ask-hint">Invite one voice for “clinicians first”, one for “the system has to make it easy”.</span>
-          </button>
+            <span class="ask-hint fragment">Invite one voice for “clinicians first”, one for “the system has to make it easy”.</span>
+          </div>
         </div>
         <div class="slide-dock">
           <a class="handbook-link" href="handbook.html">Study handbook →</a>
           <p class="slide-source">EIT Health Think Tank (2024) · Regulation (EU) 2025/327 · EC factsheet (2024)</p>
         </div>
         <aside class="notes">
-          Script cue: read each goal row as an exam-ready sentence, then run the friend test. Interaction: the Start 60 s button counts down to 00:00 and becomes Reset; each question card expands a facilitation hint on click. Fallback: if the timer fails, count down by watch — sixty seconds is enough. Then open the trust question and the responsibility question; keep both non-leading and non-personal. About 1 minute plus 2–3 minutes of discussion. If running long, cut explanation, not discussion.
+          Script cue: read each goal row as an exam-ready sentence, then run the friend test. Interaction: arriving on this slide starts the 60 s timer; the back arrow stops and resets it. Further right arrows reveal the two facilitation hints. Fallback: count down by watch. Keep both questions non-leading and non-personal. About 1 minute plus 2–3 minutes of discussion. If running long, cut explanation, not discussion.
         </aside>
       </section>
 

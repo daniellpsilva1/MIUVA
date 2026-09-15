@@ -737,7 +737,7 @@
   border: 1px solid var(--ehds-rule);
   border-top: 4px solid var(--ehds-rule);
   color: var(--ehds-ink);
-  cursor: pointer;
+  cursor: default;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -747,12 +747,6 @@
   text-align: left;
   transition: border-top-color 250ms ease, box-shadow 200ms ease,
               transform 200ms ease;
-}
-
-.path-step:hover,
-.path-step:focus-visible {
-  box-shadow: 0 3px 8px rgba(26, 31, 43, 0.14);
-  transform: translateY(-2px);
 }
 
 .path-step.is-active {
@@ -1014,7 +1008,7 @@
   border: 1px solid var(--ehds-rule);
   border-top: 4px solid var(--ehds-rule);
   color: inherit;
-  cursor: pointer;
+  cursor: default;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -1024,12 +1018,6 @@
   text-align: center;
   transition: border-top-color 250ms ease, box-shadow 200ms ease,
               transform 200ms ease;
-}
-
-.quality-record:hover,
-.quality-record:focus-visible {
-  box-shadow: 0 3px 8px rgba(26, 31, 43, 0.14);
-  transform: translateY(-2px);
 }
 
 .quality-record.is-ok {
@@ -1386,7 +1374,7 @@
   border: none;
   border-radius: 4px;
   color: var(--ehds-paper);
-  cursor: pointer;
+  cursor: default;
   display: flex;
   flex: 0 0 auto;
   font-family: var(--ehds-font-ui);
@@ -1394,15 +1382,6 @@
   font-weight: 700;
   gap: 14px;
   padding: 12px 22px;
-}
-
-.friend-timer:hover {
-  background: var(--ehds-wine-soft);
-}
-
-.friend-timer:focus-visible {
-  outline: 2px solid var(--ehds-gold);
-  outline-offset: 2px;
 }
 
 .timer-display {
@@ -1427,7 +1406,7 @@
   border-left: 4px solid var(--ehds-wine);
   box-shadow: 0 1px 3px rgba(26, 31, 43, 0.08);
   color: var(--ehds-ink);
-  cursor: pointer;
+  cursor: default;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -1437,13 +1416,6 @@
   text-align: left;
   transition: border-left-color 200ms ease, box-shadow 200ms ease,
               transform 200ms ease;
-}
-
-.ask-card:hover,
-.ask-card:focus-visible,
-.ask-card.is-open {
-  border-left-color: var(--ehds-navy);
-  box-shadow: 0 3px 8px rgba(26, 31, 43, 0.14);
 }
 
 .ask-prompt {
@@ -1458,12 +1430,6 @@
   color: var(--ehds-ink-soft);
   font-size: 16px;
   line-height: 1.35;
-  opacity: 0;
-  transition: opacity 250ms ease;
-}
-
-.ask-card.is-open .ask-hint {
-  opacity: 1;
 }
 
 .handbook-link {
@@ -1483,17 +1449,13 @@
   color: var(--ehds-wine);
 }
 
-/* Fragments — card shells stay visible; only the verdict fades in */
+/* Fragments — answers fade in; card shells stay put */
 .reveal .fragment {
   opacity: 0;
   transition: opacity 280ms ease;
 }
 
 .reveal .fragment.visible {
-  opacity: 1;
-}
-
-.reveal .fragment[data-card] {
   opacity: 1;
 }
 

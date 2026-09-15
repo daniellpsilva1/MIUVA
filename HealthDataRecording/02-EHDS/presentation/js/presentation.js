@@ -1,7 +1,6 @@
 /**
- * EHDS Presentation — Reveal lifecycle, interactions, keyboard.
- * Uses Reveal.getIndices().f as the single source of stage state.
- * Card slides are native fragments: Right / Next reveals them in order.
+ * EHDS Presentation — Reveal lifecycle and keyboard-driven reveals.
+ * Card shells stay visible; answer fragments step in with the arrows.
  */
 
 (function () {
@@ -69,12 +68,16 @@
   function syncCardReveals(slide) {
     if (!slide) return;
     slide.querySelectorAll('[data-card]').forEach(function (card) {
-      setCard(card, card.classList.contains('visible'));
+      const answers = card.querySelectorAll('.fragment');
+      let revealed = false;
+      answers.forEach(function (el) {
+        if (el.classList.contains('visible')) revealed = true;
+      });
+      setCard(card, revealed);
     });
     updateMythCounter(slide);
   }
 
-  /* Access pathway — fragment-stepped, f = -1..4; step 1 is active at f = -1 */
   function updateAccessView(f) {
     const stage = f + 1;
     const steps = document.querySelectorAll('#access .path-step');
@@ -86,18 +89,6 @@
     });
   }
 
-  function initAccess() {
-    document.querySelectorAll('#access [data-rail-btn]').forEach(function (btn) {
-      if (btn.getAttribute('data-bound')) return;
-      btn.setAttribute('data-bound', 'true');
-      btn.addEventListener('click', function () {
-        const step = parseInt(btn.getAttribute('data-step'), 10);
-        window.Reveal.navigateFragment(step);
-      });
-    });
-  }
-
-  /* Quality records — fragment-stepped, f = -1..3 */
   function updateQualityView(f) {
     const recA = document.querySelector('[data-record="A"]');
     const recB = document.querySelector('[data-record="B"]');
@@ -116,35 +107,6 @@
     });
   }
 
-  function initQuality() {
-    document.querySelectorAll('[data-quality-advance]').forEach(function (btn) {
-      if (btn.getAttribute('data-bound')) return;
-      btn.setAttribute('data-bound', 'true');
-      btn.addEventListener('click', function () {
-        const f = getFragmentIndex();
-        if (f < 3) window.Reveal.navigateFragment(f + 1);
-      });
-    });
-  }
-
-  function initAskCards() {
-    document.querySelectorAll('[data-ask-card]').forEach(function (card) {
-      if (card.getAttribute('data-bound')) return;
-      card.setAttribute('data-bound', 'true');
-      card.addEventListener('click', function () {
-        const open = card.classList.contains('is-open');
-        document.querySelectorAll('[data-ask-card]').forEach(function (c) {
-          c.classList.remove('is-open');
-          c.setAttribute('aria-expanded', 'false');
-        });
-        if (!open) {
-          card.classList.add('is-open');
-          card.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-  }
-
   function formatTime(seconds) {
     const m = Math.floor(seconds / 60);
     const s = seconds % 60;
@@ -152,12 +114,14 @@
   }
 
   function initTimer() {
-    const btn = document.querySelector('[data-timer]');
-    if (!btn || btn.getAttribute('data-bound')) return;
-    btn.setAttribute('data-bound', 'true');
-    const label = btn.querySelector('.timer-label');
-    const display = btn.querySelector('.timer-display');
-    const total = parseInt(btn.getAttribute('data-timer-seconds'), 10) || 60;
+    const el = document.querySelector('[data-timer]');
+    if (!el || el.getAttribute('data-bound')) {
+      return el && el.__ehdsTimer;
+    }
+    el.setAttribute('data-bound', 'true');
+    const label = el.querySelector('.timer-label');
+    const display = el.querySelector('.timer-display');
+    const total = parseInt(el.getAttribute('data-timer-seconds'), 10) || 60;
     let remaining = total;
     let interval = null;
 
@@ -170,37 +134,43 @@
         window.clearInterval(interval);
         interval = null;
       }
-      btn.classList.remove('is-running');
+      el.classList.remove('is-running');
     }
 
-    btn.addEventListener('click', function () {
-      if (interval) {
-        stop();
-        remaining = total;
-        render();
-        if (label) label.textContent = 'Start ' + total + ' s';
-        return;
-      }
-      if (remaining <= 0) {
-        remaining = total;
-        render();
-        if (label) label.textContent = 'Start ' + total + ' s';
-        return;
-      }
-      btn.classList.add('is-running');
+    function reset() {
+      stop();
+      remaining = total;
+      render();
+      if (label) label.textContent = total + ' s';
+    }
+
+    function start() {
+      if (interval) return;
+      remaining = total;
+      render();
+      el.classList.add('is-running');
       if (label) label.textContent = 'Running';
       interval = window.setInterval(function () {
         remaining -= 1;
         render();
         if (remaining <= 0) {
           stop();
-          if (label) label.textContent = 'Reset';
+          if (label) label.textContent = 'Done';
         }
       }, 1000);
-    });
+    }
+
+    el.__ehdsTimer = { start: start, reset: reset };
+    return el.__ehdsTimer;
   }
 
-  /* "r" reveals all fragments on the current slide, or resets them */
+  function syncTimer(slideId) {
+    const timer = initTimer();
+    if (!timer) return;
+    if (slideId === 'closing') timer.start();
+    else timer.reset();
+  }
+
   function initRevealKey() {
     document.addEventListener('keydown', function (e) {
       if (e.key !== 'r' && e.key !== 'R') return;
@@ -231,17 +201,17 @@
 
   function initAll() {
     initCounter();
-    initAccess();
-    initQuality();
-    initAskCards();
     initTimer();
     initRevealKey();
     updateSlideState(findCurrentSlide());
+    syncTimer(getSlideId(findCurrentSlide()));
   }
 
   function onSlideChanged() {
     updateCounter();
-    updateSlideState(findCurrentSlide());
+    const slide = findCurrentSlide();
+    updateSlideState(slide);
+    syncTimer(getSlideId(slide));
   }
 
   function onFragmentChanged() {
@@ -267,7 +237,7 @@
       progress: true,
       slideNumber: false,
       transition: transition,
-      transitionSpeed: reducedMotion ? 'fast' : 'default',
+      transitionSpeed: reducedMotion ? 'fast' : 'slow',
       width: 1280,
     }).then(initAll);
 

@@ -134,13 +134,14 @@ test.describe('Presentation content', () => {
     await expect(counter).toHaveText('Myths busted: 1 / 4');
   });
 
-  test('europe card reveals the country with the arrow keys', async ({ page }) => {
+  test('europe names all reveal together with one arrow', async ({ page }) => {
     await page.goto('/index.html');
     await goToSlide(page, 'europe');
-    const card = page.locator('#europe .europe-card').first();
+    expect(await page.locator('#europe [data-card].is-revealed').count()).toBe(0);
     await page.keyboard.press('ArrowRight');
-    await expect(card).toHaveClass(/is-revealed/);
-    await expect(card.locator('.europe-country strong')).toHaveText('Germany');
+    await expect(page.locator('#europe .europe-card').first()).toHaveClass(/is-revealed/);
+    expect(await page.locator('#europe [data-card].is-revealed').count()).toBe(6);
+    await expect(page.locator('#europe .europe-card').first().locator('.europe-country strong')).toHaveText('Germany');
   });
 
   test('loop node reveals its break panel with the arrow keys', async ({ page }) => {
@@ -157,14 +158,18 @@ test.describe('Presentation content', () => {
     expect(opacity).toBe('1');
   });
 
-  test('closing timer starts a countdown', async ({ page }) => {
+  test('closing timer starts on the slide and resets when leaving', async ({ page }) => {
     await page.goto('/index.html');
     await goToSlide(page, 'closing');
     const timer = page.locator('#closing [data-timer]');
-    const display = timer.locator('.timer-display');
-    await expect(display).toHaveText('01:00');
-    await timer.click();
-    await expect(display).toHaveText('00:59', { timeout: 2000 });
+    await expect(timer).toHaveClass(/is-running/);
+    await page.waitForFunction(() => {
+      const t = document.querySelector('#closing [data-timer] .timer-display');
+      return t && t.textContent !== '01:00';
+    }, { timeout: 2500 });
+    await goToSlide(page, 'assessment');
+    await goToSlide(page, 'closing');
+    await expect(timer).toHaveClass(/is-running/);
   });
 
   test('access slide introduces the HDAB as a public gatekeeper in visible text', async ({ page }) => {
