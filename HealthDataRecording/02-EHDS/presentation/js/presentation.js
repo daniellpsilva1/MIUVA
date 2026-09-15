@@ -164,11 +164,24 @@
     return el.__ehdsTimer;
   }
 
-  function syncTimer(slideId) {
+  function syncTimer(slide) {
     const timer = initTimer();
     if (!timer) return;
-    if (slideId === 'closing') timer.start();
+    if (getSlideId(slide) !== 'closing') {
+      timer.reset();
+      return;
+    }
+    const step = slide.querySelector('[data-timer-step]');
+    if (step && step.classList.contains('visible')) timer.start();
     else timer.reset();
+  }
+
+  function resetFragmentsOnEnter(slide) {
+    if (!slide || !window.Reveal) return;
+    const f = getFragmentIndex();
+    if (f !== -1 && f !== undefined && f !== null) {
+      window.Reveal.navigateFragment(-1);
+    }
   }
 
   function initRevealKey() {
@@ -203,19 +216,24 @@
     initCounter();
     initTimer();
     initRevealKey();
-    updateSlideState(findCurrentSlide());
-    syncTimer(getSlideId(findCurrentSlide()));
+    const slide = findCurrentSlide();
+    if (window.Reveal) window.Reveal.navigateFragment(-1);
+    updateSlideState(slide);
+    syncTimer(slide);
   }
 
   function onSlideChanged() {
     updateCounter();
     const slide = findCurrentSlide();
+    resetFragmentsOnEnter(slide);
     updateSlideState(slide);
-    syncTimer(getSlideId(slide));
+    syncTimer(slide);
   }
 
   function onFragmentChanged() {
-    updateSlideState(findCurrentSlide());
+    const slide = findCurrentSlide();
+    updateSlideState(slide);
+    syncTimer(slide);
   }
 
   function initReveal() {
@@ -228,6 +246,7 @@
     window.Reveal.initialize({
       backgroundTransition: 'none',
       controls: false,
+      fragmentInURL: false,
       hash: true,
       height: 720,
       margin: 0.06,

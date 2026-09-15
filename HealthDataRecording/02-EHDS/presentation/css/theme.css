@@ -203,24 +203,24 @@
   top: 8px;
 }
 
-/* Card reveals — crossfade, space reserved so layout never jumps */
+/* Card reveals — answers stay hidden until the fragment is shown */
 .journey-verdict,
 .myth-verdict,
 .europe-country,
-.loop-break {
+.loop-break,
+.road-body {
   opacity: 0;
   transition: opacity 250ms ease;
+  visibility: hidden;
 }
 
-[data-card].is-revealed .journey-verdict,
-[data-card].is-revealed .myth-verdict,
-[data-card].is-revealed .europe-country,
-[data-card].is-revealed .loop-break,
-[data-card].visible .journey-verdict,
-[data-card].visible .myth-verdict,
-[data-card].visible .europe-country,
-[data-card].visible .loop-break {
+.reveal .fragment.journey-verdict.visible,
+.reveal .fragment.myth-verdict.visible,
+.reveal .fragment.europe-country.visible,
+.reveal .fragment.loop-break.visible,
+.reveal .fragment.road-body.visible {
   opacity: 1;
+  visibility: visible;
 }
 
 .verdict-primary { border-top: 2px solid var(--ehds-forest); padding-top: 8px; }
@@ -459,8 +459,7 @@
   width: 20px;
 }
 
-[data-card].is-revealed .road-teaser,
-[data-card].visible .road-teaser {
+[data-card].is-revealed .road-teaser {
   opacity: 0;
   pointer-events: none;
 }
@@ -471,14 +470,7 @@
   flex-direction: column;
   gap: 8px;
   min-height: 168px;
-  opacity: 0;
   padding-top: 10px;
-  transition: opacity 250ms ease;
-}
-
-[data-card].is-revealed .road-body,
-[data-card].visible .road-body {
-  opacity: 1;
 }
 
 .framework-answer-wrap {
@@ -1449,14 +1441,16 @@
   color: var(--ehds-wine);
 }
 
-/* Fragments — answers fade in; card shells stay put */
+/* Fragments — hidden until the arrow shows them */
 .reveal .fragment {
   opacity: 0;
-  transition: opacity 280ms ease;
+  transition: opacity 280ms ease, visibility 280ms ease;
+  visibility: hidden;
 }
 
 .reveal .fragment.visible {
   opacity: 1;
+  visibility: visible;
 }
 
 /* Stage triggers — invisible fragments that establish sequence */

@@ -123,9 +123,13 @@ test.describe('Presentation content', () => {
     await expect(card).toHaveAttribute('aria-expanded', 'true');
   });
 
-  test('myths card flips and the counter updates', async ({ page }) => {
+  test('myths statements are hidden until the first arrow', async ({ page }) => {
     await page.goto('/index.html');
     await goToSlide(page, 'myths');
+    expect(await page.locator('#myths [data-card].is-revealed').count()).toBe(0);
+    const visibility = await page.locator('#myths .myth-verdict').first().evaluate(
+      (el) => window.getComputedStyle(el).visibility);
+    expect(visibility).toBe('hidden');
     const card = page.locator('#myths .myth-card[data-myth]').first();
     const counter = page.locator('#myths [data-myth-counter]');
     await expect(counter).toHaveText('Myths busted: 0 / 4');
@@ -134,13 +138,13 @@ test.describe('Presentation content', () => {
     await expect(counter).toHaveText('Myths busted: 1 / 4');
   });
 
-  test('europe names all reveal together with one arrow', async ({ page }) => {
+  test('europe names reveal one by one after the questions', async ({ page }) => {
     await page.goto('/index.html');
     await goToSlide(page, 'europe');
     expect(await page.locator('#europe [data-card].is-revealed').count()).toBe(0);
     await page.keyboard.press('ArrowRight');
     await expect(page.locator('#europe .europe-card').first()).toHaveClass(/is-revealed/);
-    expect(await page.locator('#europe [data-card].is-revealed').count()).toBe(6);
+    expect(await page.locator('#europe [data-card].is-revealed').count()).toBe(1);
     await expect(page.locator('#europe .europe-card').first().locator('.europe-country strong')).toHaveText('Germany');
   });
 
@@ -158,10 +162,12 @@ test.describe('Presentation content', () => {
     expect(opacity).toBe('1');
   });
 
-  test('closing timer starts on the slide and resets when leaving', async ({ page }) => {
+  test('closing timer starts on the next arrow and resets when leaving', async ({ page }) => {
     await page.goto('/index.html');
     await goToSlide(page, 'closing');
     const timer = page.locator('#closing [data-timer]');
+    await expect(timer).not.toHaveClass(/is-running/);
+    await page.keyboard.press('ArrowRight');
     await expect(timer).toHaveClass(/is-running/);
     await page.waitForFunction(() => {
       const t = document.querySelector('#closing [data-timer] .timer-display');
@@ -169,7 +175,7 @@ test.describe('Presentation content', () => {
     }, { timeout: 2500 });
     await goToSlide(page, 'assessment');
     await goToSlide(page, 'closing');
-    await expect(timer).toHaveClass(/is-running/);
+    await expect(timer).not.toHaveClass(/is-running/);
   });
 
   test('access slide introduces the HDAB as a public gatekeeper in visible text', async ({ page }) => {
