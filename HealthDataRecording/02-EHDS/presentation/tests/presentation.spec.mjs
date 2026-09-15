@@ -51,10 +51,13 @@ test.describe('Presentation navigation and interaction', () => {
   test('arrow keys advance slides', async ({ page }) => {
     await page.goto('/index.html', { waitUntil: 'networkidle' });
     await waitForReveal(page);
+    // cover has two fragments before the next slide
+    await page.keyboard.press('ArrowRight');
+    await page.keyboard.press('ArrowRight');
     await page.keyboard.press('ArrowRight');
     await page.waitForTimeout(300);
     const currentId = await page.evaluate(() => window.Reveal.getCurrentSlide().id);
-    expect(currentId).toBe('purposes');
+    expect(currentId).toBe('framework');
   });
 
   test('access pathway Next/Previous controls work', async ({ page }) => {
@@ -65,15 +68,19 @@ test.describe('Presentation navigation and interaction', () => {
     const next = page.locator('[data-pathway-next]');
     const prev = page.locator('[data-pathway-prev]');
 
+    // base state already shows step 1 active (f = -1)
+    const initialActive = page.locator('#access .path-step.is-active');
+    expect(await initialActive.first().getAttribute('data-step')).toBe('0');
+
     await next.click();
     await page.waitForTimeout(200);
-    const activeStep = page.locator('.rail-item.is-active');
+    const activeStep = page.locator('#access .path-step.is-active');
     const stepNum = await activeStep.first().getAttribute('data-step');
     expect(stepNum).toBe('1');
 
     await prev.click();
     await page.waitForTimeout(200);
-    const activeAfterPrev = page.locator('.rail-item.is-active');
+    const activeAfterPrev = page.locator('#access .path-step.is-active');
     const stepNumAfter = await activeAfterPrev.first().getAttribute('data-step');
     expect(stepNumAfter).toBe('0');
   });
@@ -89,69 +96,26 @@ test.describe('Presentation navigation and interaction', () => {
     await next.click();
     await next.click();
     await page.waitForTimeout(200);
-    const visibleSteps = await page.locator('.quality-step.visible').count();
-    expect(visibleSteps).toBe(2);
+    const revealed = await page.locator('#quality .quality-record.is-revealed').count();
+    expect(revealed).toBe(2);
 
     await reset.click();
     await page.waitForTimeout(200);
-    const visibleAfterReset = await page.locator('.quality-step.visible').count();
-    expect(visibleAfterReset).toBe(0);
+    const revealedAfterReset = await page.locator('#quality .quality-record.is-revealed').count();
+    expect(revealedAfterReset).toBe(0);
   });
 
-  test('loop diagram stages are keyboard accessible', async ({ page }) => {
+  test('loop diagram nodes are keyboard accessible', async ({ page }) => {
     await page.goto('/index.html', { waitUntil: 'networkidle' });
     await waitForReveal(page);
     await goToSlide(page, 'loop');
 
-    const stage = page.locator('[data-loop-stage="1"]').first();
-    await stage.focus();
+    const node = page.locator('#loop .loop-node[data-loop-stage="1"]').first();
+    await node.focus();
     await page.keyboard.press('Enter');
     await page.waitForTimeout(200);
-    const isActive = await stage.evaluate((el) => el.classList.contains('is-active'));
-    expect(isActive).toBeTruthy();
-  });
-
-  test('resources dialog opens and closes', async ({ page }) => {
-    await page.goto('/index.html', { waitUntil: 'networkidle' });
-    await waitForReveal(page);
-    await page.waitForTimeout(300);
-    const openBtn = page.locator('[data-resources-open]');
-    await openBtn.click();
-    await page.waitForTimeout(200);
-    const dialog = page.locator('#resources-dialog');
-    const isOpen = await dialog.evaluate((el) => el.open);
-    expect(isOpen).toBeTruthy();
-
-    const closeBtn = page.locator('[data-dialog-close]');
-    await closeBtn.click();
-    await page.waitForTimeout(200);
-    const isClosed = await dialog.evaluate((el) => !el.open);
-    expect(isClosed).toBeTruthy();
-  });
-
-  test('dialog keyboard events do not navigate slides', async ({ page }) => {
-    await page.goto('/index.html', { waitUntil: 'networkidle' });
-    await waitForReveal(page);
-    await page.waitForTimeout(300);
-    const openBtn = page.locator('[data-resources-open]');
-    await openBtn.click();
-    await page.waitForTimeout(200);
-
-    const currentSlideBefore = await page.evaluate(() =>
-      window.Reveal.getCurrentSlide().getAttribute('id'));
-    expect(currentSlideBefore).toBe('cover');
-
-    await page.keyboard.press('ArrowRight');
-    await page.keyboard.press('ArrowLeft');
-    await page.keyboard.press(' ');
-    await page.waitForTimeout(200);
-
-    const currentSlideAfter = await page.evaluate(() =>
-      window.Reveal.getCurrentSlide().getAttribute('id'));
-    expect(currentSlideAfter).toBe('cover');
-
-    const dialog = page.locator('#resources-dialog');
-    await dialog.evaluate((el) => el.close());
+    const isRevealed = await node.evaluate((el) => el.classList.contains('is-revealed'));
+    expect(isRevealed).toBeTruthy();
   });
 
   test('no external font or script requests', async ({ page }) => {

@@ -5,7 +5,7 @@ import { expect, test } from '@playwright/test';
 const REPO_ROOT = new URL('..', import.meta.url).pathname;
 
 test.describe('Handbook', () => {
-  test('loads with 12 chapters and no page errors', async ({ page }) => {
+  test('loads with 10 chapters and no page errors', async ({ page }) => {
     const errors = [];
     page.on('pageerror', (e) => errors.push(e.message));
     page.on('requestfailed', (r) => {
@@ -13,14 +13,14 @@ test.describe('Handbook', () => {
     });
     await page.goto('/handbook.html', { waitUntil: 'networkidle' });
     const sections = await page.locator('main section').count();
-    expect(sections).toBe(12);
+    expect(sections).toBe(10);
     expect(errors).toHaveLength(0);
   });
 
   test('table of contents links match chapters', async ({ page }) => {
     await page.goto('/handbook.html');
     const tocLinks = await page.locator('.handbook-toc a').count();
-    expect(tocLinks).toBe(12);
+    expect(tocLinks).toBe(10);
     const firstHref = await page.locator('.handbook-toc a').first().getAttribute('href');
     expect(firstHref).toContain('#ch-');
   });
@@ -67,8 +67,8 @@ test.describe('Handbook', () => {
     const info = execSync('pdfinfo ' + JSON.stringify(pdfPath), { encoding: 'utf-8' });
     const pagesMatch = info.match(/Pages:\s+(\d+)/);
     const pages = pagesMatch ? parseInt(pagesMatch[1], 10) : 0;
-    expect(pages).toBeGreaterThanOrEqual(20);
-    expect(pages).toBeLessThanOrEqual(40);
+    expect(pages).toBeGreaterThanOrEqual(8);
+    expect(pages).toBeLessThanOrEqual(30);
   });
 
   test('revised PDF contains model answer body text', () => {

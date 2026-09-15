@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test';
 
 const SLIDE_IDS = [
-  'cover', 'purposes', 'access', 'privacy', 'quality',
-  'fitness', 'practice', 'loop', 'assessment', 'discussion',
+  'cover', 'framework', 'journey', 'access', 'myths', 'quality',
+  'europe', 'loop', 'assessment', 'closing',
 ];
 
 const LOGISTICS_TERMS = [
@@ -59,7 +59,7 @@ test.describe('Presentation content', () => {
     }
   });
 
-  test('contains all five core concept groups', async ({ page }) => {
+  test('contains all core concept groups', async ({ page }) => {
     await page.goto('/index.html');
     const body = (await page.locator('body').textContent())?.toLowerCase() || '';
     for (const term of CONCEPT_TERMS) {
@@ -86,12 +86,83 @@ test.describe('Presentation content', () => {
     expect(text).toContain('health data recording and reuse');
   });
 
-  test('purposes slide lists all five beneficiary groups in visible text', async ({ page }) => {
+  test('framework slide lists all five beneficiary groups in visible text', async ({ page }) => {
     await page.goto('/index.html');
-    const text = (await slideTextExcludingNotes(page, 'purposes')).toLowerCase();
+    const text = (await slideTextExcludingNotes(page, 'framework')).toLowerCase();
     for (const term of ['citizens', 'professionals', 'researchers', 'policymakers', 'industry']) {
       expect(text).toContain(term);
     }
+  });
+
+  test('framework road card reveals on click', async ({ page }) => {
+    await page.goto('/index.html');
+    await goToSlide(page, 'framework');
+    const card = page.locator('#framework .road-card').first();
+    await card.click();
+    await expect(card).toHaveClass(/is-revealed/);
+    await expect(card).toHaveAttribute('aria-expanded', 'true');
+  });
+
+  test('pressing "r" reveals all cards on the myths slide and again resets', async ({ page }) => {
+    await page.goto('/index.html');
+    await goToSlide(page, 'myths');
+    await page.keyboard.press('r');
+    await page.waitForTimeout(200);
+    expect(await page.locator('#myths [data-card].is-revealed').count()).toBe(5);
+    await page.keyboard.press('r');
+    await page.waitForTimeout(200);
+    expect(await page.locator('#myths [data-card].is-revealed').count()).toBe(0);
+  });
+
+  test('journey card reveals its verdict on click', async ({ page }) => {
+    await page.goto('/index.html');
+    await goToSlide(page, 'journey');
+    const card = page.locator('#journey .journey-card').first();
+    await card.click();
+    await expect(card).toHaveClass(/is-revealed/);
+    await expect(card).toHaveAttribute('aria-expanded', 'true');
+  });
+
+  test('myths card flips and the counter updates', async ({ page }) => {
+    await page.goto('/index.html');
+    await goToSlide(page, 'myths');
+    const card = page.locator('#myths .myth-card[data-myth]').first();
+    const counter = page.locator('#myths [data-myth-counter]');
+    await expect(counter).toHaveText('Myths busted: 0 / 4');
+    await card.click();
+    await expect(card).toHaveClass(/is-revealed/);
+    await expect(counter).toHaveText('Myths busted: 1 / 4');
+  });
+
+  test('europe card reveals the country on click', async ({ page }) => {
+    await page.goto('/index.html');
+    await goToSlide(page, 'europe');
+    const card = page.locator('#europe .europe-card').first();
+    await card.click();
+    await expect(card).toHaveClass(/is-revealed/);
+    await expect(card.locator('.europe-country strong')).toHaveText('Germany');
+  });
+
+  test('loop node click reveals its break panel', async ({ page }) => {
+    await page.goto('/index.html');
+    await goToSlide(page, 'loop');
+    const node = page.locator('#loop .loop-node[data-loop-stage="2"]');
+    await node.click();
+    await expect(node).toHaveClass(/is-revealed/);
+    await page.waitForTimeout(400);
+    const opacity = await node.locator('.loop-break').evaluate(
+      (el) => window.getComputedStyle(el).opacity);
+    expect(opacity).toBe('1');
+  });
+
+  test('closing timer starts a countdown', async ({ page }) => {
+    await page.goto('/index.html');
+    await goToSlide(page, 'closing');
+    const timer = page.locator('#closing [data-timer]');
+    const display = timer.locator('.timer-display');
+    await expect(display).toHaveText('01:00');
+    await timer.click();
+    await expect(display).toHaveText('00:59', { timeout: 2000 });
   });
 
   test('access slide introduces the HDAB as a public gatekeeper in visible text', async ({ page }) => {
@@ -108,27 +179,40 @@ test.describe('Presentation content', () => {
     expect(text).toContain('challenging');
   });
 
-  test('discussion slide shows three learning goals in visible text', async ({ page }) => {
+  test('closing slide shows three learning goals in visible text', async ({ page }) => {
     await page.goto('/index.html');
-    const text = (await slideTextExcludingNotes(page, 'discussion')).toLowerCase();
+    const text = (await slideTextExcludingNotes(page, 'closing')).toLowerCase();
     expect(text).toContain('what the ehds is');
     expect(text).toContain('primary versus secondary use');
     expect(text).toContain('who benefits');
   });
 
-  test('discussion slide shows both discussion questions in visible text', async ({ page }) => {
+  test('closing slide shows both discussion questions in visible text', async ({ page }) => {
     await page.goto('/index.html');
-    const text = (await slideTextExcludingNotes(page, 'discussion')).toLowerCase();
+    const text = (await slideTextExcludingNotes(page, 'closing')).toLowerCase();
     expect(text).toContain('trust');
     expect(text).toContain('responsibility');
   });
-
-  test('fitness slide names a course connection in visible text', async ({ page }) => {
-    await page.goto('/index.html');
-    const text = (await slideTextExcludingNotes(page, 'fitness')).toLowerCase();
-    expect(text).toContain('course');
-  });
 });
+
+async function goToSlide(page, id) {
+  await page.waitForFunction(() =>
+    window.Reveal && typeof window.Reveal.slide === 'function'
+    && window.Reveal.getCurrentSlide());
+  await page.evaluate((slideId) => {
+    const sections = document.querySelectorAll('.reveal > .slides > section');
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].id === slideId) {
+        window.Reveal.slide(i);
+        return;
+      }
+    }
+  }, id);
+  await page.waitForFunction((slideId) => {
+    const s = window.Reveal.getCurrentSlide();
+    return s && s.id === slideId;
+  }, id, { timeout: 5000 });
+}
 
 async function slideTextExcludingNotes(page, slideId) {
   return page.evaluate((id) => {
