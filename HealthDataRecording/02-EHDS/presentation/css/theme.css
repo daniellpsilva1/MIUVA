@@ -31,8 +31,8 @@
   font-weight: 400;
 }
 
-.reveal .slides {
-  text-align: left;
+.reveal .slides > section {
+  transition: opacity 0.7s ease-in-out;
 }
 
 .reveal section {
@@ -174,20 +174,9 @@
   border-left-color: var(--ehds-gold);
 }
 
-.tap-cue {
-  bottom: 8px;
-  color: var(--ehds-gold);
-  font-family: var(--ehds-font-ui);
-  font-size: 13px;
-  font-style: italic;
-  letter-spacing: 0.04em;
-  position: absolute;
-  right: 12px;
-  transition: opacity 200ms ease;
-}
-
-[data-card].is-revealed .tap-cue {
-  opacity: 0;
+[data-card]:has(.fragment.current-fragment) {
+  box-shadow: 0 4px 16px rgba(26, 31, 43, 0.12);
+  border-left-color: var(--ehds-gold);
 }
 
 /* Reveal feedback — faint gold check in the top-right corner */
@@ -203,15 +192,22 @@
   top: 8px;
 }
 
-/* Card reveals — answers stay hidden until the fragment is shown */
+/* Card reveals — collapse until the fragment is shown, so questions stay compact */
 .journey-verdict,
 .myth-verdict,
 .europe-country,
 .loop-break,
 .road-body {
+  max-height: 0;
+  min-height: 0;
   opacity: 0;
-  transition: opacity 250ms ease;
+  overflow: hidden;
+  padding: 0;
   visibility: hidden;
+}
+
+.journey-verdict:not(.visible) {
+  border-top: 0;
 }
 
 .reveal .fragment.journey-verdict.visible,
@@ -219,8 +215,41 @@
 .reveal .fragment.europe-country.visible,
 .reveal .fragment.loop-break.visible,
 .reveal .fragment.road-body.visible {
+  max-height: 280px;
   opacity: 1;
+  overflow: visible;
   visibility: visible;
+}
+
+.reveal .fragment.europe-country.visible {
+  border-top: 2px solid var(--ehds-gold);
+  padding-top: 8px;
+}
+
+.reveal .fragment.journey-verdict.visible {
+  padding-top: 8px;
+}
+
+.reveal .fragment.loop-break.visible {
+  border-top: 1px dashed var(--ehds-rule);
+  padding-top: 8px;
+}
+
+.reveal .fragment.road-body.visible {
+  border-top: 1px dashed var(--ehds-rule);
+  padding-top: 10px;
+}
+
+.framework-answer:not(.visible),
+.journey-takeaway:not(.visible),
+.access-answer:not(.visible),
+.quality-summary:not(.visible),
+.loop-takeaway:not(.visible) {
+  max-height: 0;
+  margin: 0;
+  overflow: hidden;
+  padding-bottom: 0;
+  padding-top: 0;
 }
 
 .verdict-primary { border-top: 2px solid var(--ehds-forest); padding-top: 8px; }
@@ -325,7 +354,14 @@
 
 .cover-definition {
   margin: 12px 0;
-  min-height: 96px;
+}
+
+.cover-definition:not(.visible),
+.cover-map:not(.visible) {
+  margin: 0;
+  max-height: 0;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .cover-definition-text {
@@ -345,7 +381,6 @@
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 12px;
-  min-height: 44px;
 }
 
 .map-chip {
@@ -418,6 +453,7 @@
 
 .road-stage {
   display: block;
+  min-height: 168px;
   position: relative;
 }
 
@@ -465,15 +501,13 @@
 }
 
 .road-body {
-  border-top: 1px dashed var(--ehds-rule);
   display: flex;
   flex-direction: column;
   gap: 8px;
-  min-height: 168px;
-  padding-top: 10px;
 }
 
 .framework-answer-wrap {
+  min-height: 3.4em;
   position: relative;
 }
 
@@ -699,7 +733,6 @@
 .journey-verdict {
   font-size: 17px;
   line-height: 1.3;
-  min-height: 40px;
 }
 
 .journey-verdict em {
@@ -881,7 +914,6 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  min-height: 150px;
 }
 
 .myth-stamp {
@@ -1033,19 +1065,23 @@
 }
 
 .quality-annotation {
-  border-top: 1px dashed var(--ehds-rule);
   color: var(--ehds-navy);
   font-size: 20px;
   line-height: 1.4;
-  margin-top: 12px;
-  min-height: 88px;
+  max-height: 0;
   opacity: 0;
-  padding-top: 10px;
-  transition: opacity 250ms ease;
+  overflow: hidden;
+  visibility: hidden;
 }
 
 .quality-record.is-revealed .quality-annotation {
+  border-top: 1px dashed var(--ehds-rule);
+  margin-top: 12px;
+  max-height: 220px;
   opacity: 1;
+  overflow: visible;
+  padding-top: 10px;
+  visibility: visible;
 }
 
 .quality-summary .jargon-row {
@@ -1082,10 +1118,7 @@
 }
 
 .europe-country {
-  border-top: 2px solid var(--ehds-gold);
   font-family: var(--ehds-font-ui);
-  min-height: 42px;
-  padding-top: 8px;
 }
 
 .europe-country strong {
@@ -1108,6 +1141,13 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.europe-bands:not(.visible) {
+  gap: 0;
+  max-height: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
 .europe-band {
@@ -1141,7 +1181,6 @@
 
 .loop-node {
   flex: 1;
-  min-height: 250px;
 }
 
 .loop-node[data-loop-stage="1"] {
@@ -1174,12 +1213,9 @@
 }
 
 .loop-break {
-  border-top: 1px dashed var(--ehds-rule);
   color: var(--ehds-wine);
   font-size: 16px;
   line-height: 1.35;
-  min-height: 96px;
-  padding-top: 8px;
 }
 
 .loop-arrow {
@@ -1245,23 +1281,51 @@
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 0.1em;
-  margin: 0 0 12px;
+  margin: 0 0 14px;
   text-transform: uppercase;
 }
 
 .assessment-convincing .assessment-col-label { color: var(--ehds-forest); }
 .assessment-challenging .assessment-col-label { color: var(--ehds-wine); }
 
-.assessment-col ul {
-  margin: 0;
-  padding-left: 22px;
+.assessment-line {
+  font-family: var(--ehds-font-display);
+  font-size: 28px;
+  line-height: 1.3;
+  margin: 0 0 12px;
 }
 
-.assessment-col li {
+.assessment-line-soft {
+  color: var(--ehds-ink-soft);
+  font-size: 22px;
+  font-style: italic;
+}
+
+.assessment-balance {
+  align-items: center;
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+}
+
+.balance-side {
+  background: var(--ehds-paper-warm);
+  border-left: 4px solid var(--ehds-wine);
+  flex: 1;
   font-family: var(--ehds-font-display);
-  font-size: 24px;
-  line-height: 1.5;
-  margin-bottom: 12px;
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.3;
+  padding: 12px 16px;
+}
+
+.balance-join {
+  color: var(--ehds-gold);
+  font-family: var(--ehds-font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .stat-row {
@@ -1280,7 +1344,7 @@
   color: var(--ehds-gold);
   display: block;
   font-family: var(--ehds-font-display);
-  font-size: 56px;
+  font-size: 64px;
   font-weight: 700;
   line-height: 1;
 }
@@ -1289,9 +1353,10 @@
   color: var(--ehds-ink-soft);
   display: block;
   font-family: var(--ehds-font-ui);
-  font-size: 17px;
-  line-height: 1.3;
-  margin-top: 8px;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  margin-top: 6px;
+  text-transform: uppercase;
 }
 
 .assessment-verdict {
@@ -1319,7 +1384,7 @@
   border-bottom: 1px solid var(--ehds-rule);
   display: flex;
   gap: 22px;
-  padding: 14px 0;
+  padding: 16px 0;
 }
 
 .goal-label {
@@ -1334,8 +1399,8 @@
 
 .goal-text {
   font-family: var(--ehds-font-display);
-  font-size: 20px;
-  line-height: 1.4;
+  font-size: 24px;
+  line-height: 1.35;
   margin: 0;
 }
 
@@ -1412,7 +1477,7 @@
 
 .ask-prompt {
   font-family: var(--ehds-font-display);
-  font-size: 24px;
+  font-size: 26px;
   font-style: italic;
   font-weight: 500;
   line-height: 1.3;
@@ -1424,21 +1489,10 @@
   line-height: 1.35;
 }
 
-.handbook-link {
-  border: 1px solid var(--ehds-navy);
-  border-radius: 16px;
-  color: var(--ehds-navy);
-  font-family: var(--ehds-font-ui);
-  font-size: 14px;
-  font-weight: 700;
-  padding: 6px 16px;
-  text-decoration: none;
-}
-
-.handbook-link:hover,
-.handbook-link:focus {
-  border-color: var(--ehds-wine);
-  color: var(--ehds-wine);
+.ask-hint:not(.visible) {
+  max-height: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
 /* Fragments — hidden until the arrow shows them */
@@ -1496,8 +1550,7 @@
   .europe-country,
   .loop-break,
   .ask-card,
-  .ask-hint,
-  .tap-cue {
+  .ask-hint {
     transition: none;
   }
 }
@@ -1511,6 +1564,14 @@
 
   .reveal {
     background: #fff;
+  }
+
+  .reveal .fragment {
+    max-height: none !important;
+    min-height: 0 !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+    visibility: visible !important;
   }
 
   .slide-source {

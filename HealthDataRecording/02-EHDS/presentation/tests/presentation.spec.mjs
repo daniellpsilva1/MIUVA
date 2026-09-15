@@ -1,4 +1,8 @@
+import { execSync } from 'node:child_process';
+import { existsSync } from 'node:fs';
 import { expect, test } from '@playwright/test';
+
+const REPO_ROOT = new URL('..', import.meta.url).pathname;
 
 async function waitForReveal(page) {
   await page.waitForFunction(() => {
@@ -147,5 +151,14 @@ test.describe('Presentation navigation and interaction', () => {
     await page.goto('/index.html', { waitUntil: 'networkidle' });
     await waitForReveal(page);
     expect(externalRequests).toHaveLength(0);
+  });
+
+  test('slides PDF exists and has 10 pages', () => {
+    const pdfPath = REPO_ROOT + 'EHDS_Presentation.pdf';
+    expect(existsSync(pdfPath)).toBeTruthy();
+    const info = execSync('pdfinfo ' + JSON.stringify(pdfPath), { encoding: 'utf-8' });
+    const pagesMatch = info.match(/Pages:\s+(\d+)/);
+    const pages = pagesMatch ? parseInt(pagesMatch[1], 10) : 0;
+    expect(pages).toBe(10);
   });
 });

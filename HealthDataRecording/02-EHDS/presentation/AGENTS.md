@@ -8,6 +8,7 @@
 - `npm test` — Playwright tests (Chromium)
 - `npm run test:headed` — Playwright tests with visible browser
 - `npm run export:handbook` — generate revised handbook PDF via Playwright
+- `npm run export:presentation` — generate 10-page slides PDF via Playwright
 - `node --check js/presentation.js` — syntax check
 
 ## Structure
@@ -19,7 +20,8 @@
 - `css/handbook.css` — handbook reading and print layout
 - `js/presentation.js` — Reveal config, interactions, dialogs
 - `scripts/serve.mjs` — local static server (port 4173)
-- `scripts/export-handbook.mjs` — PDF export via Playwright Chromium
+- `scripts/export-handbook.mjs` — handbook PDF export via Playwright Chromium
+- `scripts/export-presentation.mjs` — slides PDF export via Playwright Chromium
 - `tests/` — Playwright content, interaction, and handbook specs
 - `lib/` — vendored Reveal.js 6.0.2 (do not modify)
 

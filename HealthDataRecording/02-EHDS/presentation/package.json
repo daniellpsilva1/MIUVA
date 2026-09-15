@@ -8,7 +8,8 @@
     "lint": "eslint js/presentation.js scripts/ tests/ playwright.config.mjs eslint.config.mjs",
     "test": "playwright test",
     "test:headed": "playwright test --headed",
-    "export:handbook": "node scripts/export-handbook.mjs"
+    "export:handbook": "node scripts/export-handbook.mjs",
+    "export:presentation": "node scripts/export-presentation.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.56.1",

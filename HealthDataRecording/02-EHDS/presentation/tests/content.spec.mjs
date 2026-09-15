@@ -200,6 +200,12 @@ test.describe('Presentation content', () => {
     expect(text).toContain('who benefits');
   });
 
+  test('closing slide names the HDAB in visible text', async ({ page }) => {
+    await page.goto('/index.html');
+    const text = (await slideTextExcludingNotes(page, 'closing')).toLowerCase();
+    expect(text).toContain('hdab');
+  });
+
   test('closing slide shows both discussion questions in visible text', async ({ page }) => {
     await page.goto('/index.html');
     const text = (await slideTextExcludingNotes(page, 'closing')).toLowerCase();
